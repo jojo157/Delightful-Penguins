@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.chat-start-form{
+    margin-top: 50px;
+}
+
+body{
+    background-color: blue;
+}
+
+.chat-room-container{
+    width: 80%;
+    height: 500px;
+    overflow-y: auto;
+
+}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="chat-room-container">
+<div class="chat-window mt-3 ml-3">
+    <p>This is the chat window</p>
+<div>
+
+</div>
+<form class="chat-start-form">
+    <div class="form-group row w-50 mt-1 ml-5 center">
+        <label class="col-12" for="message">Your Message</label>
+        <textarea class="col-12" name="message"></textarea>
+    </div>
+    <div class="submit-button">
+        <a href="#" class="btn-large green"></a>
+    </div>
+</form>
+</div>
+
+</div>
+
+{% endblock %}
