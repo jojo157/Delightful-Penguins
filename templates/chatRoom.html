@@ -3,34 +3,36 @@
 
 {% block content %}
 
-<div class="chat-room-container">
-<div class="chat-window mt-3 ml-3">
-    {% for message in messages %}
-    <div class="card mb-3">
-        <div class="card-header">
-          {{ message.user_name }}
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>{{ message.message_content}}</p>
-            <footer class="blockquote-footer">{{ message.date_of_message}}</footer>
-          </blockquote>
-        </div>
-      </div>
-
-    {% endfor %}
 <div>
-
+    <div class="chat-window mt-3 ml-3 chat-room-container">
+        {% for message in messages %}
+        <div class="card mb-3">
+            <div class="card-header">
+            {{ message.user_name }}
+            </div>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ message.message_content}}</p>
+                <footer class="blockquote-footer">{{ message.date_of_message}}</footer>
+            </blockquote>
+            </div>
+        </div>
+        {% endfor %}
+    <div>   
 </div>
-<form class="chat-start-form" action="#">
-    <div class="form-group row w-50 mt-1 ml-5 center">
-        <label class="col-12" for="message">Your Message</label>
-        <textarea class="col-12" name="message"></textarea>
-    </div>
-    <button type="submit-button"> Submit Message</button>
-</form>
 
-
+<div>
+<div class="mt-5 mb-5 submit-message-container">
+    <form class="chat-start-form" action="#">
+        <div class="form-group row w-50 mt-1 ml-5 center">
+            <label class="col-12" for="message">Your Message</label>
+            <textarea class="col-12" name="message"></textarea>
+        </div>
+        <button type="submit-button"> Submit Message</button>
+    </form>
 </div>
+</div>
+
+
 
 {% endblock %}
