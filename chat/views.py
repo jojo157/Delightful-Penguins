@@ -11,7 +11,7 @@ def home(request):
 def chat(request, room):
     data = get_list_or_404(Message, room_name=room)
     context={
-        'messages': data, 
+        'chat_messages': data, 
     }
     return render(request, 'chatRoom.html', context)
 

@@ -5,15 +5,15 @@
 
 <div>
     <div class="chat-window mt-3 ml-3 chat-room-container">
-        {% for message in messages %}
+        {% for chatmessage in chat_messages %}
         <div class="card mb-3">
             <div class="card-header">
-            {{ message.user_name }}
+            {{ chatmessage.user_name }}
             </div>
             <div class="card-body">
             <blockquote class="blockquote mb-0">
-                <p>{{ message.message_content}}</p>
-                <footer class="blockquote-footer">{{ message.date_of_message}}</footer>
+                <p>{{ chatmessage.message_content}}</p>
+                <footer class="blockquote-footer">{{ chatmessage.date_of_message}}</footer>
             </blockquote>
             </div>
         </div>

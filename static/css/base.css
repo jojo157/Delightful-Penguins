@@ -1,14 +1,13 @@
 *{
     margin:0;
     padding:0;
-    width:100%;
 }
 
-.chat-start-form{
-    margin-top: 50px;
+/* Navbar */
+
+.navbar-custom {
+    height: 80px;
+    background-image: linear-gradient(to right, #FF0000, #FF7F00, #00FF00, #33FFF3, #9400D3);
 }
 
-body{
-    background-color: lightcyan;
-}
 
