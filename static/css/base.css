@@ -5,6 +5,7 @@
 
 body{
     min-height: 100vh;
+    background-color: #F6EDF7;
 }
 
 /* Navbar */
@@ -29,7 +30,6 @@ body{
     bottom: 60px;
     right:0;
     z-index:22; 
-    background-color: #33FFF3;
     width:40%;
     height: 300px;
     overflow-y: auto;
@@ -41,7 +41,16 @@ body{
     bottom: 0;
     right:0;
     z-index:20; 
-    width:30%;
+    width:200px;
     height: 60px;
     background-color: #9400D3;
+    border-style: solid;
+    border: 2px;
+    border-color: #000;
+    color:#F5F52F;
+}
+
+i.far.fa-comment-alt{
+    font-size: 20px;
+    color:#F5F52F;
 }
