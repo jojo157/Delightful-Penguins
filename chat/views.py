@@ -5,7 +5,7 @@ from chat.models import Room, Message
 
 
 def home(request):
-    return render(request, 'chatLogin.html')
+    return render(request, 'home.html')
 
 
 def chat(request, room):

@@ -84,6 +84,28 @@
     {% block content %}
     {% endblock %}
 
+    
+    
+    <div class="chat-box-form collapse" id="collapseChat">
+        <div>
+            <p>This is where chat messages will go </p>
+        </div>
+        <form class="start-chat-form" action="#" method="POST">
+            {% csrf_token %}
+            <div class="form-group row w-50 mt-1 ml-1">
+                <textarea class="col-12" name="message" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit-button" class="mt-1 ml1"> Submit Message</button>
+        </form>
+    </div>
+    
+    <footer class="footer">
+        <button type="button" class="mt-1 ml1 button-chat" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat"> Chat with Leticia</button>
+        <div class="container">
+            <p>test footer</p>
+        </div>
+    </footer>
+
     {% block postloadjs %}
     {% endblock %}
 </body> 
