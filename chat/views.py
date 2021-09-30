@@ -34,22 +34,20 @@ def home(request):
         data = get_list_or_404(Message, chat_session=chat_session)
         context = {
             'chat_messages': data,
+            'chat_session': chat_session,
         }
         return render(request, 'home.html', context)
     
     if request.method == 'GET':
-        ip = request.session.get("ip_address")
-        if ip: 
-            chat_session = ip
+        if request.session.get("ip_address"): 
+            chat_session = ip_address
             data = get_list_or_404(Message, chat_session=chat_session)
             context = {
                 'chat_messages': data,
+                'chat_session': chat_session,
             }
-            return render(request, 'home.html', context)
-        else:
-            context = {}
-        
-    return render(request, 'home.html', context)
+        return render(request, 'home.html', context)
+  
 
 
 def chat(request):
