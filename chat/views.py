@@ -22,24 +22,28 @@ def home(request):
         if request.user:
             user_name = request.user
         else:
-            user_name = 'Guest',
-        data = {
-            message_content : request.POST['message'],
-            chat_session : request.session['ip_address'],
-            user_name : user_name,
+            user_name = 'Guest'
+        
+        message_content = request.POST['message'] 
+        chat_session = ip
+        user_name = user_name
+         
+        new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
+        new_message.save()
+        data = get_list_or_404(Message, chat_session=chat_session)
+        context = {
+            'chat_messages' : data,
         }
-        Message.objects.create(data)
-    
-    else:    
-        if request.session['ip_address']: 
-            ip = request.session['ip_address']
-            data = Message.objects.get(chat_session=ip)
+    else:
+        if request.session.get('ip_address'): 
+            ip = request.session.get('ip_address')
+            data = get_list_or_404(Message, chat_session=ip)
             context = {
-                'ip_address': ip, 
-                'messages': data,
+                'chat_messages': data,
             }
         else:
             context = {}
+        
     return render(request, 'home.html', context)
 
 
