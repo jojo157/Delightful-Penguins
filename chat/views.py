@@ -17,9 +17,9 @@ def home(request):
         else:
             ip = request.META.get('REMOTE_ADDR')
         #end of credit for this code
-            if not request.session.get("ip_address"):
-                request.session['ip_address'] = ip
-                request.session.modified = True
+        if not request.session.get("ip_address"):
+            request.session['ip_address'] = ip
+            request.session.modified = True
         if request.user:
             user_name = request.user
         else:
@@ -37,16 +37,17 @@ def home(request):
             'chat_session': chat_session,
         }
         return render(request, 'home.html', context)
-    
-    if request.method == 'GET':
-        if request.session.get("ip_address"): 
-            chat_session = ip_address
-            data = get_list_or_404(Message, chat_session=chat_session)
-            context = {
-                'chat_messages': data,
-                'chat_session': chat_session,
-            }
-        return render(request, 'home.html', context)
+
+    if request.session.get('ip_address'):
+        chat_session = request.session.get('ip_address')
+        data = get_list_or_404(Message, chat_session=chat_session)
+        context = {
+            'chat_messages': data,
+            'chat_session': chat_session,
+        }
+    else:
+        context = {}
+    return render(request, 'home.html', context)
   
 
 
