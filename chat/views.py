@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404, HttpResponse, reverse
-from chat.models import Message
+from chat.models import Message, Artist
 from django.http import JsonResponse
 from django.core import serializers
 
@@ -8,6 +8,7 @@ import json
 # Create your views here.
 
 def chatSend(request):
+    
     if request.method == "POST":
         #credit for this code to ArRosid
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -32,13 +33,19 @@ def chatSend(request):
         new_message.save()
 
         data = get_list_or_404(Message, chat_session=chat_session)
+        artist_status = Artist.objects.get(pk=1)
         context = {
                 'chat_messages': data,
+                'artist_status': artist_status,
         }
     return HttpResponse("Success")
 
 
 def home(request):
+    #hard setting artist status for now, will create a function to deal with this later
+
+    Artist.objects.filter(pk=1).update(status="Online")
+
     if request.method == 'POST':
         if not request.session.get("ip_address"):
             ip = get_ip(request)
@@ -55,21 +62,25 @@ def home(request):
         new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
         new_message.save()
         data = get_list_or_404(Message, chat_session=chat_session)
+        artist_status = Artist.objects.get(pk=1)
         context = {
             'chat_messages': data,
+            'artist_status': artist_status,
         }
         return render(request, 'home.html', context)
     else:
+        artist_status = Artist.objects.get(pk=1)
         if 'ip_address' in request.session:
             chat_session = request.session['ip_address']
             data = get_list_or_404(Message, chat_session=chat_session)
             context = {
                 'chat_messages': data,
+                'artist_status': artist_status,
             }
             return render(request, 'home.html', context)
         else:
             context = {
-                
+                'artist_status': artist_status,
             }
             return render(request, 'home.html', context)
 

@@ -8,3 +8,8 @@ class Message(models.Model):
     date_of_message = models.DateTimeField(default=datetime.now, blank=True)
     user_name = models.CharField(max_length=100)
     chat_session = models.GenericIPAddressField()
+
+class Artist(models.Model):
+    status = models.CharField(max_length=1000000)
+
+
