@@ -44,57 +44,52 @@ def chatSend(request):
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
 
-    Artist.objects.filter(pk=1).update(status="Online")
-
+    Artist.objects.filter(pk=1).update(status="Offline")
     if request.method == 'POST':
-        if not request.session.get("ip_address"):
-            ip = get_ip(request)
-            request.session['ip_address'] = ip
-        if request.user:
-            user_name = request.user
-        else:
-            user_name = 'Guest'
-        
-        message_content = request.POST['message'] 
-        chat_session = request.session['ip_address']
-        user_name = user_name
-         
-        new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
-        new_message.save()
-        data = get_list_or_404(Message, chat_session=chat_session)
-        artist_status = Artist.objects.get(pk=1)
-        context = {
-            'chat_messages': data,
-            'artist_status': artist_status,
-        }
+        addNewMessage(request)
+        context = chatMessages(request)
         return render(request, 'home.html', context)
     else:
-        artist_status = Artist.objects.get(pk=1)
-        if 'ip_address' in request.session:
-            chat_session = request.session['ip_address']
-            data = get_list_or_404(Message, chat_session=chat_session)
-            context = {
-                'chat_messages': data,
-                'artist_status': artist_status,
-            }
-            return render(request, 'home.html', context)
-        else:
-            context = {
-                'artist_status': artist_status,
-            }
-            return render(request, 'home.html', context)
+        context = chatMessages(request)
+        return render(request, 'home.html', context)
 
   
 
 
-def chat(request):
-    data = get_list_or_404(Message, chat_session=request.session['chat_session'])
-    context={
-        'chat_messages': data, 
-    }
-    return render(request, 'home.html', context)
+def chatMessages(request):
+    # This function will get the currently stored messages for a particular ip address and the artists status and return these.
+    artist_status = Artist.objects.get(pk=1)
+    if 'ip_address' in request.session:
+        chat_session = request.session['ip_address']
+        data = get_list_or_404(Message, chat_session=chat_session)
+        context = {
+            'chat_messages': data,
+            'artist_status': artist_status,
+        }
+    else:
+        context = {
+            'artist_status': artist_status,
+        }
+    return context
 
-
+def addNewMessage(request):
+    # This function adds the new message from the form to the messages model 
+    if not request.session.get("ip_address"):
+        ip = get_ip(request)
+        request.session['ip_address'] = ip
+    if request.user:
+        user_name = request.user
+    else:
+        user_name = 'Guest'
+        
+    message_content = request.POST['message'] 
+    chat_session = request.session['ip_address']
+    user_name = user_name
+         
+    new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
+    new_message.save()
+    saved = True
+    return saved
 
 def get_ip(request):
 # credit to ArRosid for code to obtain users IP address
