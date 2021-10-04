@@ -90,22 +90,11 @@
     
     
     <div class="chat-box-form collapse" id="collapseChat">
-        <div class="chat-window">
-            {% for chat_message in chat_messages %}
-            <div class="card mb-3 ml-3 mt-1">
-                <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p class="card-text">{{ chat_message.message_content}}</p>
-                    <footer class="blockquote-footer">{{ chat_message.user_name }}</footer>
-                </blockquote>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <form class="start-chat-form" action="{% url 'home' %}" method="POST">
+        {% include 'chatbox.html' %}
+        <form class="start-chat-form" id="chat-form" action="{% url 'home' %}" method="POST">
             {% csrf_token %}
             <div class="form-group chat-box row mt-1">
-                <textarea class="col-12" name="message" placeholder="Your Message"></textarea>
+                <textarea class="col-12" name="message" id="chat-message" placeholder="Your Message"></textarea>
             </div>
             <button type="submit-button" class="mt-1 mb-3 ml-5"> Submit Message</button>
         </form>
@@ -119,6 +108,7 @@
     </footer>
 
     {% block postloadjs %}
+   <script src="{% static 'js/chat.js' %}"></script>
     {% endblock %}
 </body> 
 </html>
