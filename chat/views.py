@@ -14,10 +14,12 @@ def chatSend(request):
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
     # status will be Offline or Online
+    #Artist.objects.create(status="Offline")
+    Artist.objects.filter(pk=1).update(status="Online")
     if request.method == 'POST' and request.is_ajax:
         message = request.POST['message'] 
         data = addNewMessage(request, message)
-        return HttpResponse(data, content_type="application/json")
+        return HttpResponse(data)
     else:
         return render(request, 'home.html')
 
@@ -56,7 +58,10 @@ def addNewMessage(request, message):
          
     new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
     new_message.save()
-    data = "saved"
+    data = {
+       'message_content': message_content,
+       'user_name': user_name
+    }
     return data
 
 def get_ip(request):

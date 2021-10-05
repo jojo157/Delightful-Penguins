@@ -10,18 +10,7 @@ $('#chat-form').on('submit', function(event){
         },
         success: function(data){
             console.log('Success!');
-            console.log(data)
-            $('#message').val("");
-            var sentMessage =  `
-            <div class="card mb-3 mt-1 ml-3">
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p class="card-text">'content will go here'</p>
-                        <footer class="blockquote-footer"></footer>
-                    </blockquote>
-                </div>
-            </div>`;
-            $('#chat-window').append(sentMessage);
+            console.log(data);
         },
         error: (error) => {
             console.log(error);
