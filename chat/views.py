@@ -43,15 +43,13 @@ def chatSend(request):
 
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
-
-    Artist.objects.filter(pk=1).update(status="Offline")
+    # status will be Offline or Online
+    Artist.objects.filter(pk=1).update(status="Online")
     if request.method == 'POST':
         addNewMessage(request)
-        context = chatMessages(request)
-        return render(request, 'home.html', context)
+        return render(request, 'home.html')
     else:
-        context = chatMessages(request)
-        return render(request, 'home.html', context)
+        return render(request, 'home.html')
 
   
 
