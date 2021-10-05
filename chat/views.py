@@ -8,46 +8,16 @@ import json
 # Create your views here.
 
 def chatSend(request):
-    
-    if request.method == "POST":
-        #credit for this code to ArRosid
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        #end of credit for this code
-        if not request.session.get("ip_address"):
-            request.session['ip_address'] = ip
-            request.session.modified = True
-        if request.user:
-            user_name = request.user
-        else:
-            user_name = 'Guest'
-        
-        message_content = request.POST.get('chatmessage')
-        chat_session = ip
-        user_name = user_name
-         
-        new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
-        new_message.save()
-
-        data = get_list_or_404(Message, chat_session=chat_session)
-        artist_status = Artist.objects.get(pk=1)
-        context = {
-                'chat_messages': data,
-                'artist_status': artist_status,
-        }
     return HttpResponse("Success")
 
 
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
     # status will be Offline or Online
-    Artist.objects.filter(pk=1).update(status="Online")
-    if request.method == 'POST':
-        addNewMessage(request)
-        return render(request, 'home.html')
+    if request.method == 'POST' and request.is_ajax:
+        message = request.POST['message'] 
+        data = addNewMessage(request, message)
+        return HttpResponse(data, content_type="application/json")
     else:
         return render(request, 'home.html')
 
@@ -70,7 +40,7 @@ def chatMessages(request):
         }
     return context
 
-def addNewMessage(request):
+def addNewMessage(request, message):
     # This function adds the new message from the form to the messages model 
     if not request.session.get("ip_address"):
         ip = get_ip(request)
@@ -80,14 +50,14 @@ def addNewMessage(request):
     else:
         user_name = 'Guest'
         
-    message_content = request.POST['message'] 
+    message_content = message
     chat_session = request.session['ip_address']
     user_name = user_name
          
     new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
     new_message.save()
-    saved = True
-    return saved
+    data = "saved"
+    return data
 
 def get_ip(request):
 # credit to ArRosid for code to obtain users IP address
