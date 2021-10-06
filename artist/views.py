@@ -5,4 +5,15 @@ from django.core import serializers
 # Create your views here.
 
 def artist_home(request):
+    #This function will return the Artist Message page
+    #Need to implement only if super user for security
     return render(request, 'artistMessages.html') 
+
+
+def artist_status(request):
+    if request.method == 'POST' and request.is_ajax:
+        status = request.POST['status']
+        print(status)
+        Artist.objects.filter(pk=1).update(status=status)
+        response = "success"
+        return HttpResponse(status=200)

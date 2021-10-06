@@ -8,12 +8,17 @@
     <h3 class="text-center mt-5">Chat Facility</h3>
     <div class="row">
         <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-primary btn-lg" id="Online" href="#">On</a>
+            <a class="btn btn-primary btn-lg status-button" id="Online" href="{% url 'artist_status' %}">On</a>
         </div>
         <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-primary btn-lg" id="Offline" href="#">Off</a>
+            <a class="btn btn-primary btn-lg status-button" id="Offline" href="{% url 'artist_status' %}">Off</a>
         </div>
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="{% static 'js/artist.js' %}"></script>
 {% endblock %}
