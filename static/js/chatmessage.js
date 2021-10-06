@@ -2,7 +2,7 @@ $('#chat-form').on('submit', function(event){
     event.preventDefault();
     var message = $('#message').val();
     $.ajax({
-        url: '',
+        url: 'chatSend/',
         type: 'POST',
         data: {
             message: message,
@@ -23,6 +23,7 @@ $('#chat-form').on('submit', function(event){
             </div>
             </div>`);
             $('#chat-window').append(insert);
+            $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
         },
         error: (error) => {
             console.log(error);

@@ -8,24 +8,28 @@ import json
 # Create your views here.
 
 def chatSend(request):
-    return HttpResponse("Success")
+    #This function will take AJAX Post of a chat message and will call the fuction to add message to the database
+    # The message and relevant username will be sent as a response to the AJAX call in json format
+    if request.method == 'POST' and request.is_ajax:
+        message = request.POST['message'] 
+        response = addNewMessage(request, message)
+        return HttpResponse(json.dumps(response))
 
 
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
     # status will be Offline or Online
     #Artist.objects.create(status="Offline")
-    Artist.objects.filter(pk=1).update(status="Online")
-    if request.method == 'POST' and request.is_ajax:
-        message = request.POST['message'] 
-        response = addNewMessage(request, message)
-        return HttpResponse(json.dumps(response))
-    else:
+
+    #we will remove messages if ip not in session for that ip so chatbox is new everytime user accesses site
+    if not 'ip_address' in request.session:
+        ip = get_ip(request)
+        Message.objects.filter(chat_session=ip).delete()
         return render(request, 'home.html')
+    else:
+       return render(request, 'home.html') 
 
   
-
-
 def chatMessages(request):
     # This function will get the currently stored messages for a particular ip address and the artists status and return these.
     artist_status = Artist.objects.get(pk=1)
@@ -42,8 +46,9 @@ def chatMessages(request):
         }
     return context
 
+
 def addNewMessage(request, message):
-    # This function adds the new message from the form to the messages model 
+    # This function adds a new message to the messages model database
     if not request.session.get("ip_address"):
         ip = get_ip(request)
         request.session['ip_address'] = ip
@@ -63,6 +68,7 @@ def addNewMessage(request, message):
     }
     return data
 
+
 def get_ip(request):
 # credit to ArRosid for code to obtain users IP address
 # https://medium.com/@arrosid/how-to-get-visitor-ip-address-in-django-project-793d383969ae
@@ -72,3 +78,7 @@ def get_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def artist_available(request):
+    Artist.objects.filter(pk=1).update(status="Online")
