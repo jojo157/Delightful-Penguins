@@ -18,8 +18,8 @@ def home(request):
     Artist.objects.filter(pk=1).update(status="Online")
     if request.method == 'POST' and request.is_ajax:
         message = request.POST['message'] 
-        data = addNewMessage(request, message)
-        return HttpResponse(data)
+        response = addNewMessage(request, message)
+        return HttpResponse(json.dumps(response))
     else:
         return render(request, 'home.html')
 
@@ -47,14 +47,13 @@ def addNewMessage(request, message):
     if not request.session.get("ip_address"):
         ip = get_ip(request)
         request.session['ip_address'] = ip
-    if request.user:
-        user_name = request.user
+    if request.user.is_authenticated:
+        user_name = request.user.username
     else:
         user_name = 'Guest'
         
     message_content = message
     chat_session = request.session['ip_address']
-    user_name = user_name
          
     new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
     new_message.save()
