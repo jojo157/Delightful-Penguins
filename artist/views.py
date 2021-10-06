@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from chat.models import Message, Artist
 from django.http import JsonResponse
 from django.core import serializers
+
+from chat.views import chatSend
 # Create your views here.
 
 def artist_home(request):
