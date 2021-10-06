@@ -53,14 +53,17 @@ def addNewMessage(request, message):
         ip = get_ip(request)
         request.session['ip_address'] = ip
     if request.user.is_authenticated:
-        user_name = request.user.username
+        if not request.user.username == "admin" :
+            user_name = request.user.username
+        else:
+            user_name = "Leticia"
     else:
         user_name = 'Guest'
         
     message_content = message
     chat_session = request.session['ip_address']
          
-    new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name)
+    new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name, reply_recieved=False)
     new_message.save()
     data = {
        'message_content': message_content,
