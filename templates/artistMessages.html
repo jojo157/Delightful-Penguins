@@ -28,8 +28,8 @@
     <div class="row">
         <div class="col-2">{{ chat_message.user_name }}</div>
         <div class="col-7 overflow-hidden">{{ chat_message.message_content }}</div>
-        <div class="col-3">
-            <button>Reply</button>
+        <div class="col-3 mt-1 mb-1">
+            <a class="btn btn-primary btn-sm message-reply-button" data-chat-session="{{ chat_message.chat_session }}" data-chat-id="{{ chat_message.id }}" href="">Reply</a>
         </div>
     </div>
     {% endif %}
