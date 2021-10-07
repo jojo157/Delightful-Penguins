@@ -28,15 +28,15 @@ def reply(request, id):
         'new_chat_message': message.message_content,
         'new_user': message.user_name,
         'new_chat_session': message.chat_session,
-        'id': id
+        'new_id': id
     }
     return render(request, 'reply.html', context) 
 
 def artist_send_reply(request):
     if request.method == 'POST':
-        id = request.POST.get['message-id']
+        id = request.POST['message-id']
         old_message = Message.objects.get(pk=id)
-        message_content = request.POST.get['session-id']
+        message_content = request.POST['message']
         chat_session = old_message.chat_session
         user_name = "Leticia"
         new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name, reply_recieved=True)
