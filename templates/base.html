@@ -87,9 +87,10 @@
         </div>
     {% endif %}
 
+    <div class="window-content">
     {% block content %}
     {% endblock %}
-
+    </div>
     
     
     <div class="chat-box-form collapse" id="collapseChat">
@@ -103,7 +104,7 @@
         </form>
     </div>
     
-    <footer class="footer">
+    <footer class="footer fixed-bottom">
         <button type="button" id="button-chat" class="mt-1 ml1 button-chat" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat"> Chat with Leticia <i class="far fa-comment-alt"></i> </button>
         <div class="container">
             <p>test footer</p>

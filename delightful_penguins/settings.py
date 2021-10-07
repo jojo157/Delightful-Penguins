@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'chat',
     'artist',
+    'art',
 ]
 
 MIDDLEWARE = [

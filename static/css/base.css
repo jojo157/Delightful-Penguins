@@ -6,6 +6,12 @@
 body{
     min-height: 100vh;
     background-color: #F6EDF7;
+    
+}
+
+.window-content{
+    overflow-y: auto;
+    margin-bottom: 10px;
 }
 
 /* Navbar */
@@ -17,12 +23,13 @@ body{
 
 /* footer*/
 .footer{
-    position: absolute;
-    bottom: 0;
+    margin-top: 5px;
     width: 100%;
     height: 60px;
     background-color: #9400D3;
+    
 }
+
 
 /* chat box */
 .chat-box-form{

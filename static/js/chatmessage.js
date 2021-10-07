@@ -55,10 +55,10 @@ window.onload = function() {
 };
 
 /* reload page every minute to allow chat box update */
-
 /*
 setTimeout('location.reload()', 60000);
 */
 
+/* credit to FThompson for library to persist form data on reload https://github.com/FThompson/FormPersistence.js */
 let form = document.getElementById('chat-form');
 FormPersistence.persist(form);
