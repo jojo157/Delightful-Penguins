@@ -1,5 +1,6 @@
 $('.status-button').on('click', function(event){
     event.preventDefault();
+    current = $(this);
     var status = $(this).attr('id');
     $.ajax({
         url: 'artist_status/',
@@ -10,6 +11,10 @@ $('.status-button').on('click', function(event){
         },
         success: function(response){
            message = "Messaging functionality is now" + " " + status ; 
+           $('.status-button').removeClass('btn-success');
+           $('.status-button').addClass('btn-primary');
+           current.removeClass('btn-primary');
+           current.addClass('btn-success');
            alert(message);
         },
         error: (error) => {

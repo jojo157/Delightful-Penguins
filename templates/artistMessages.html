@@ -8,10 +8,10 @@
     <h3 class="text-center mt-5">Chat Facility</h3>
     <div class="row">
         <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-primary btn-lg status-button" id="Online" href="{% url 'artist_status' %}">On</a>
+            <a class="btn btn-lg status-button {% if artist_status.status == 'Online' %} btn-success {% else %} btn-primary {% endif %} " id="Online" href="{% url 'artist_status' %}">On</a>
         </div>
         <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-primary btn-lg status-button" id="Offline" href="{% url 'artist_status' %}">Off</a>
+            <a class="btn btn-lg status-button {% if artist_status.status == 'Offline' %} btn-success {% else %} btn-primary {% endif %}" id="Offline" href="{% url 'artist_status' %}">Off</a>
         </div>
     </div>
 </div>
