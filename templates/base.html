@@ -58,7 +58,7 @@
                     <a class="nav-link order-3" href="#">Add Art</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link order-2" href="#">Messages</a>
+                    <a class="nav-link order-2" href="{% url 'artist_home' %}">Messages</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link order-5" href="#">Orders</a>
@@ -104,13 +104,14 @@
     </div>
     
     <footer class="footer">
-        <button type="button" class="mt-1 ml1 button-chat" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat"> Chat with Leticia <i class="far fa-comment-alt"></i> </button>
+        <button type="button" id="button-chat" class="mt-1 ml1 button-chat" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat"> Chat with Leticia <i class="far fa-comment-alt"></i> </button>
         <div class="container">
             <p>test footer</p>
         </div>
     </footer>
 
     {% block postloadjs %}
+    <script src='https://cdn.jsdelivr.net/gh/FThompson/FormPersistence.js@2.0.6/form-persistence.min.js'></script>
     <script src="{% static 'js/chatmessage.js' %}"></script>
     {% endblock %}
 </body> 

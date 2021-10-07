@@ -53,7 +53,5 @@ def artist_send_reply(request):
             new_message = Message(message_content=message_content, chat_session=chat_session, user_name=user_name, reply_recieved=True)
             new_message.save()
             Message.objects.filter(pk=id).update(reply_recieved=True)
-            
             messages.success(request, "reply sent")
-        return redirect('artist_home')
-        
+        return redirect('artist_home')   

@@ -31,3 +31,34 @@ $('#chat-form').on('submit', function(event){
     }) 
 });
 
+
+/* Functionality that on expand of chat box, stores the status in session storage.
+This will be used on page reload to update the chat box attributes to match before reload */
+$('.button-chat').on('click', function(event){
+    var expanded = $(this).attr('aria-expanded');
+    if (expanded == "false"){
+        var newstate = "true";
+        sessionStorage.setItem("expanded", newstate); 
+    }
+    else{
+        sessionStorage.setItem("expanded", "false"); 
+    }   
+});
+
+window.onload = function() {
+    var expanded = sessionStorage.getItem("expanded");
+        if(expanded == "true"){
+        $('#button-chat').attr('aria-expanded', expanded);
+        $('#collapseChat').addClass('show');
+        FormPersistence.persist(form);  
+    }
+};
+
+/* reload page every minute to allow chat box update */
+
+/*
+setTimeout('location.reload()', 60000);
+*/
+
+let form = document.getElementById('chat-form');
+FormPersistence.persist(form);
