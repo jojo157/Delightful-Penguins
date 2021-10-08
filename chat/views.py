@@ -19,7 +19,7 @@ def chatSend(request):
 def home(request):
     #hard setting artist status for now, will create a function to deal with this later
     # status will be Offline or Online
-    #Artist.objects.create(status="Offline")
+    Artist.objects.create(status="Offline")
 
     #we will remove messages if ip not in session for that ip so chatbox is new everytime user accesses site
     if not 'ip_address' in request.session:
