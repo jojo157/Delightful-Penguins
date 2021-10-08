@@ -9,5 +9,5 @@ from chat.views import chatSend
 
 # Create your views here.
 
-def home(request):
+def home2(request):
     return HttpResponse("Hello world!")

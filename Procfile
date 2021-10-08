@@ -1,0 +1,1 @@
+web: gunicorn delightful_penguins.wsgi:application
