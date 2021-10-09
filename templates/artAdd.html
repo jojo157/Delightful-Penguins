@@ -3,17 +3,19 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col-12 col-md-6">
-        <form method="POST" action="{% url 'addArt' %}" class="form mb-2" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="text-right">
-                <a class="btn btn-outline-black rounded-0" href="#">Cancel</a>
-                <button class="btn btn-black rounded-0" type="submit">Add Art</button>
-            </div>
-        </form>
-    </div>            
+<div class="container mr-3">
+    <h3 class="text-center mt-3"> Add Art</h3>
+    <div class="row">
+        <div class="col-12 col-md-6 text-left">
+            <form method="POST" action="{% url 'addArt' %}" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-left mt-2">
+                    <a class="btn btn-primary rounded-0" href="#">Cancel</a>
+                    <button class="btn btn-primary rounded-0" type="submit">Add Art</button>
+                </div>
+            </form>
+        </div>            
+    </div>
 </div>
-
 {% endblock %}

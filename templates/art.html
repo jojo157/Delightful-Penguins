@@ -2,6 +2,27 @@
 {% load static %}
 
 {% block content %}
-
+<div class="container-fluid h-100">
+    <div class="row">
+            {% for art in artCollection %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mt-2">
+                    <div class=" art-piece card ">
+                        <img class="card-img-top img-fluid" src="{{ art.image.url }}" alt="{{ art.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ art.name }}</h5>
+                            <p class="card-text">€{{ art.price }}</p>
+                            {% if request.user.is_superuser %}
+                            <small class="ml-3">
+                                <a href="#">Edit</a> |
+                                <a class="text-danger" href="#">Delete</a>
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+    
+    {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

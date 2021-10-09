@@ -6,11 +6,17 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import json 
 from chat.views import chatSend
+from .forms import ArtForm
+from .models import Art
 
 # Create your views here.
 
-def home2(request):
-    return HttpResponse("Hello world!")
+def art(request):
+    artCollection = Art.objects.all()
+    context={
+        'artCollection': artCollection
+    }
+    return render(request, 'art.html', context)
 
 
 def addArt(request):
