@@ -19,6 +19,10 @@ def addArt(request):
         if form.is_valid():
             art = form.save()
             messages.success(request, "Art added")
-            return redirect(request, 'art.html')
+            return render(request, 'art.html')
     else:
-        return redirect(request, 'art.html')  
+        form = ArtForm()
+        context= {
+            'form': form,
+        }
+        return render(request, 'artAdd.html', context)  
