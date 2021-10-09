@@ -11,3 +11,14 @@ from chat.views import chatSend
 
 def home2(request):
     return HttpResponse("Hello world!")
+
+
+def addArt(request):
+    if request.method == 'POST':
+        form = ArtForm(request.POST, request.FILES)
+        if form.is_valid():
+            art = form.save()
+            messages.success(request, "Art added")
+            return redirect(request, 'art.html')
+    else:
+        return redirect(request, 'art.html')  
