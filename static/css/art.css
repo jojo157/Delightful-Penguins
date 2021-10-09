@@ -1,0 +1,17 @@
+.image-div{
+    height: 200px;
+}
+
+.card{
+    max-height: none;
+}
+
+.art-piece{
+    height: 400px;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
