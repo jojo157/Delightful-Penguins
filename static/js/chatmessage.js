@@ -15,7 +15,7 @@ $('#chat-form').on('submit', function(event){
             newmessage = newdata["message_content"];
             user = newdata["user_name"];
             insert = $(`
-            <div class="card mb-3 mt-1 ml-3">
+            <div class="card chat-card mb-3 mt-1 ml-3">
             <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p class="card-text">${newmessage}</p>
