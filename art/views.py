@@ -13,6 +13,7 @@ from .models import Art
 # Create your views here.
 
 def art(request):
+# this view will load the home page with the art fro sale shown"
     artCollection = Art.objects.all()
     context ={
         'artCollection': artCollection
@@ -21,6 +22,8 @@ def art(request):
 
 
 def addArt(request):
+# This view will give the artist a form to add a new piece of art to sell on a get request
+# When the view recieves a post request it will add the new art to the database and redirect to the home page
     if request.method == 'POST':
         form = ArtForm(request.POST, request.FILES)
         if form.is_valid():
@@ -36,6 +39,7 @@ def addArt(request):
 
 
 def editArt(request, id):
+#This view will allow the artist to edit a current art piece
     art = get_object_or_404(Art, pk=id)
 
     if request.method == 'POST':
@@ -55,3 +59,11 @@ def editArt(request, id):
             'id': id,
         }
         return render(request, 'artEdit.html', context)
+
+
+def deleteArt(request, id):
+# This view allows an artist to delete an art piece from the home page
+    art = get_object_or_404(Art, pk=id)
+    art.delete()
+    messages.success(request, "Art piece deleted")
+    return redirect(reverse('art'))
