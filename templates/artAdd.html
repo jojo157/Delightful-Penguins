@@ -4,15 +4,15 @@
 {% block content %}
 
 <div class="container-fluid">
-    <h3 class="text-center"> Add Art</h3>
+    <h3 class="text-center mt-2"> Add Art</h3>
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-md-4 offset-md-4 .col-lg-4 offset-lg-4 text-left">
             <form method="POST" action="{% url 'addArt' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <div class="text-left mt-2">
-                    <a class="btn btn-primary rounded-0" href="#">Cancel</a>
+                <div class="text-left mt-4">
                     <button class="btn btn-primary rounded-0" type="submit">Add Art</button>
+                    <a class="btn btn-primary rounded-0 ml-2" href="#">Cancel</a>
                 </div>
             </form>
         </div>            

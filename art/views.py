@@ -9,6 +9,7 @@ from chat.views import chatSend
 from .forms import ArtForm
 from .models import Art
 
+
 # Create your views here.
 
 def art(request):

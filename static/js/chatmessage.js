@@ -1,8 +1,9 @@
 $('#chat-form').on('submit', function(event){
     event.preventDefault();
     var message = $('#message').val();
+    var url = $('#chat-form').attr('action');
     $.ajax({
-        url: 'chatSend/',
+        url: url,
         type: 'POST',
         data: {
             message: message,

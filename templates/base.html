@@ -95,7 +95,7 @@
     
     <div class="chat-box-form collapse" id="collapseChat">
         {% include 'chatbox.html' %}
-        <form class="start-chat-form" id="chat-form" action="#">
+        <form class="start-chat-form" id="chat-form" action="{% url 'chatSend' %}">
             {% csrf_token %}
             <div class="form-group chat-box row mt-1">
                 <textarea class="col-12" id="message" name="message" id="chat-message" placeholder="Your Message"></textarea>
