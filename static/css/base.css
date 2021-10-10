@@ -34,7 +34,7 @@ body{
 }
 
 .window-content{
-    min-height: min-content;
+    min-height: 100vh;
     margin-bottom: 100px;
 }
 

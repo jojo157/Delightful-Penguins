@@ -3,10 +3,10 @@
 
 {% block content %}
 
-<div class="container mr-3">
-    <h3 class="text-center mt-3"> Add Art</h3>
+<div class="container-fluid">
+    <h3 class="text-center"> Add Art</h3>
     <div class="row">
-        <div class="col-12 col-md-6 text-left">
+        <div class="col-sm-10 offset-sm-1 col-md-4 offset-md-4 .col-lg-4 offset-lg-4 text-left">
             <form method="POST" action="{% url 'addArt' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
