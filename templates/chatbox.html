@@ -1,6 +1,6 @@
 <div class="chat-window" id="chat-window">
     {% if artist_status.status == "Offline" %}
-    <div class="card mb-3 mt-1 float-right mr-3">
+    <div class="card chat-card mb-3 mt-1 float-right mr-3">
         <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p class="card-text">I am currently offline, please use the contact form to email your query. I will respond as soon as possible. Have a great day!</p>  
@@ -12,9 +12,9 @@
 
         {% for chat_message in chat_messages %}
         {% if chat_message.user_name == 'Leticia' %}
-    <div class="card mb-3 mt-1 float-right mr-3">
+    <div class="card chat-card mb-3 mt-1 float-right mr-3">
         {% else %}
-    <div class="card mb-3 mt-1 ml-3">
+    <div class="card chat-card mb-3 mt-1 ml-3">
         {% endif %}
         <div class="card-body">
             <blockquote class="blockquote mb-0">

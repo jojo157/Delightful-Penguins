@@ -24,6 +24,10 @@
     
 }
 
+.chat-card{
+    width: 80%;
+}
+
 /* Media Queries: */
 
 @media only screen and (max-width: 360px) {
