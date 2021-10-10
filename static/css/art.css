@@ -12,6 +12,30 @@
 
 .card-img-top{
     width: 100%;
-    height: 15vw;
+    height: 40vh;
     object-fit: cover;
+}
+
+/* Media Queries: */
+
+@media only screen and (max-width: 360px) {
+    /* For smaller mobiles: */
+}
+
+@media only screen and (min-width: 560px) and (max-width: 700px) {
+    /* For rotated mobiles: */
+
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1026px) {
+
+    /* For tablets: */
+}
+
+@media only screen and (min-width: 1027px) {
+/* For desktop: */
+}
+
+@media only screen and (min-width: 1900px) {
+    /* For larger desktop: */
 }

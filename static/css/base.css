@@ -18,6 +18,12 @@ body{
     background-image: linear-gradient(to right, #FF0000, #FF7F00, #00FF00, #33FFF3, #9400D3);
 }
 
+.navbar-collapse {
+    background-image: linear-gradient(to right, #FF0000, #FF7F00, #00FF00, #33FFF3, #9400D3);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 /* footer*/
 .footer{
     margin-top: 5px;
@@ -94,3 +100,26 @@ i.far.fa-comment-alt{
     color:#F5F52F;
 }
 
+/* Media Queries: */
+
+@media only screen and (max-width: 360px) {
+    /* For smaller mobiles: */
+}
+
+@media only screen and (min-width: 560px) and (max-width: 700px) {
+    /* For rotated mobiles: */
+
+}
+
+@media only screen and (min-width: 760px) and (max-width: 1026px) {
+
+    /* For tablets: */
+}
+
+@media only screen and (min-width: 1027px) {
+/* For desktop: */
+}
+
+@media only screen and (min-width: 1900px) {
+    /* For larger desktop: */
+}
