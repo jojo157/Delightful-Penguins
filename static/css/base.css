@@ -19,9 +19,9 @@ body{
 }
 
 .navbar-collapse {
-    background-image: linear-gradient(to right, #FF0000, #FF7F00, #00FF00, #33FFF3, #9400D3);
     margin-top: 20px;
     margin-bottom: 10px;
+    
 }
 
 /* footer*/
