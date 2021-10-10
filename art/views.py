@@ -67,3 +67,11 @@ def deleteArt(request, id):
     art.delete()
     messages.success(request, "Art piece deleted")
     return redirect(reverse('art'))
+
+
+def artDetails(request, id):
+    art = get_object_or_404(Art, pk=id)
+    context={
+        'art': art,
+    }
+    return render(request, 'artDetails.html', context)
