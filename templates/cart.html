@@ -39,7 +39,7 @@
                             <p>€{{ item.art_chosen.price}}</p>
                         </td>
                         <td class="w-25">
-                            Actions
+                            <a class="btn btn-sm btn-primary" href="{% url 'remove_cart_item' item.art_chosen.id %}">Remove</a>
                         </td>
                     </tr>
                 {% endfor %}

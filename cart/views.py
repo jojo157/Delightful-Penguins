@@ -22,6 +22,14 @@ def add_to_cart(request, id):
     cart[id] = id
     messages.success(request, f'Added {art.name} to your cart')
     request.session['cart'] = cart
+    return redirect(view_cart)
+
+
+def remove_cart_item(request, id):
+    #This view removes the selected item from the users cart
+
+    art = get_object_or_404(Art, pk=id)
     cart = request.session.get('cart', {})
-    print(cart)
+    del cart[str(id)]
+    messages.success(request, f'Removed {art.name} from your cart')
     return redirect(view_cart)
