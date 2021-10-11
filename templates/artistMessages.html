@@ -5,7 +5,7 @@
 
 <div class="container">
     <h1 class="text-center mt-5">Welcome Leticia</h1>
-    <h3 class="text-center mt-5">Chat Facility</h3>
+    <h5 class="text-center mt-5">Chat Facility</h3>
     <div class="row">
         <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
             <a class="btn btn-lg status-button {% if artist_status.status == 'Online' %} btn-success {% else %} btn-primary {% endif %} " id="Online" href="{% url 'artist_status' %}">On</a>
@@ -16,24 +16,41 @@
     </div>
 </div>
 
-<div class="container">
-    <h3 class="text-center mt-5 mb-3">Current Chats</h3>
+<div class="container mt-2">
     <div class="row">
-        <div class="col-2 font-weight-bold">User</div>
-        <div class="col-7 font-weight-bold">Message Preview</div>
-        <div class="col-3 font-weight-bold">Action Buttons</div>
-    </div>
-    {% for chat_message in chat_messages %}
-    {% if chat_message.reply_recieved == False %}
-    <div class="row">
-        <div class="col-2">{{ chat_message.user_name }}</div>
-        <div class="col-7 overflow-hidden">{{ chat_message.message_content }}</div>
-        <div class="col-3 mt-1 mb-1">
-            <a class="btn btn-primary btn-sm message-reply-button" data-chat-session="{{ chat_message.chat_session }}" data-chat-id="{{ chat_message.id }}" href="">Reply</a>
+        <div class="col-sm-12">
+            <h5 class="text-center mt-5 mb-2">Messages </h5>
+        </div>
+        
+        <div class="col-sm-12">
+            <div class="table-responsive rounded">
+                <table class="table table-sm ">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">User</th>
+                            <th scope="col">Message Preview</th>
+                            <th scope="col">Action Buttons</th> 
+                        </tr>
+                    </thead>
+                    {% for chat_message in chat_messages %}
+                    {% if chat_message.reply_recieved == False %}
+                    <tr>
+                        <td class="w-25">
+                            <p>{{ chat_message.user_name }}</p>
+                        </td>
+                        <td class="w-50">
+                            <p class="overflow-hidden">{{ chat_message.message_content }}</p>  
+                        </td>
+                        <td class="w-25">
+                            <p><a class="btn btn-primary btn-sm message-reply-button" data-chat-session="{{ chat_message.chat_session }}" data-chat-id="{{ chat_message.id }}" href="">Reply</a></p>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
-    {% endif %}
-    {% endfor %}
 </div>
 
 {% endblock %}
