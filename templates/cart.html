@@ -8,8 +8,10 @@
 {% if cart_items %}
     {% for item in cart_items %}
 
-    {{ item.art.name }}
-    {{ item.art.price}}
+        {{ item.art_chosen.name }}
+        {{ item.art_chosen.price}}
+        <br> 
+
 
     {% endfor %}
 

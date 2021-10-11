@@ -9,16 +9,17 @@ def cart_contents(request):
     total = 0
     cart = request.session.get('cart', {})
 
-    for id in cart.items():
-        art = get_object_or_404(Art, pk=id)
+    for chosen_id in cart.items():
+        art = get_object_or_404(Art, pk=chosen_id[1])
         total += art.price
         cart_count += 1
         cart_items.append({
-            'id': id,
-            'art': art
+            'chosen_id': chosen_id,
+            'art_chosen': art
         })
     context = {
         'cart_items': cart_items,
         'total': total,
         'cart_count': cart_count,
     }
+    return context
