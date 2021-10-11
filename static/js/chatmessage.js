@@ -63,3 +63,8 @@ setTimeout('location.reload()', 60000);
 /* credit to FThompson for library to persist form data on reload https://github.com/FThompson/FormPersistence.js */
 let form = document.getElementById('chat-form');
 FormPersistence.persist(form);
+
+/* close alert window */
+$('.close-window').on('click', function(event){
+    $('.message-container').addClass('d-none');
+});

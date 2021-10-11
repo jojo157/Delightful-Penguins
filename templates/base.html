@@ -80,10 +80,13 @@
     </nav>
 
     {% if messages %}
-        <div class="message-container">
+        <div class="message-container rounded float-right">
+            <div class="close-window float-right mr-2">X</div>
+            <div class="text-center">
             {% for message in messages %}
                 {{ message }}
             {% endfor %}
+            </div>
         </div>
     {% endif %}
 
