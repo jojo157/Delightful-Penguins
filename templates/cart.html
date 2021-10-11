@@ -3,23 +3,59 @@
 
 {% block content %}
 
-<div>
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-12 mt-5 mb-5">
+            <h2 class="text-center">Cart</h2>
+        </div>
+    </div>
 
-{% if cart_items %}
-    {% for item in cart_items %}
-
-        {{ item.art_chosen.name }}
-        {{ item.art_chosen.price}}
-        <br> 
-
-
-    {% endfor %}
-
-    {{ total }}
-{% else %}
-<p>Your bag is empty</p>
-{% endif %}
-
+    <div class="row">
+        <div class="col-sm-12">
+            {% if cart_items %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm ">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Art</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    {% for item in cart_items %}
+                    <tr>
+                        <td class="w-25">
+                            {% if item.art_chosen.image %}
+                            <img class="img-fluid image-column" src="{{ item.art_chosen.image.url }}" alt="{{ item.art_chosen.name }}">
+                            {% else %}
+                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png" alt="{{ item.art_chosen.name }}">
+                            {% endif %}
+                        </td>
+                        <td class="w-25">
+                            <p>{{ item.art_chosen.name }}</p>  
+                        </td>
+                        <td class="w-25">
+                            <p>€{{ item.art_chosen.price}}</p>
+                        </td>
+                        <td class="w-25">
+                            Actions
+                        </td>
+                    </tr>
+                {% endfor %}
+                    <tr class="table-info">
+                        <td colspan="4">
+                            <p class="float-right">Total: €{{ total }}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+            {% else %}
+                <p>Your bag is empty</p>
+            {% endif %}
+    
 </div>
 
 {% endblock %}

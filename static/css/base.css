@@ -113,6 +113,11 @@ i.far.fa-comment-alt{
     z-index: 20;
 }
 
+.image-column{
+    height: 100px;
+    width:auto;
+}
+
 /* Media Queries: */
 
 @media only screen and (max-width: 360px) {
@@ -138,6 +143,7 @@ i.far.fa-comment-alt{
     .chat-box-form{
         width: 40vw;
     }
+
 }
 
 @media only screen and (min-width: 1900px) {
@@ -145,4 +151,7 @@ i.far.fa-comment-alt{
     .chat-box-form{
         width: 30vw;
     }
+
+
 }
+
