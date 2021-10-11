@@ -28,7 +28,7 @@
                             </small>
                             <div class="ml-3">
                                 <a class="btn btn-sm btn-primary" href="{% url 'artDetails' art.id %}">See More</a>
-                                <a class="btn btn-sm btn-primary {% if not art.available %}disabled {% endif %}" href="#">Add to cart</a>
+                                <a class="btn btn-sm btn-primary {% if not art.available %}disabled {% endif %}" href="{% url 'add_to_cart' art.id %}">Add to cart</a>
                             </div>
                             {% if request.user.is_superuser %}
                             <small class="ml-3">

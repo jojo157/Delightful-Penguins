@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'chat',
     'artist',
     'art',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +79,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'chat.custom_context_processor.get_messages',
+                'cart.cart_contexts',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

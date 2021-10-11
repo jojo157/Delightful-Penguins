@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div>
+
+{% if cart_items %}
+    {% for item in cart_items %}
+
+    {{ item.art.name }}
+    {{ item.art.price}}
+
+    {% endfor %}
+
+    {{ total }}
+{% else %}
+<p>Your bag is empty</p>
+{% endif %}
+
+</div>
+
+{% endblock %}
