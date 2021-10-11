@@ -21,6 +21,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col"></th>
+                            
                         </tr>
                     </thead>
                     {% for item in cart_items %}
@@ -44,9 +45,12 @@
                     </tr>
                 {% endfor %}
                     <tr class="table-info">
-                        <td colspan="4">
-                            <p class="float-right">Total: €{{ total }}</p>
+                        <td>
+                            <p>Total</p>
                         </td>
+                        <td></td>
+                        <td>€{{ total }}</td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
