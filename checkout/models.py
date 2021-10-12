@@ -59,6 +59,6 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     art = models.ForeignKey(Art, null=False, blank=False, on_delete=models.CASCADE)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
-
+    
     def __str__(self):
-        return f'ID {self.art.id} on order {self.order.order_number}' 
+        return f'ID {self.art.id} on order {self.order.order_number}'
