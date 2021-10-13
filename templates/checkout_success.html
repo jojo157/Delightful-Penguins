@@ -3,8 +3,61 @@
 
 {% block content %}
 
-<h2>Success on order</h2>
+<h2 class="mt-5 mb-5">Thank you for supporting Leticia's Art</h2>
 
-{{ order }}
+<div class="">
+    <p>Order Number: {{ order.order_number }}</p>
+    <p>Delivering to: {{ order.street_address1 }},
+        {{ order.street_address2 }},
+        {{ order.town_or_city }},
+        {{ order.county }},
+        {{ order.postcode }},
+        {{ order.country }},
+    </p>
+</div>
+
+<div class="row">
+    <div class=" col-sm-12">
+        <h5 class="mb-3">Order Summary</h5>
+        <div class="table-responsive rounded mb-3">
+            <table class="table table-sm ">
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Art</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>   
+                    </tr>
+                </thead>
+                {% for item in order.lineitems.all %}
+
+                
+                <tr>
+                    <td class="w-25">
+                        {% if item.art.image %}
+                        <img class="img-fluid image-column" src="{{ item.art.image.url }}" alt="{{ item.art.name }}">
+                        {% else %}
+                        <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png" alt="{{ item.art.name }}">
+                        {% endif %}
+                    </td>
+                    <td class="w-25">
+                        <p>{{ item.art.name }}</p>  
+                    </td>
+                    <td class="w-25">
+                        <p>€{{ item.art.price}}</p>
+                    </td>
+                </tr>
+            {% endfor %}
+                <tr class="table-info">
+                    <td>
+                        <p>Total</p>
+                    </td>
+                    <td></td>
+                    <td>€{{ order.grand_total }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
