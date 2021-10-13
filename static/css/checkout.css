@@ -1,0 +1,11 @@
+#card-element{
+    border: 1px solid #ced4da;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    line-height: 1.5;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+}
