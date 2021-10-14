@@ -68,3 +68,7 @@ FormPersistence.persist(form);
 $('.close-window').on('click', function(event){
     $('.message-container').addClass('d-none');
 });
+
+$(".navbar-toggler").click(function () {
+    $(".navbar-collapse").toggleClass("nav-collapse-colour");
+    })
