@@ -39,7 +39,7 @@ def checkout(request):
                     lineitem_total=art.price
                 )
                 order_line_item.save()
-                _send_confirmation_email(request, order.order_number)
+                send_confirmation_email(request, order.order_number)
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -91,19 +91,21 @@ def checkout_success(request, order_number):
 
     return render(request, template, context)
 
-def _send_confirmation_email(request, order):
-        """Send the user a confirmation email"""
-        order = get_object_or_404(Order, order_number=order)
-        cust_email = order.email
-        subject = f"Leticia's Art Order Number: {order.order_number }"
-        body = render_to_string(
-            'checkout/confirmation_emails/confirmation_email_order.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+def send_confirmation_email(request, order):
+    """Send the user a confirmation email"""
+    order = get_object_or_404(Order, order_number=order)
+    cust_email = order.email
+    subject = f"Leticia's Art Order Number: {order.order_number }"
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_order.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
         
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-        )  
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [cust_email]
+    ) 
+    return HttpResponse(status=200)
+
 
