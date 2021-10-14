@@ -39,6 +39,7 @@ def checkout(request):
                     lineitem_total=art.price
                 )
                 order_line_item.save()
+                _send_confirmation_email(request, order.order_number)
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -82,8 +83,6 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
-
-    _send_confirmation_email(request, order)
 
     template = 'checkout_success.html'
     context = {
