@@ -58,9 +58,9 @@
             <li class="nav-item">
                 <a class="nav-link order-8" href="{% url 'view_cart' %}">Cart</a>
             </li>
-              <li class="nav-item">
+            <li class="nav-item">
                   <a class="nav-link order-9" href="{% url 'checkout' %}">Checkout</a>
-              </li>
+            </li>
                 {% if not request.user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link order-5" href="{% url 'profiles' %}"> My Orders</a>
