@@ -93,10 +93,9 @@ def checkout_success(request, order_number):
 
 def _send_confirmation_email(request, order):
         """Send the user a confirmation email"""
+        order = get_object_or_404(Order, order_number=order)
         cust_email = order.email
-        subject = render_to_string(
-            "Leticia's Art Order Number",
-            {'order': order})
+        subject = f"Leticia's Art Order Number: {order.order_number }"
         body = render_to_string(
             'checkout/confirmation_emails/confirmation_email_order.txt',
             {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
