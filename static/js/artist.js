@@ -1,3 +1,33 @@
+$('#artist-status-switch').on('change', function(event){
+    var status = $(this).is(':checked');
+    if(status == true){
+        status = "Online"
+    }
+    else{
+        status = "Offline"
+    }
+    event.preventDefault();
+    $.ajax({
+        url: 'artist_status/',
+        type: 'POST',
+        data: {
+            status: status,
+            csrfmiddlewaretoken: document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        },
+        success: function(response){
+           message = "Messaging functionality is now" + " " + status ; 
+           alert(message);
+        },
+        error: (error) => {
+            console.log(error);
+        }
+    }) 
+});
+
+
+
+
+
 $('.status-button').on('click', function(event){
     event.preventDefault();
     current = $(this);

@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+{% endblock %} 
+
 {% block content %}
 
 <div class="container">
     <h1 class="text-center mt-5">Welcome Leticia</h1>
     <h5 class="text-center mt-5">Chat Facility</h3>
-    <div class="row">
-        <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-lg status-button {% if artist_status.status == 'Online' %} btn-success {% else %} btn-primary {% endif %} " id="Online" href="{% url 'artist_status' %}">On</a>
-        </div>
-        <div class="col-3 offset-2 col-md-3 offset-md-3 mt-1 mb-1">
-            <a class="btn btn-lg status-button {% if artist_status.status == 'Offline' %} btn-success {% else %} btn-primary {% endif %}" id="Offline" href="{% url 'artist_status' %}">Off</a>
-        </div>
+        {% csrf_token %}
+    <div class="text-center">
+        <input type="checkbox" {% if artist_status.status == 'Online' %} checked {% endif %} data-toggle="toggle" data-size="lg" id="artist-status-switch" data-onstyle="outline-success" data-offstyle="outline-danger">
     </div>
 </div>
 
@@ -57,5 +57,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
     <script src="{% static 'js/artist.js' %}"></script>
+
 {% endblock %}

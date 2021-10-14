@@ -18,12 +18,12 @@ def artist_home(request):
 @login_required
 def artist_status(request):
 #This function updates the user status to Offline or Online depending on the status recieved
-    if request.user.is_superuser:
-        if request.method == 'POST' and request.is_ajax:
-            status = request.POST['status']
-            print(status)
-            Artist.objects.filter(pk=1).update(status=status)
-            return HttpResponse(status=200)
+    if request.method == 'POST' and request.is_ajax:
+        status = request.POST['status']
+        old_status = Artist.objects.get(pk=1)
+        old_status.status = status
+        old_status.save()
+        return HttpResponse(status=200)
 
 @login_required
 def reply(request, id):
