@@ -2,11 +2,17 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.contrib import messages
 from django.conf import settings
 import stripe
+from chat.views import chatSend
 
 from art.models import Art
 from .models import Order, OrderLineItem
 from .forms import OrderForm
 from cart.cart_contexts import cart_contents
+
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
 
 
 # Create your views here.
@@ -77,9 +83,29 @@ def checkout_success(request, order_number):
     if 'cart' in request.session:
         del request.session['cart']
 
+    _send_confirmation_email(request, order)
+
     template = 'checkout_success.html'
     context = {
         'order': order,
     }
 
     return render(request, template, context)
+
+def _send_confirmation_email(request, order):
+        """Send the user a confirmation email"""
+        cust_email = order.email
+        subject = render_to_string(
+            "Leticia's Art Order Number",
+            {'order': order})
+        body = render_to_string(
+            'checkout/confirmation_emails/confirmation_email_order.txt',
+            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        )  
+

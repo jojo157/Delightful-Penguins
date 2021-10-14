@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404, HttpResponse, reverse
 from checkout.models import Order, OrderLineItem
+from chat.views import chatSend
 
 from django.http import JsonResponse
 from django.core import serializers

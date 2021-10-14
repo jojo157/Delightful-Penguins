@@ -55,6 +55,11 @@
             <li class="nav-item order-10 ">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
+                {% if not request.user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link order-5" href="{% url 'profiles' %}"> My Orders</a>
+                </li>
+                {% endif%}
                 {% if request.user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link order-3" href="{% url 'addArt' %}">Add Art</a>
