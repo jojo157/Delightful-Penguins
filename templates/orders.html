@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="text-center mt-5">Your Order History</h2>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-12">
+            {% if orders %}
+            <div class="table-responsive rounded">
+                <table class="table table-sm ">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Order Number</th> 
+                            <th scope="col">Order Date</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="w-25">
+                        <p><a href="{% url 'checkout_success' order.order_number  %}">{{ order.order_number }}</a></p>
+                        </td>
+                        <td class="w-25">
+                            <p>{{ order.date }}</p>  
+                        </td>
+                        <td class="w-25">
+                            <p>€{{ order.grand_total }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

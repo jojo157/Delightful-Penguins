@@ -3,20 +3,25 @@
 
 {% block content %}
 
-<h2 class="mt-5 mb-5">Thank you for supporting Leticia's Art</h2>
+<div class="container">
+<h2 class="mt-5 mb-5 text-center">Thank you for supporting Leticia's Art</h2>
 
 <div class="">
-    <p>Order Number: {{ order.order_number }}</p>
-    <p>Delivering to: {{ order.street_address1 }},
+    <p><strong>Order Number:</strong> {{ order.order_number }}</p> 
+    <p><strong>Order Date & Time:</strong> {{ order.date}} </p>
+    <p><strong>Delivering to:</strong> {{ order.street_address1 }},
+        {% if order.street_address2 %}
         {{ order.street_address2 }},
+        {% endif %}
         {{ order.town_or_city }},
         {{ order.county }},
         {{ order.postcode }},
-        {{ order.country }},
+        {{ order.country }}.
     </p>
+    <p><strong>Total charged:</strong> €{{ order.grand_total }} </p>
 </div>
 
-<div class="row">
+<div class="row mt-5">
     <div class=" col-sm-12">
         <h5 class="mb-3">Order Summary</h5>
         <div class="table-responsive rounded mb-3">
@@ -58,6 +63,10 @@
         </div>
     </div>
 </div>
+<div class="text-center">
+    <a class="btn btn-lg btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
+</div>
 
+</div>
 
 {% endblock %}
