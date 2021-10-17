@@ -13,4 +13,6 @@ class Message(models.Model):
 class Artist(models.Model):
     status = models.CharField(max_length=1000000)
 
+    
+
 

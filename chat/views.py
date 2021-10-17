@@ -16,20 +16,6 @@ def chatSend(request):
         response = addNewMessage(request, message)
         return HttpResponse(json.dumps(response))
 
-
-def home(request):
-    #hard setting artist status for now, will create a function to deal with this later
-    # status will be Offline or Online
-    Artist.objects.create(status="Offline")
-
-    #we will remove messages if ip not in session for that ip so chatbox is new everytime user accesses site
-    if not 'ip_address' in request.session:
-        ip = get_ip(request)
-        Message.objects.filter(chat_session=ip).delete()
-        return render(request, 'home.html')
-    else:
-       return render(request, 'home.html') 
-
   
 def chatMessages(request):
     # This function will get the currently stored messages for a particular ip address and the artists status and return these.
@@ -83,6 +69,3 @@ def get_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
-
-def artist_available(request):
-    Artist.objects.filter(pk=1).update(status="Online")

@@ -79,8 +79,6 @@ class StripeWH_Handler:
                     street_address1__iexact=shipping_details.address.line1,
                     street_address2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
-                    grand_total=grand_total,
-                    stripe_pid=pid,
                 )
                 order_exists = True
                 break
@@ -88,7 +86,7 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(cart)
+            self._send_confirmation_email(order)
 
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
@@ -106,7 +104,6 @@ class StripeWH_Handler:
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     county=shipping_details.address.state,
-                    stripe_pid=pid,
                 )
 
                 for chosen_id in cart.items():
@@ -123,8 +120,8 @@ class StripeWH_Handler:
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
-        self._send_confirmation_email(order)
-        self._update_art_status(cart)
+            self._send_confirmation_email(order)
+            self._update_art_status(cart)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)

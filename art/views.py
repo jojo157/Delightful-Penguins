@@ -5,10 +5,10 @@ from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import json 
-from chat.views import chatSend, home, get_ip
+from chat.views import chatSend, get_ip
 from .forms import ArtForm
 from .models import Art
-from chat.models import Message
+from chat.models import Message, Artist
 
 
 # Create your views here.
@@ -16,6 +16,9 @@ from chat.models import Message
 def art(request):
 # this view will load the home page with the art fro sale shown"
 #we remove old messages if ip not in session for that ip so chatbox is new everytime user accesses site
+    if Artist.objects.filter(pk=1).exists() == False:
+        Artist.objects.create(status="Offline")
+    
     if not 'ip_address' in request.session:
         ip = get_ip(request)
         Message.objects.filter(chat_session=ip).delete()

@@ -106,8 +106,17 @@ textarea{
     color:#F5F52F;
 }
 
+.footer-content{
+    width: calc(100vw - 200px);
+}
+
 i.far.fa-comment-alt{
     font-size: 20px;
+    color:#F5F52F;
+}
+
+i.fab.fa-facebook-f, 
+i.fab.fa-twitter, i.fab.fa-linkedin-in {
     color:#F5F52F;
 }
 
