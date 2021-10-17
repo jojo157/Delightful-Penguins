@@ -8,14 +8,29 @@ from art.models import Art
 from .models import Order, OrderLineItem
 from .forms import OrderForm
 from cart.cart_contexts import cart_contents
+from django.views.decorators.http import require_POST
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
+from django.views.decorators.http import require_POST
 
 
 
-# Create your views here.
+@require_POST
+def cache_checkout_data(request):
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'cart': json.dumps(request.session.get('cart', {})),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):

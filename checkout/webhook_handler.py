@@ -8,6 +8,7 @@ from art.models import Art
 import json
 import time
 
+
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
 
