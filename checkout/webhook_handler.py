@@ -29,7 +29,14 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )  
+        ) 
+
+    def _update_art_status(self, cart):
+        """" Change art available status after order completes """
+        for chosen_id in cart.items():
+            art = Art.objects.get(id=chosen_id[0])
+            art.available = False
+            art.save()
 
 
     def handle_event(self, event):
@@ -46,7 +53,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
-        cart = intent.metadata.cart
+        cart = json.loads(intent.metadata.cart)
         
 
         billing_details = intent.charges.data[0].billing_details
@@ -81,7 +88,8 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)
+            self._send_confirmation_email(cart)
+
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
                 status=200)
@@ -101,7 +109,7 @@ class StripeWH_Handler:
                     stripe_pid=pid,
                 )
 
-                for chosen_id in json.loads(cart).items():
+                for chosen_id in cart.items():
                     art = Art.objects.get(id=chosen_id[0])
                     order_line_item = OrderLineItem(
                             order=order,
@@ -116,6 +124,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         self._send_confirmation_email(order)
+        self._update_art_status(cart)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
@@ -127,3 +136,5 @@ class StripeWH_Handler:
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)
+
+    

@@ -20,7 +20,6 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
-        print(request.session.get('cart', {}))
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'username': request.user,
@@ -64,8 +63,8 @@ def checkout(request):
                     lineitem_total=art.price
                 )
                 order_line_item.save()
-                messages.success(request, f'Order successfully processed! \
-                A confirmation email will be sent to {order.email}.')
+            messages.success(request, f'Order successfully processed! \
+            A confirmation email will be sent to {order.email}.')
 
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
