@@ -50,7 +50,7 @@ form2.addEventListener('submit', function(ev) {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
     };
-    var url = '/checkout/cache_checkout_data/';
+    var url = 'cache_checkout_data/';
 
     $.post(url, postData).done(function () {
         $('#submit-button').attr('disabled', true);

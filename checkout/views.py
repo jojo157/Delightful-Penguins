@@ -12,9 +12,7 @@ from django.views.decorators.http import require_POST
 
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.conf import settings
-from django.views.decorators.http import require_POST
-
+import json 
 
 
 @require_POST
@@ -22,6 +20,7 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
+        print(request.session.get('cart', {}))
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'username': request.user,
@@ -40,7 +39,18 @@ def checkout(request):
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
-        order_form = OrderForm(request.POST)
+        form_data = {
+            'full_name': request.POST['full_name'],
+            'email': request.POST['email'],
+            'phone_number': request.POST['phone_number'],
+            'country': request.POST['country'],
+            'postcode': request.POST['postcode'],
+            'town_or_city': request.POST['town_or_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county': request.POST['county'],
+        }
+        order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
 
@@ -75,8 +85,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
-        print(intent)
 
         order_form = OrderForm()
         template = 'checkout.html'

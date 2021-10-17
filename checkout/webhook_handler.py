@@ -73,7 +73,7 @@ class StripeWH_Handler:
                     street_address2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
-                    original_cart=cart,
+                    #original_cart=cart,
                     stripe_pid=pid,
                 )
                 order_exists = True
@@ -99,19 +99,17 @@ class StripeWH_Handler:
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     county=shipping_details.address.state,
-                    original_cart=cart,
+                    #original_cart=cart,
                     stripe_pid=pid,
                 )
 
-               
-                order_line_item.save()
                 for chosen_id in json.loads(cart).items():
                     art = Art.objects.get(id=chosen_id[0])
                     order_line_item = OrderLineItem(
                             order=order,
                             art=art,
                             lineitem_total=art.price
-                        )
+                    )
                     order_line_item.save()
             except Exception as e:
                 if order:
