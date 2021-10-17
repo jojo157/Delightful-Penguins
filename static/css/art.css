@@ -28,6 +28,10 @@
     width: 80%;
 }
 
+.profile-pic{
+    height: 150px;
+}
+
 /* Media Queries: */
 
 @media only screen and (max-width: 360px) {

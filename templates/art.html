@@ -6,7 +6,29 @@
 {% endblock %} 
 
 {% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mt-3 mb-2">About Me</h1>
+        </div>
+        <div class=" col-sm-12 col-md-8 offset-md-1 mt-3">
+            <p class="text-center">I am an illustator who studied at National College of Art and Design in Dublin. 
+               My style is influenced by Fantasty Art and Intimism. Here you will find all my orignal work.</p>
+            <p class="text-center">If you have any questions, please use the chat</p>    
+        </div>
+        <div class="d-none d-md-block col-md-3"> 
+            <img class="img-fluid profile-pic rounded-circle border border-success" src="{{ MEDIA_URL }}leticia.jpg" alt="image of Leticia">
+        </div>
+    </div>    
+</div>
+
+
+<hr>
+
+
 <div class="container-fluid h-100">
+    <h2 class="text-center mt-3 mb-2">Art Pieces</h1>
     <div class="row">
             {% for art in artCollection %}
                 <div class="col-sm-10 col-sm-offset-1 col-md-6 col-lg-4 col-xl-3 mt-2 ">
