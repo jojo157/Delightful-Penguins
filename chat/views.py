@@ -103,6 +103,7 @@ def contact(request):
             'artCollection': artCollection
         }
 
+        messages.success(request, 'I have recieved your email and will respond shortly')
         return render(request, 'art.html', context)
 
     else:   
