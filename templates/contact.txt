@@ -1,0 +1,15 @@
+Hello Leticia,
+
+You have a new message from {{ form_data.name }} .
+
+{{ form_data.name }}'s contact details are:
+Email: {{ form_data.email }} .
+Mobile: {{ form_data.mobile }}
+
+Message title
+{{ form_data.title }} 
+
+Message content 
+{{ form_data.contact_message }}
+
+Have a great day!

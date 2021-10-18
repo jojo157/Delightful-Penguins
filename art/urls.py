@@ -7,7 +7,7 @@ urlpatterns = [
     path('editArt/<int:id>/', views.editArt, name='editArt'),
     path('deleteArt/<int:id>/', views.deleteArt, name='deleteArt'),
     path('artDetails/<int:id>/', views.artDetails, name='artDetails'),
-    path('chatSend/', views.chatSend, name='chatSend'), 
+    path('chatSend/', views.chatSend, name='chatSend'),  
 
 ]
 

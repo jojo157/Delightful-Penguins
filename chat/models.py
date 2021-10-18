@@ -13,6 +13,14 @@ class Message(models.Model):
 class Artist(models.Model):
     status = models.CharField(max_length=1000000)
 
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    mobile = models.CharField(max_length=20, null=False, blank=False)
+    title = models.CharField(max_length=10000)
+    contact_message = models.CharField(max_length=1000000)
+
     
 
 

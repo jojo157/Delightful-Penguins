@@ -3,6 +3,12 @@ from chat.models import Message, Artist
 from django.http import JsonResponse
 from django.core import serializers
 from django.contrib import messages
+from .models import Contact
+from .forms import ContactForm
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+from art.models import Art
 
 import json
 
@@ -69,3 +75,41 @@ def get_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+
+def contact(request):
+    if request.method == 'POST':
+        form_data = {
+            'name': request.POST['name'],
+            'email': request.POST['email'],
+            'mobile': request.POST['mobile'],
+            'title': request.POST['title'],
+            'contact_message': request.POST['contact_message'],  
+        }
+
+        subject = form_data['title']
+        body = render_to_string('contact.txt',
+        {'form_data': form_data, 'contact_email': settings.DEFAULT_FROM_EMAIL})
+        cust_email = form_data['email']
+
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [cust_email]
+        ) 
+
+        artCollection = Art.objects.all()
+        context ={
+            'artCollection': artCollection
+        }
+
+        return render(request, 'art.html', context)
+
+    else:   
+        contact_form = ContactForm()
+        template = 'contact.html'
+        context = {
+                'contact_form': contact_form,
+        }
+
+        return render(request, template, context)

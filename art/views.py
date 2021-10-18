@@ -85,3 +85,6 @@ def artDetails(request, id):
         'art': art,
     }
     return render(request, 'artDetails.html', context)
+
+
+  
