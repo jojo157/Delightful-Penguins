@@ -3,6 +3,9 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 
 
 def get_messages(request):
+    if not Artist.objects.filter(pk=1).exists() :
+        Artist.objects.create(pk=1, status="Offline")
+
     artist_status = Artist.objects.get(pk=1)
     if 'ip_address' in request.session:
         chat_session = request.session['ip_address']

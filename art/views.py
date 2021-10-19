@@ -16,9 +16,6 @@ from chat.models import Message, Artist
 def art(request):
 # this view will load the home page with the art fro sale shown"
 #we remove old messages if ip not in session for that ip so chatbox is new everytime user accesses site
-    if Artist.objects.filter(pk=1).exists() == False:
-        Artist.objects.create(status="Offline")
-    
     if not 'ip_address' in request.session:
         ip = get_ip(request)
         Message.objects.filter(chat_session=ip).delete()
