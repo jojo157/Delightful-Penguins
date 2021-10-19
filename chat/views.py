@@ -114,3 +114,12 @@ def contact(request):
         }
 
         return render(request, template, context)
+
+
+def numberOfMessages(request):
+    if request.method == 'POST' and request.is_ajax:
+        numberOfChatMessagesDisplayed = request.POST['numOfChats'] 
+        checkDatabase = chatMessages(request)
+        if checkDatabase['chat_messages']:
+            currentCount = len(checkDatabase['chat_messages'])
+        return HttpResponse(json.dumps(currentCount))

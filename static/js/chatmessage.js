@@ -55,14 +55,38 @@ window.onload = function() {
     }
 };
 
-/* reload page every minute to allow chat box update */
+/* check if new messages and append to chat window every minute */
+
 /*
-setTimeout('location.reload()', 60000);
+setTimeout(function(){ 
+    checkChatMessages()
+}, 60000);
 */
+
+
+function checkChatMessages(){
+    var numOfChats = $('.chat-card').length;
+    $.ajax({
+        url: 'numberOfMessages/',
+        type: 'POST',
+        data: {
+            numOfChats: numOfChats,
+            csrfmiddlewaretoken: document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        },
+        success: function(response){
+            newCount = JSON.parse(response);
+            console.log(newCount);   
+        },
+    }) 
+}
+
+
+
+
 
 /* credit to FThompson for library to persist form data on reload https://github.com/FThompson/FormPersistence.js */
 let form = document.getElementById('chat-form');
-FormPersistence.persist(form);
+FormPersistence.persist(form); 
 
 /* close alert window */
 $('.close-window').on('click', function(event){
