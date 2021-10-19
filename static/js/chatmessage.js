@@ -57,11 +57,13 @@ window.onload = function() {
 
 /* check if new messages and append to chat window every minute */
 
-/*
-setTimeout(function(){ 
+
+setInterval(function(){ 
     checkChatMessages()
 }, 60000);
-*/
+
+
+
 
 
 function checkChatMessages(){
@@ -74,8 +76,22 @@ function checkChatMessages(){
             csrfmiddlewaretoken: document.querySelector('input[name="csrfmiddlewaretoken"]').value
         },
         success: function(response){
-            newCount = JSON.parse(response);
-            console.log(newCount);   
+            if (response == 'up_to_date'){
+                return;
+            }else{
+                message = response;
+                insert = $(`
+                <div class="card chat-card mb-3 mt-1 float-right mr-3">
+                <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p class="card-text">${message}</p>
+                    <footer class="blockquote-footer">Leticia</footer>
+                </blockquote>
+                </div>
+                </div>`);
+                $('#chat-window').append(insert);
+                $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight); 
+            } 
         },
     }) 
 }

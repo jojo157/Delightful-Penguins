@@ -122,4 +122,11 @@ def numberOfMessages(request):
         checkDatabase = chatMessages(request)
         if checkDatabase['chat_messages']:
             currentCount = len(checkDatabase['chat_messages'])
-        return HttpResponse(json.dumps(currentCount))
+            if currentCount > int(numberOfChatMessagesDisplayed):
+                position = int(numberOfChatMessagesDisplayed)
+                newmessage = checkDatabase['chat_messages'][position]
+                message = newmessage.message_content
+                print(message)
+                return HttpResponse(message)
+            value = 'up_to_date'
+            return HttpResponse(value)
