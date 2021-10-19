@@ -12,13 +12,11 @@ from chat.models import Message, Artist
 
 #error handling
 def error_404(request, exception):
-        data = {}
-        return render(request,'404.html', data)
+        return render(request,'404.html', status=404)
 
 
-def error_500(request, exception):
-        data = {}
-        return render(request,'500.html', data)
+def error_500(request):
+        return render(request,'500.html', status=500)
 
 
 def art(request):

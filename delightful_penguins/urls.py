@@ -30,3 +30,5 @@ urlpatterns = [
     path('', include('art.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+handler404 = "art.views.error_404"
+handler500 = "art.views.error_500"
