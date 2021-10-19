@@ -10,8 +10,16 @@ from .forms import ArtForm
 from .models import Art
 from chat.models import Message, Artist
 
+#error handling
+def error_404(request, exception):
+        data = {}
+        return render(request,'404.html', data)
 
-# Create your views here.
+
+def error_500(request, exception):
+        data = {}
+        return render(request,'500.html', data)
+
 
 def art(request):
 # this view will load the home page with the art fro sale shown"
