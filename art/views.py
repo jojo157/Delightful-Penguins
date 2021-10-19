@@ -5,7 +5,7 @@ from django.core import serializers
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import json 
-from chat.views import chatSend, get_ip, numberOfMessages
+from chat.views import chatSend, get_ip, numberOfMessages, chatMessages, addNewMessage
 from .forms import ArtForm
 from .models import Art
 from chat.models import Message, Artist

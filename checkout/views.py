@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.contrib import messages
 from django.conf import settings
 import stripe
-from chat.views import chatSend
+from chat.views import chatSend, get_ip, numberOfMessages, chatMessages, addNewMessage
 
 from art.models import Art
 from .models import Order, OrderLineItem

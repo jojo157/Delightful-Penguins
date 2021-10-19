@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 import json 
 
-from chat.views import chatSend
+from chat.views import chatSend, get_ip, numberOfMessages, chatMessages, addNewMessage
 
 
 @login_required

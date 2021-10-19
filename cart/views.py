@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from art.models import Art
 from chat.models import Message
-from chat.views import chatSend
+from chat.views import chatSend, get_ip, numberOfMessages, chatMessages, addNewMessage
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
