@@ -9,9 +9,8 @@ def get_messages(request):
     artist_status = Artist.objects.get(pk=1)
     if "ip_address" in request.session:
         chat_session = request.session["ip_address"]
-        data = get_list_or_404(
-            Message.objects.order_by("date_of_message"),
-            chat_session=chat_session,
+        data = Message.objects.filter(chat_session=chat_session).order_by(
+            "date_of_message"
         )
         context = {
             "chat_messages": data,

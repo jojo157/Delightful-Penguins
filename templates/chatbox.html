@@ -9,21 +9,22 @@
     </div>
   
     {% else %}
-
-        {% for chat_message in chat_messages %}
-        {% if chat_message.user_name == 'Leticia' %}
-    <div class="card chat-card mb-3 mt-1 float-right mr-3">
-        {% else %}
-    <div class="card chat-card mb-3 mt-1 ml-3">
-        {% endif %}
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
-                <p class="card-text">{{ chat_message.message_content}}</p>
-                <footer class="blockquote-footer">{{ chat_message.user_name }}</footer>
-            </blockquote>
+        {% if chat_messages %}
+            {% for chat_message in chat_messages %}
+            {% if chat_message.user_name == 'Leticia' %}
+        <div class="card chat-card mb-3 mt-1 float-right mr-3">
+            {% else %}
+        <div class="card chat-card mb-3 mt-1 ml-3">
+            {% endif %}
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p class="card-text">{{ chat_message.message_content}}</p>
+                    <footer class="blockquote-footer">{{ chat_message.user_name }}</footer>
+                </blockquote>
+            </div>
         </div>
-    </div>
-        {% endfor %}
+            {% endfor %}
+        {% endif %}
 
     {% endif%}
     

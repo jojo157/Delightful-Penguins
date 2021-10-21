@@ -24,12 +24,19 @@ const csrftoken = getCookie('csrftoken');
 /*
 this code on submit of new message on chat form,
 adds to database using ajax and on success appends the message to current chat window
+if submit button is disabled we exit submit function
 */
 
 $('#chat-form').on('submit', function (event) {
     event.preventDefault();
+
+    if ($('#submit-button').hasClass('disabled')){
+        return;
+    }
+
     var message = $('#message').val();
     var url = $('#chat-form').attr('action');
+    
     $.ajax({
         url: url,
         type: 'POST',
