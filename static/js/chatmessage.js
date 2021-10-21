@@ -102,10 +102,12 @@ function checkChatMessages() {
     })
 }
 
-// on click removes the class button-success that was added for new message above
+/* on click removes the colour that was added for new message above 
+and scrolls to buttom to show newest message */
 $('.button-chat').on('click', function (event) {
     $('#button-chat').addClass('purple');
     $('#button-chat').removeClass('green');
+    $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
 });
 
 /* close alert window */

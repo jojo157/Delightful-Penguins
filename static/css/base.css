@@ -131,11 +131,12 @@ i.fab.fa-linkedin-in {
 .message-container {
     width: 300px;
     max-height: 400px;
-    background: #fbff00;
+    color: #F5F52F;
     position: fixed;
     top: 100px;
     right: 20px;
     z-index: 20;
+    background-color: #9400D3;
 }
 
 .image-column {
