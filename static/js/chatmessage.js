@@ -92,7 +92,7 @@ function checkChatMessages() {
                 </div>`);
                 $('#chat-window').append(insert);
                 $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
-                var expanded = $(this).attr('aria-expanded');
+                var expanded = $('#button-chat').attr('aria-expanded');
                 if (expanded == "false") {
                     $('#button-chat').addClass('green');
                     $('#button-chat').removeClass('purple');
