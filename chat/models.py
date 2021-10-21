@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime
 
-# Create your models here.
 
 class Message(models.Model):
     message_content = models.CharField(max_length=1000000)
@@ -9,6 +8,7 @@ class Message(models.Model):
     user_name = models.CharField(max_length=100)
     chat_session = models.GenericIPAddressField()
     reply_recieved = models.BooleanField(default=False)
+
 
 class Artist(models.Model):
     status = models.CharField(max_length=1000000)
@@ -20,7 +20,3 @@ class Contact(models.Model):
     mobile = models.CharField(max_length=20, null=False, blank=False)
     title = models.CharField(max_length=10000)
     contact_message = models.CharField(max_length=1000000)
-
-    
-
-

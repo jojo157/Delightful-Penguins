@@ -17,7 +17,7 @@ const csrftoken = getCookie('csrftoken');
 
 
 
-$('#chat-form').on('submit', function(event){
+$('#chat-form').on('submit', function (event) {
     event.preventDefault();
     var message = $('#message').val();
     var url = $('#chat-form').attr('action');
@@ -26,9 +26,9 @@ $('#chat-form').on('submit', function(event){
         type: 'POST',
         data: {
             message: message,
-            csrfmiddlewaretoken: csrftoken 
+            csrfmiddlewaretoken: csrftoken
         },
-        success: function(response){
+        success: function (response) {
             newdata = JSON.parse(response);
             $('#message').val('');
             newmessage = newdata["message_content"];
@@ -48,36 +48,35 @@ $('#chat-form').on('submit', function(event){
         error: (error) => {
             console.log(error);
         }
-    }) 
+    })
 });
 
 
 /* Functionality that on expand of chat box, stores the status in session storage.
 This will be used on page reload to update the chat box attributes to match before reload */
-$('.button-chat').on('click', function(event){
+$('.button-chat').on('click', function (event) {
     var expanded = $(this).attr('aria-expanded');
-    if (expanded == "false"){
+    if (expanded == "false") {
         var newstate = "true";
-        sessionStorage.setItem("expanded", newstate); 
+        sessionStorage.setItem("expanded", newstate);
+    } else {
+        sessionStorage.setItem("expanded", "false");
     }
-    else{
-        sessionStorage.setItem("expanded", "false"); 
-    }   
 });
 
-window.onload = function() {
+window.onload = function () {
     var expanded = sessionStorage.getItem("expanded");
-        if(expanded == "true"){
+    if (expanded == "true") {
         $('#button-chat').attr('aria-expanded', expanded);
         $('#collapseChat').addClass('show');
-        FormPersistence.persist(form);  
+        FormPersistence.persist(form);
     }
 };
 
 /* check if new messages and append to chat window every minute */
 
 
-setInterval(function(){ 
+setInterval(function () {
     checkChatMessages()
 }, 60000);
 
@@ -85,19 +84,19 @@ setInterval(function(){
 
 
 
-function checkChatMessages(){
+function checkChatMessages() {
     var numOfChats = $('.chat-card').length;
     $.ajax({
         url: 'numberOfMessages/',
         type: 'POST',
         data: {
             numOfChats: numOfChats,
-            csrfmiddlewaretoken: csrftoken 
+            csrfmiddlewaretoken: csrftoken
         },
-        success: function(response){
-            if (response == 'up_to_date'){
+        success: function (response) {
+            if (response == 'up_to_date') {
                 return;
-            }else{
+            } else {
                 message = response;
                 insert = $(`
                 <div class="card chat-card mb-3 mt-1 float-right mr-3">
@@ -109,10 +108,10 @@ function checkChatMessages(){
                 </div>
                 </div>`);
                 $('#chat-window').append(insert);
-                $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight); 
-            } 
+                $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
+            }
         },
-    }) 
+    })
 }
 
 
@@ -121,13 +120,13 @@ function checkChatMessages(){
 
 /* credit to FThompson for library to persist form data on reload https://github.com/FThompson/FormPersistence.js */
 let form = document.getElementById('chat-form');
-FormPersistence.persist(form); 
+FormPersistence.persist(form);
 
 /* close alert window */
-$('.close-window').on('click', function(event){
+$('.close-window').on('click', function (event) {
     $('.message-container').addClass('d-none');
 });
 
 $(".navbar-toggler").click(function () {
     $(".navbar-collapse").toggleClass("nav-collapse-colour");
-    })
+})

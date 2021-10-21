@@ -1,14 +1,14 @@
-.card{
+.card {
     width: 80%;
     max-height: fit-content;
     text-align: center;
     overflow-y: auto;
 }
 
-.chat-window{
-    height:40vh;
+.chat-window {
+    height: 40vh;
     overflow-y: auto;
-    width:80%;
+    width: 80%;
 }
 
 

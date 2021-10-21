@@ -18,7 +18,9 @@ var style = {
     }
 };
 
-var card = elements.create('card', {style: style});
+var card = elements.create('card', {
+    style: style
+});
 card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
@@ -42,9 +44,11 @@ card.addEventListener('change', function (event) {
 
 var form2 = document.getElementById('payment-form');
 
-form2.addEventListener('submit', function(ev) {
+form2.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
+    card.update({
+        'disabled': true
+    });
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
@@ -61,7 +65,7 @@ form2.addEventListener('submit', function(ev) {
                     name: $.trim(form2.full_name.value),
                     phone: $.trim(form2.phone_number.value),
                     email: $.trim(form2.email.value),
-                    address:{
+                    address: {
                         line1: $.trim(form2.street_address1.value),
                         line2: $.trim(form2.street_address2.value),
                         city: $.trim(form2.town_or_city.value),
@@ -82,7 +86,7 @@ form2.addEventListener('submit', function(ev) {
                     state: $.trim(form2.county.value),
                 }
             },
-        }).then(function(result) {
+        }).then(function (result) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
@@ -91,14 +95,15 @@ form2.addEventListener('submit', function(ev) {
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                card.update({ 'disabled': false});
+                card.update({
+                    'disabled': false
+                });
                 $('#submit-button').attr('disabled', false);
-            } 
-            else {
+            } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form2.submit();
                 }
             }
         });
-})
+    })
 });

@@ -1,17 +1,17 @@
-.image-div{
+.image-div {
     height: 200px;
 }
 
-.card{
+.card {
     max-height: none;
     width: 100%;
 }
 
-.art-piece{
+.art-piece {
     height: 480px;
 }
 
-.card-img-top{
+.card-img-top {
     width: 100%;
     height: 60%;
     object-fit: cover;
@@ -19,77 +19,79 @@
 
 /* art details page */
 
-.art-piece-image{
+.art-piece-image {
     height: 680px;
-    
+
 }
 
-.chat-card{
+.chat-card {
     width: 80%;
 }
 
-.container{
+.container {
     position: relative;
     margin: 0 auto;
-    max-width:100vw;
+    max-width: 100vw;
     max-height: 400px;
 }
 
-.hero{
-    padding-right: 0; 
+.hero {
+    padding-right: 0;
     padding-left: 0;
 }
 
 
-.container .content{
+.container .content {
     position: absolute;
     top: 100px;
     width: 100%;
-    color:#000;
+    color: #000;
     background: rgba(245, 243, 243, 0.747);
 }
 
-.hero-image{
-    height:400px;
-    width:100vw;
+.hero-image {
+    height: 400px;
+    width: 100vw;
 }
 
 /* Media Queries: */
 
 @media only screen and (max-width: 360px) {
+
     /* For smaller mobiles: */
-    .art-piece{
+    .art-piece {
         height: 400px;
     }
-    
-    
+
+
 }
 
 @media only screen and (min-width: 560px) and (max-width: 700px) {
     /* For rotated mobiles: */
-    
 
- 
+
+
 }
 
 @media only screen and (min-width: 760px) and (max-width: 1026px) {
     /* For tablets: */
-   
-    
+
+
 }
 
 @media only screen and (min-width: 1027px) {
-/* For desktop: */
+    /* For desktop: */
 
 
 
 }
 
 @media only screen and (min-width: 1900px) {
+
     /* For larger desktop: */
-    .art-piece{
+    .art-piece {
         height: 500px;
     }
 
-   
+
 }

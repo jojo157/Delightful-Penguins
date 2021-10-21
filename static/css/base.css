@@ -1,18 +1,17 @@
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-body{
+body {
     min-height: 100vh;
     background-color: #F6EDF7;
-    
+
 }
 
-.nav-collapse-colour{
+.nav-collapse-colour {
     background-color: #F6EDF7;
 }
-
 
 
 /* Navbar */
@@ -26,65 +25,65 @@ body{
     margin-top: 20px;
     margin-bottom: 10px;
     z-index: 20;
-    width: 100vw;  
+    width: 100vw;
 }
 
-.navbar{
-    padding:0;
+.navbar {
+    padding: 0;
 }
 
 /* footer*/
-.footer{
+.footer {
     margin-top: 5px;
     width: 100%;
     height: 60px;
-    background-color: #9400D3;  
+    background-color: #9400D3;
 }
 
-.window-content{
+.window-content {
     min-height: 100vh;
     margin-bottom: 100px;
 }
 
 
 /* chat box */
-.chat-box-form{
+.chat-box-form {
     position: fixed;
     bottom: 60px;
-    right:0;
-    z-index:10; 
-    width:80vw;
+    right: 0;
+    z-index: 10;
+    width: 80vw;
     height: 400px;
     background-color: #9400D3;
 }
 
-.chat-window{
-    height:300px;
+.chat-window {
+    height: 300px;
     overflow-y: auto;
-    
+
 }
 
-.card{
+.card {
     width: 70%;
     max-height: fit-content;
     text-align: center;
     overflow-y: auto;
-    
+
 }
 
-.chat-card{
+.chat-card {
     width: 80%;
 }
 
-textarea{
+textarea {
     outline: none;
     resize: none;
     overflow: auto;
 }
 
-.chat-box{
+.chat-box {
     padding: 0;
-    margin:0;
+    margin: 0;
     margin-left: 5px;
     margin-right: 5px;
 
@@ -92,37 +91,38 @@ textarea{
 
 
 
-.button-chat{
+.button-chat {
     position: absolute;
     bottom: 0;
-    right:0;
-    z-index:20; 
-    width:200px;
+    right: 0;
+    z-index: 20;
+    width: 200px;
     height: 60px;
     background-color: #9400D3;
     border-style: solid;
     border: 2px;
     border-color: #000;
-    color:#F5F52F;
+    color: #F5F52F;
 }
 
-.footer-content{
+.footer-content {
     width: calc(100vw - 200px);
 }
 
-i.far.fa-comment-alt{
+i.far.fa-comment-alt {
     font-size: 20px;
-    color:#F5F52F;
+    color: #F5F52F;
 }
 
-i.fab.fa-facebook-f, 
-i.fab.fa-twitter, i.fab.fa-linkedin-in {
-    color:#F5F52F;
+i.fab.fa-facebook-f,
+i.fab.fa-twitter,
+i.fab.fa-linkedin-in {
+    color: #F5F52F;
 }
 
 /* Message section for alerts */
-.message-container{
-    width:300px;
+.message-container {
+    width: 300px;
     max-height: 400px;
     background: #fbff00;
     position: fixed;
@@ -131,9 +131,9 @@ i.fab.fa-twitter, i.fab.fa-linkedin-in {
     z-index: 20;
 }
 
-.image-column{
+.image-column {
     height: 100px;
-    width:auto;
+    width: auto;
 }
 
 
@@ -152,25 +152,26 @@ i.fab.fa-twitter, i.fab.fa-linkedin-in {
 
     /* For tablets: */
 
-    .chat-box-form{
+    .chat-box-form {
         width: 50vw;
     }
 }
 
 @media only screen and (min-width: 1027px) {
-/* For desktop: */
-    .chat-box-form{
+
+    /* For desktop: */
+    .chat-box-form {
         width: 40vw;
     }
 
 }
 
 @media only screen and (min-width: 1900px) {
+
     /* For larger desktop: */
-    .chat-box-form{
+    .chat-box-form {
         width: 30vw;
     }
 
 
 }
-
