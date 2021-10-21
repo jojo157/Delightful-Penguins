@@ -1,3 +1,8 @@
+/* 
+    credit to https://docs.djangoproject.com/en/3.2/ref/csrf/
+    gets csrf token
+*/
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -16,6 +21,10 @@ function getCookie(name) {
 const csrftoken = getCookie('csrftoken');
 
 
+/*
+this code on submit of new message on chat form,
+adds to database using ajax and on success appends the message to current chat window
+*/
 
 $('#chat-form').on('submit', function (event) {
     event.preventDefault();
@@ -73,16 +82,12 @@ window.onload = function () {
     }
 };
 
-/* check if new messages and append to chat window every minute */
 
+/* check if new messages and append to chat window every minute */
 
 setInterval(function () {
     checkChatMessages()
 }, 60000);
-
-
-
-
 
 function checkChatMessages() {
     var numOfChats = $('.chat-card').length;
@@ -114,19 +119,12 @@ function checkChatMessages() {
     })
 }
 
-
-
-
-
-/* credit to FThompson for library to persist form data on reload https://github.com/FThompson/FormPersistence.js */
-let form = document.getElementById('chat-form');
-FormPersistence.persist(form);
-
 /* close alert window */
 $('.close-window').on('click', function (event) {
     $('.message-container').addClass('d-none');
 });
 
+/* on expand on navbar for mobile change colour of backgorund using class change */
 $(".navbar-toggler").click(function () {
     $(".navbar-collapse").toggleClass("nav-collapse-colour");
 })

@@ -1,3 +1,6 @@
+/* 
+This code will update the artist status on click on button with id artist-status-switch
+*/
 $('#artist-status-switch').on('change', function(event) {
     var status = $(this).is(':checked');
     if (status == true) {
@@ -24,41 +27,14 @@ $('#artist-status-switch').on('change', function(event) {
 });
 
 
-
-
-$('.status-button').on('click', function(event) {
-    event.preventDefault();
-    current = $(this);
-    var status = $(this).attr('id');
-    $.ajax({
-        url: 'artist_status/',
-        type: 'POST',
-        data: {
-            status: status,
-            csrfmiddlewaretoken: document.querySelector('input[name="csrfmiddlewaretoken"]').value
-        },
-        success: function(response) {
-            message = "Messaging functionality is now" + " " + status;
-            $('.status-button').removeClass('btn-success');
-            $('.status-button').addClass('btn-primary');
-            current.removeClass('btn-primary');
-            current.addClass('btn-success');
-            alert(message);
-        },
-        error: (error) => {
-            console.log(error);
-        }
-    })
-});
-
-
+/*
+This function on the click of a button with class message-reply-button
+renders the reply view by getting its attribute for chat id and passing it
+*/
 $('.message-reply-button').on('click', function(event) {
     event.preventDefault();
     var chat_session = $(this).attr('data-chat-session');
     var id = $(this).attr('data-chat-id');
-
     var href = '/artist/reply';
-
     location.href = href + "/" + id;
-
 });
