@@ -52,15 +52,16 @@
             <li class="nav-item order-10 ">
                 <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link order-8" href="{% url 'view_cart' %}">Cart</a>
-            </li>
-            <li class="nav-item">
-                  <a class="nav-link order-9" href="{% url 'checkout' %}">Checkout</a>
-            </li>
+
                 {% if not request.user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link order-5" href="{% url 'profiles' %}"> My Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link order-8" href="{% url 'view_cart' %}">Cart</a>
+                </li>
+                <li class="nav-item">
+                      <a class="nav-link order-9" href="{% url 'checkout' %}">Checkout</a>
                 </li>
                 {% endif%}
                 {% if request.user.is_superuser %}
@@ -124,13 +125,13 @@
         <button type="button" id="button-chat" class="mt-1 ml1 button-chat" data-toggle="collapse" data-target="#collapseChat" aria-expanded="false" aria-controls="collapseChat"> Chat with Leticia <i class="far fa-comment-alt"></i> </button>
         <div class="footer-content">
             <div class="row mt-2 ml-1">
-                <div class=" col-sm-2 col-md-1">
+                <div class=" w-25 col-md-1">
                     <a href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                 </div>
-                <div class=" col-sm-2 col-md-1">
+                <div class=" w-25 col-md-1">
                     <a href="https://twitter.com/?lang=en" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                 </div>
-                <div class=" col-sm-2 col-md-1">
+                <div class=" w-25 col-md-1">
                     <a href="https://ie.linkedin.com/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
