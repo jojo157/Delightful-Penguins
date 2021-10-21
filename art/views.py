@@ -33,8 +33,10 @@ def error_500(request):
 
 
 def art(request):
-    # this view will load the home page with the art fro sale shown"
-    # we remove old messages if ip not in session for that ip so chatbox is new everytime user accesses site
+    # this view will load the home page with the art for sale shown
+    # remove old messages if ip not in session for that ip so chatbox 
+    # is new everytime user accesses site
+
     if not "ip_address" in request.session:
         ip = get_ip(request)
         Message.objects.filter(chat_session=ip).delete()
@@ -95,6 +97,7 @@ def deleteArt(request, id):
 
 
 def artDetails(request, id):
+    # This view renders the art piece in more detail
     art = get_object_or_404(Art, pk=id)
     context = {
         "art": art,

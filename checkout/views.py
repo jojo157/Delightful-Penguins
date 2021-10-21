@@ -30,6 +30,8 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    #this view modifies the payment intent for stripe to include the cart, username and pid
+    
     try:
         pid = request.POST.get("client_secret").split("_secret")[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -51,6 +53,10 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    # this view processes the checkout call
+    # when request is POST, it adds order to database 
+    # when request is get the checkout form is displayed with order summary and stripe intent created
+    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -123,9 +129,8 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    """
-    Handle successful checkouts
-    """
+    # This view returns checkout success page with order summary
+
     order = get_object_or_404(Order, order_number=order_number)
 
     if "cart" in request.session:

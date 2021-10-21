@@ -88,6 +88,9 @@ def get_ip(request):
 
 
 def contact(request):
+    # this view displays the contact form on a get request
+    # for a post request the form data is sent to the artist as an email
+    # once sent the user is given a message on screen to advise
     if request.method == "POST":
         form_data = {
             "name": request.POST["name"],
@@ -128,6 +131,10 @@ def contact(request):
 
 
 def numberOfMessages(request):
+    #this function takes an ajax post request
+    #the number of messages in current chat is given as numOfChats
+    #the view checks the number of messages in database for that ip address 
+    #if number in database is greater than screen, it adds the new message
     if request.method == "POST" and request.is_ajax:
         numberOfChatMessagesDisplayed = request.POST["numOfChats"]
         checkDatabase = chatMessages(request)
