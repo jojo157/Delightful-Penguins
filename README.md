@@ -69,8 +69,9 @@ Leticias Art was created with the purpose of providing a platform for the Artist
 #### User Needs
 
 ##### As a site user
-- As a site user, I want to be able to browse the art that is available.
-- As a site user, I want to be able to work out the total cost of a particular piece of art I am interested in. 
+- As a site user, I want to be able to browse the art.
+- As a site user, I want to be able to quickly know which art pieces are available.
+- As a site user, I want to be able to see the price of a piece of art. 
 - As a site user, I want to be able to put through an order to buy the piece of art I like.
 - As a site user, I want to be able to contact the artist with questions.
 - As a site user, I want to save my order data for easy access. 
@@ -79,7 +80,7 @@ Leticias Art was created with the purpose of providing a platform for the Artist
 - As the business owner, I want to be able to advertise my current art pieces for sale.
 - As the business owner, I want to be able to update my current art offering.
 - As the business owner, I want to be able to add new art offerings.
-- As the business owner, I want to be able to talk in real time with any potential customers that have entered the chat facility.
+- As the business owner, I want to be able to talk in real time with any potential customers who engage with the chat facility.
 - As the business owner, I want to see a list of orders in date order.
 
 ### Scope
@@ -100,9 +101,9 @@ The following features are in scope for this project.
 - Database to store app data.
   - Postgres database will be used to store all application data.
 - Realtime Chat facility
-  - Contact chat facility on every page for realtime communication.
+  - A contact chat facility will be on every page for realtime communication.
 - Contact form
-  - Contact form to enable user to send email to artist when artist offline. 
+  - A Contact form will be available when the artist is offline. 
 - Artist Add Art
   - Form to allow the artist to add a new piece of art to sell.
 - Artist Edit Art
@@ -198,7 +199,27 @@ Link to [Wireframe]()
 
 This application uses Heroku Postgres to store and retrieve the user data. Postgres is an object-relational database system. This application consists of 7 collections as shown in the schema below.
 
-The users collection is populated when a user successfully registers and is used to verify a user upon login.
+The users collection is populated when a user successfully registers and is used to verify a user upon login. The Art collection stores the data for the art pieces that appear on the home page. Only a user with staff status can add/edit this collection.
 
+The Messages collection stores the data for any user that engages with the chat functionality present on all pages. The users IP address is added to each message and when removed from the session the assoicated messages are deleted. When the artist replies to a message the IP address of the recieved message is used and the reply recieved field is updated to true.
+
+The Artist collection stores the artist's available status for the chat functionality. This can be updated with a switch on the Messages page by the Artist. 
+
+The Contact collection is used for when the chat facility is not active and the user completes the contact form.
+
+The Order Collection stores the order details when a customer completes checkout. For each order there may be several orderline items, this collection stores data associated with individual cart items and the associated order number. 
 
 ![Leticias Art Schema](media/readme/schema.png)
+
+### Surface
+
+Leticias Art was designed to be a fun, colorful application to sell art. 
+
+#### Colour Scheme
+To reinforce the colourful aspect of art, multiple colours were used throughout the application. The navbar is a gradient of the rainbow colours with a bold purple on the footer. Complimentary colours are used throughout the site to prevent colours clashing. A golden yellow is used on the message alerts and on the footer for the chat functionality. 
+
+
+#### Typography
+Fonts used are Helvetica, Arial and sans-serif. This font was used for clear legibility of text throughout the application. 
+
+## Testing
