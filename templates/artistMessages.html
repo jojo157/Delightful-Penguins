@@ -32,7 +32,7 @@
                             <th scope="col">Action Buttons</th> 
                         </tr>
                     </thead>
-                    {% for chat_message in chat_messages %}
+                    {% for chat_message in all_messages %}
                     {% if chat_message.reply_recieved == False %}
                     <tr>
                         <td class="w-25">

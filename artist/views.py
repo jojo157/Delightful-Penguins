@@ -25,8 +25,15 @@ from chat.views import (
 @login_required
 def artist_home(request):
     # This function returns the Artist Message page if user is super user (artist)
+    # with all current messages in database
     if request.user.is_superuser:
-        return render(request, "artistMessages.html")
+        data = get_list_or_404(
+            Message.objects.order_by("date_of_message"),
+        )
+        context={
+            'all_messages': data,
+        }
+        return render(request, "artistMessages.html", context)
 
 
 @login_required
