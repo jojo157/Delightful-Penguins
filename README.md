@@ -147,6 +147,11 @@ During the planning stage, it was decided that the following pages would be need
   - To edit art piece. (artist only)
   - To delete art piece. (artist only)
 
+- An individual page for each art piece with elements:
+  - Showing more details for art piece.
+  - To add art piece to cart.
+  - To allow the user contact the artist.
+
 - Cart Page with elements:
   - To see whats in cart.
   - To edit cart.
@@ -172,5 +177,28 @@ During the planning stage, it was decided that the following pages would be need
   - To cancel the request of adding art piece.
   - To add a photo of art piece. 
 
+- A Messages Page with elements (only for artist):
+  - To turn on and off the chat facility.
+  - To view chat messages awaiting a reply.
+  - To reply to a chat message. 
+
+- An Orders Page with elements (only for artist):
+  - To see overview of all orders.
+  - To see more details on a specific order
+
+### Skeleton
+
+#### Wireframes
+
+Wireframes for this project were created using Balsamiq and can be viewed at below link.
+
+Link to [Wireframe]()
+
+#### Database Design
+
+This application uses Heroku Postgres to store and retrieve the user data. Postgres is an object-relational database system. This application consists of 7 collections as shown in the schema below.
+
+The users collection is populated when a user successfully registers and is used to verify a user upon login.
 
 
+![Leticias Art Schema](media/readme/schema.png)

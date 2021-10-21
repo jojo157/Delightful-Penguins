@@ -24,8 +24,10 @@ from chat.views import (
 
 @login_required
 def artist_home(request):
-    # This function returns the Artist Message page if user is super user (artist)
-    # with all current messages in database
+    """
+    This function returns the Artist Message page if user is super user (artist)
+    with all current messages in database
+    """
     if request.user.is_superuser:
         data = Message.objects.filter().order_by(
             "date_of_message"
@@ -38,7 +40,9 @@ def artist_home(request):
 
 @login_required
 def artist_status(request):
-    # This function updates the user status to Offline or Online depending on the status recieved
+    """
+    This function updates the user status to Offline or Online depending on the status recieved
+    """
     if request.method == "POST" and request.is_ajax:
         status = request.POST["status"]
         old_status = Artist.objects.get(pk=1)
@@ -49,7 +53,9 @@ def artist_status(request):
 
 @login_required
 def reply(request, id):
-    # This function renders a page with the message details that the artist has choosen to reply to.
+    """
+    This function renders a page with the message details that the artist has choosen to reply to.
+    """
     if request.user.is_superuser:
         message = Message.objects.get(pk=id)
         context = {
@@ -63,8 +69,10 @@ def reply(request, id):
 
 @login_required
 def artist_send_reply(request):
-    # This function adds a reply message to the message the artist replied to.
-    # The function updates the reply recieved field to True for the message that a reply was sent to
+    """
+    This function adds a reply message to the message the artist replied to.
+    The function updates the reply recieved field to True for the message that a reply was sent to
+    """
     if request.user.is_superuser:
         if request.method == "POST":
             id = request.POST["message-id"]

@@ -5,6 +5,10 @@ from art.models import Art
 
 
 def cart_contents(request):
+    """
+    This function creates a cart empty dict if no cart in session
+    If in session, it gets the cart items, total and cart_count
+    """
     cart_count = 0
     cart_items = []
     total = 0

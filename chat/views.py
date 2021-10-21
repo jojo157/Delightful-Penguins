@@ -21,8 +21,10 @@ import json
 
 
 def chatSend(request):
-    # This function will take AJAX Post of a chat message and will call the fuction to add message to the database
-    # The message and relevant username will be sent as a response to the AJAX call in json format
+    """
+    This function will take AJAX Post of a chat message and will call the fuction to add message to the database
+    The message and relevant username will be sent as a response to the AJAX call in json format
+    """
     if request.method == "POST" and request.is_ajax:
         message = request.POST["message"]
         response = addNewMessage(request, message)
@@ -30,7 +32,9 @@ def chatSend(request):
 
 
 def chatMessages(request):
-    # This function will get the currently stored messages for a particular ip address and the artists status and return these.
+    """
+    This function will get the currently stored messages for a particular ip address and the artists status and return these.
+    """
     artist_status = Artist.objects.get(pk=1)
     if "ip_address" in request.session:
         chat_session = request.session["ip_address"]
@@ -49,7 +53,9 @@ def chatMessages(request):
 
 
 def addNewMessage(request, message):
-    # This function adds a new message to the messages model database
+    """
+    This function adds a new message to the messages model database
+    """
     if not request.session.get("ip_address"):
         ip = get_ip(request)
         request.session["ip_address"] = ip
@@ -76,8 +82,11 @@ def addNewMessage(request, message):
 
 
 def get_ip(request):
-    # credit to ArRosid for code to obtain users IP address
-    # https://medium.com/@arrosid/how-to-get-visitor-ip-address-in-django-project-793d383969ae
+    """
+    This function gets a users IP address.
+    Credit to ArRosid for code to obtain users IP address
+    https://medium.com/@arrosid/how-to-get-visitor-ip-address-in-django-project-793d383969ae
+    """
     x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
     if x_forwarded_for:
         ip = x_forwarded_for.split(",")[0]
@@ -87,9 +96,11 @@ def get_ip(request):
 
 
 def contact(request):
-    # this view displays the contact form on a get request
-    # for a post request the form data is sent to the artist as an email
-    # once sent the user is given a message on screen to advise
+    """
+    This view displays the contact form on a get request
+    for a post request the form data is sent to the artist as an email
+    once sent the user is given a message on screen to advise
+    """
     if request.method == "POST":
         form_data = {
             "name": request.POST["name"],
@@ -130,10 +141,12 @@ def contact(request):
 
 
 def numberOfMessages(request):
-    #this function takes an ajax post request
-    #the number of messages in current chat is given as numOfChats
-    #the view checks the number of messages in database for that ip address 
-    #if number in database is greater than screen, it adds the new message
+    """
+    This function takes an ajax post request
+    The number of messages in current chat is given as numOfChats
+    The view checks the number of messages in database for that ip address 
+    If number in database is greater than screen, it adds the new message
+    """
     if request.method == "POST" and request.is_ajax:
         numberOfChatMessagesDisplayed = request.POST["numOfChats"]
         checkDatabase = chatMessages(request)

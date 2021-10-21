@@ -19,14 +19,17 @@ from django.http import HttpResponseRedirect
 
 
 def view_cart(request):
-    # this view will show the user any art pieces they added to cart
-
+    """
+    This view will show the user any art pieces they added to cart
+    """
     return render(request, "cart.html")
 
 
 def add_to_cart(request, id):
-    # this view will add the art piece to the cart
-    # the cart will be stored in session storage
+    """
+    This view will add the art piece to the cart
+    the cart will be stored in session storage
+    """
 
     art = get_object_or_404(Art, pk=id)
 
@@ -38,7 +41,9 @@ def add_to_cart(request, id):
 
 
 def remove_cart_item(request, id):
-    # This view removes the selected item from the users cart
+    """
+    This view removes the selected item from the users cart
+    """
 
     art = get_object_or_404(Art, pk=id)
     cart = request.session.get("cart", {})

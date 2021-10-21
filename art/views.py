@@ -33,9 +33,11 @@ def error_500(request):
 
 
 def art(request):
-    # this view will load the home page with the art for sale shown
-    # remove old messages if ip not in session for that ip so chatbox
-    # is new everytime user accesses site
+    """
+    this view will load the home page with the art for sale shown
+    remove old messages if ip not in session for that ip so chatbox
+    is new everytime user accesses site
+    """
     if not "ip_address" in request.session:
         ip = get_ip(request)
         if Message.objects.filter(chat_session=ip).exists():
@@ -47,8 +49,10 @@ def art(request):
 
 
 def addArt(request):
-    # This view will give the artist a form to add a new piece of art to sell on a get request
-    # When the view recieves a post request it will add the new art to the database and redirect to the home page
+    """
+    This view will give the artist a form to add a new piece of art to sell on a get request
+    When the view recieves a post request it will add the new art to the database and redirect to the home page
+    """
     if request.method == "POST":
         form = ArtForm(request.POST, request.FILES)
         if form.is_valid():
@@ -64,7 +68,9 @@ def addArt(request):
 
 
 def editArt(request, id):
-    # This view will allow the artist to edit a current art piece
+    """
+    This view will allow the artist to edit a current art piece
+    """
     art = get_object_or_404(Art, pk=id)
 
     if request.method == "POST":
@@ -89,7 +95,9 @@ def editArt(request, id):
 
 
 def deleteArt(request, id):
-    # This view allows an artist to delete an art piece from the home page
+    """
+    This view allows an artist to delete an art piece from the home page
+    """
     art = get_object_or_404(Art, pk=id)
     art.delete()
     messages.success(request, "Art piece deleted")
@@ -97,7 +105,9 @@ def deleteArt(request, id):
 
 
 def artDetails(request, id):
-    # This view renders the art piece in more detail
+    """
+    This view renders the art piece in more detail
+    """
     art = get_object_or_404(Art, pk=id)
     context = {
         "art": art,
