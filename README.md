@@ -108,18 +108,57 @@ The following features are in scope for this project.
 - Artist Edit Art
   - Form to amend an existing art piece.
 - Turn on/off messaging functionality
- - A slider that changes functionality of chat window.
+  - A slider that will change the functionality of chat window.
 - My Orders
- - A page where logged in users will see their previous orders.
+  - A page where logged in users will see their previous orders.
 - Orders
- - A page for artist that will show all orders. 
+  - A page for artist that will show all orders. 
 - Detailed Art Page
- - A page that will show more data about an art piece.
+  - A page that will show more details about an art piece.
 - Cart
- - A user will be able to add an art piece to their cart.
+  - A user will be able to add an art piece to their cart.
+  - A user will be able to remove an item from their cart.
 - Checkout
- - A user will be able to checkout their order.
+  - A user will be able to checkout their order.
 - Stripe payments
- - A user will be able to complete checkout with a card payments for their order total.
+  - A user will be able to complete checkout with a card payment for their order total using a stripe element.
+- Email order confirmation
+  - An email will be sent to a user after completing an order with a summary of the order details. 
 - 404 Error Page
   - A custom 404 error page if the user navigates to a resource that doesn't exist with a button to return home. 
+
+
+#### Future Features
+
+I would like to include the following future features.
+
+### Structure
+
+During the planning stage, it was decided that the following pages would be needed to ensure the user needs are meet:
+
+- Landing Page with elements:
+  - To tell the visitor what the application is for.
+  - To allow user to register.
+  - To allow user to login.
+  - To allow the user contact the artist.
+  - To browse the art pieces.
+  - To get more information on art piece.
+  - To add art piece to cart.
+
+- Cart Page with elements:
+  - To see whats in cart.
+  - To edit cart.
+  - To navigate away from cart.
+  - To checkout order. 
+  - To allow the user contact the artist.
+
+- Checkout Page with elements:
+  - To see whats in the cart.
+  - To see the order total. 
+  - To fill in personal and delivery details.
+  - To complete a card payment.
+  - To tell user to create account to see order details. 
+
+
+
+
