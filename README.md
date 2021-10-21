@@ -144,6 +144,8 @@ During the planning stage, it was decided that the following pages would be need
   - To browse the art pieces.
   - To get more information on art piece.
   - To add art piece to cart.
+  - To edit art piece. (artist only)
+  - To delete art piece. (artist only)
 
 - Cart Page with elements:
   - To see whats in cart.
@@ -159,6 +161,16 @@ During the planning stage, it was decided that the following pages would be need
   - To complete a card payment.
   - To tell user to create account to see order details. 
 
+- My Order Page with elements (only for logged in users):
+  - To see overview of all orders.
+  - To see more details on a specific order
+  - To navigate back to art.
+
+- Add Art Page with elements (only for artist):
+  - To add details for art piece.
+  - To submit the art piece to the database.
+  - To cancel the request of adding art piece.
+  - To add a photo of art piece. 
 
 
 

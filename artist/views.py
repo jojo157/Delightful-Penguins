@@ -27,8 +27,8 @@ def artist_home(request):
     # This function returns the Artist Message page if user is super user (artist)
     # with all current messages in database
     if request.user.is_superuser:
-        data = get_list_or_404(
-            Message.objects.order_by("date_of_message"),
+        data = Message.objects.filter().order_by(
+            "date_of_message"
         )
         context={
             'all_messages': data,
