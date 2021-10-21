@@ -98,11 +98,18 @@ textarea {
     z-index: 20;
     width: 200px;
     height: 60px;
-    background-color: #9400D3;
     border-style: solid;
     border: 2px;
     border-color: #000;
     color: #F5F52F;
+}
+
+.purple{
+    background-color: #9400D3;
+}
+
+.green{
+    background-color: #19c936;
 }
 
 .footer-content {

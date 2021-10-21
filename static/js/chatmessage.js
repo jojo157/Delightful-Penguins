@@ -61,28 +61,6 @@ $('#chat-form').on('submit', function (event) {
 });
 
 
-/* Functionality that on expand of chat box, stores the status in session storage.
-This will be used on page reload to update the chat box attributes to match before reload */
-$('.button-chat').on('click', function (event) {
-    var expanded = $(this).attr('aria-expanded');
-    if (expanded == "false") {
-        var newstate = "true";
-        sessionStorage.setItem("expanded", newstate);
-    } else {
-        sessionStorage.setItem("expanded", "false");
-    }
-});
-
-window.onload = function () {
-    var expanded = sessionStorage.getItem("expanded");
-    if (expanded == "true") {
-        $('#button-chat').attr('aria-expanded', expanded);
-        $('#collapseChat').addClass('show');
-        FormPersistence.persist(form);
-    }
-};
-
-
 /* check if new messages and append to chat window every minute */
 
 setInterval(function () {
@@ -114,10 +92,21 @@ function checkChatMessages() {
                 </div>`);
                 $('#chat-window').append(insert);
                 $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
+                var expanded = $(this).attr('aria-expanded');
+                if (expanded == "false") {
+                    $('#button-chat').addClass('green');
+                    $('#button-chat').removeClass('purple');
+                }
             }
         },
     })
 }
+
+// on click removes the class button-success that was added for new message above
+$('.button-chat').on('click', function (event) {
+    $('#button-chat').addClass('purple');
+    $('#button-chat').removeClass('green');
+});
 
 /* close alert window */
 $('.close-window').on('click', function (event) {
