@@ -232,7 +232,25 @@ A summary of testing conducted is shown in the table below.
 
 #### Html
 
-Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/). To obtain the HTML code on live pages, the safari developer tools were used to open the page source html and this was copied and pasted into the text input field on W3C for validation.
+Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/). To obtain the HTML code on live pages, the safari developer tools were used to open the page source html and this was copied and pasted into the text input field on W3C for validation. Pages Sign Up and Login had no errors.
 
 Landing Page
+
+Errors 
+- Element p not allowed as child of element small in this context.
+  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by removing the child element and using just the small element as standard. 
+- Unclosed element div.
+  - I located the element and closed the corresponding div tag.
+
+Cart
+
+Errors 
+- Unclosed element div.
+  - This error was due to placing a conditional template literal after the opening of a div, then when condition was false there was only an open div tag. I fixed this by placing the template literal before the opening of the div. 
+
+
+![HTML success on all pages](media/readme/htmlSuccess.png)
+
+
+
 
