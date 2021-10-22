@@ -1,4 +1,11 @@
-from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404, HttpResponse, reverse
+from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404,
+    get_list_or_404,
+    HttpResponse,
+    reverse,
+)
 from checkout.models import Order, OrderLineItem
 from chat.views import chatSend
 
@@ -12,7 +19,7 @@ from django.contrib.auth.decorators import login_required
 def profiles(request):
     user = request.user.email
     orders = Order.objects.filter(email=user)
-    context={
-        'orders': orders,
+    context = {
+        "orders": orders,
     }
-    return render(request, 'orders.html', context)
+    return render(request, "orders.html", context)

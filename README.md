@@ -313,3 +313,21 @@ The were several warnings as shown below for missing semi-colons, undefined vari
 
 ![Warnings for Chat Messages](media/readme/chatMessageJS.png)
 
+#### Python
+
+All apps Python files were validated with [PEP8 online](http://pep8online.com)
+
+The following errors were discovered and fixed to stay PEP8 compliant:
+- E302 expected 2 blank line, found 1.
+- E713 test for membership should be 'not in'
+  - I had a conditional check where the statement was "if not x in y". I fixed the syntax as advised.
+- E501 line too long 
+  - This occured where my function docstring was longer than 79 characters. I pushed the sentence to the next sentence to stay compliant. 
+- E225 missing whitespace around operator
+  - This error was due to forgetting to put a whitespace on an assignment operator. 
+
+Errors rectified and files are PEP8 compliant now.
+
+![Python validation](media/readme/python.png)
+
+### Performance Testing

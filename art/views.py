@@ -23,6 +23,7 @@ from .forms import ArtForm
 from .models import Art
 from chat.models import Message, Artist
 
+
 # error handling
 def error_404(request, exception):
     return render(request, "404.html", status=404)
@@ -38,7 +39,7 @@ def art(request):
     remove old messages if ip not in session for that ip so chatbox
     is new everytime user accesses site
     """
-    if not "ip_address" in request.session:
+    if "ip_address" not in request.session:
         ip = get_ip(request)
         if Message.objects.filter(chat_session=ip).exists():
             Message.objects.filter(chat_session=ip).delete()
@@ -50,8 +51,9 @@ def art(request):
 
 def addArt(request):
     """
-    This view will give the artist a form to add a new piece of art to sell on a get request
-    When the view recieves a post request it will add the new art to the database and redirect to the home page
+    This view will give the artist a form to add a new piece of art
+    to sell on a get request. When the view recieves a post request
+    it will add the new art to the database and redirect to the home page
     """
     if request.method == "POST":
         form = ArtForm(request.POST, request.FILES)

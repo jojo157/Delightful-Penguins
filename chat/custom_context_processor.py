@@ -6,7 +6,7 @@ def get_messages(request):
     """
     If an ip address is in session,
     This function returns the messages associated with that ip address,
-    in date order and the artists status. 
+    in date order and the artists status.
     """
     if not Artist.objects.filter(pk=1).exists():
         Artist.objects.create(pk=1, status="Offline")

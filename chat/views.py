@@ -22,8 +22,10 @@ import json
 
 def chatSend(request):
     """
-    This function will take AJAX Post of a chat message and will call the fuction to add message to the database
-    The message and relevant username will be sent as a response to the AJAX call in json format
+    This function will take AJAX Post of a chat message
+    and will call the fuction to add message to the database
+    The message and relevant username will be sent as a response
+    to the AJAX call in json format
     """
     if request.method == "POST" and request.is_ajax:
         message = request.POST["message"]
@@ -33,7 +35,8 @@ def chatSend(request):
 
 def chatMessages(request):
     """
-    This function will get the currently stored messages for a particular ip address and the artists status and return these.
+    This function will get the currently stored messages for a
+    particular ip address and the artists status and return these.
     """
     artist_status = Artist.objects.get(pk=1)
     if "ip_address" in request.session:
@@ -144,7 +147,7 @@ def numberOfMessages(request):
     """
     This function takes an ajax post request
     The number of messages in current chat is given as numOfChats
-    The view checks the number of messages in database for that ip address 
+    The view checks the number of messages in database for that ip address
     If number in database is greater than screen, it adds the new message
     """
     if request.method == "POST" and request.is_ajax:
