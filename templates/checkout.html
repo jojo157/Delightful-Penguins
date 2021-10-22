@@ -4,7 +4,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 
@@ -20,42 +20,42 @@
         <div class=" col-sm-12 col-md-6 order-2">
             <h5 class="mb-3">Complete Order</h5>
             <div class="w-100">
-            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
-                {% csrf_token %}
-                {{ order_form|crispy }}
-            
-                <p class="small text-danger my-0 mb-3 mt-2">
-                    <span class="icon">
-                        <i class="fas fa-exclamation-circle"></i>
-                    </span>
-                    <span>Your card will be charged <strong>€{{ total|floatformat:2 }}</strong></span>
-                </p>
-                <fieldset class="">
-                    <legend class="fieldset-label small text-black ">Payment</legend>
-                    <!-- A Stripe card element will go here -->
-                    <div class="mb-3" id="card-element"></div>
-                    <!-- Used to display form errors -->
-                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                    <!-- Pass the client secret to the view so we can get the payment intent id -->
-                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                </fieldset>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    {{ order_form|crispy }}
 
-                <div class="submit-button text-right mt-5 mb-2">                    
-                    <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0 float-left">
+                    <p class="small text-danger my-0 mb-3 mt-2">
                         <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
+                            <i class="fas fa-exclamation-circle"></i>
                         </span>
-                        <span class="font-weight-bold">Back</span>
-                    </a>
-                    <button id="submit-button" class="btn btn-primary rounded-0 float-right">
-                        <span class="font-weight-bold">Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    
-                </div>
-            </form>
+                        <span>Your card will be charged <strong>€{{ total|floatformat:2 }}</strong></span>
+                    </p>
+                    <fieldset class="">
+                        <legend class="fieldset-label small text-black ">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
+
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0 float-left">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Back</span>
+                        </a>
+                        <button id="submit-button" class="btn btn-primary rounded-0 float-right">
+                            <span class="font-weight-bold">Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -69,26 +69,28 @@
                         <tr>
                             <th scope="col">Art</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Price</th>   
+                            <th scope="col">Price</th>
                         </tr>
                     </thead>
                     {% for item in cart_items %}
                     <tr>
                         <td class="w-25">
                             {% if item.art_chosen.image %}
-                            <img class="img-fluid image-column" src="{{ item.art_chosen.image.url }}" alt="{{ item.art_chosen.name }}">
+                            <img class="img-fluid image-column" src="{{ item.art_chosen.image.url }}"
+                                alt="{{ item.art_chosen.name }}">
                             {% else %}
-                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png" alt="{{ item.art_chosen.name }}">
+                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png"
+                                alt="{{ item.art_chosen.name }}">
                             {% endif %}
                         </td>
                         <td class="w-25">
-                            <p>{{ item.art_chosen.name }}</p>  
+                            <p>{{ item.art_chosen.name }}</p>
                         </td>
                         <td class="w-25">
                             <p>€{{ item.art_chosen.price}}</p>
                         </td>
                     </tr>
-                {% endfor %}
+                    {% endfor %}
                     <tr class="table-info">
                         <td>
                             <p>Total</p>
@@ -99,21 +101,21 @@
                 </table>
             </div>
             <div class="">
-                <a class="btn btn-black" href="{% url 'account_signup' %}"> Create an account to view your orders. <u>Sign up</u> </a>
+                <a class="btn btn-black" href="{% url 'account_signup' %}"> Create an account to view your orders.
+                    <u>Sign up</u> </a>
             </div>
         </div>
 
-        
 
-    </div>  
+
+    </div>
 </div>
 
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'js/stripe_elements.js' %}"></script>
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
-

@@ -223,3 +223,16 @@ To reinforce the colourful aspect of art, multiple colours were used throughout 
 Fonts used are Helvetica, Arial and sans-serif. This font was used for clear legibility of text throughout the application. 
 
 ## Testing
+
+A summary of testing conducted is shown in the table below. 
+
+![Testing Summary](media/readme/testSummary.png)
+
+### Code Validation
+
+#### Html
+
+Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/). To obtain the HTML code on live pages, the safari developer tools were used to open the page source html and this was copied and pasted into the text input field on W3C for validation.
+
+Landing Page
+

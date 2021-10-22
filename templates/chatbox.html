@@ -3,17 +3,19 @@
     <div class="card chat-card mb-3 mt-1 float-right mr-3">
         <div class="card-body">
             <blockquote class="blockquote mb-0">
-                <p class="card-text">I am currently offline, please use the <a class="contact-form" href="{% url 'contact' %}">contact form</a> to email your query. I will respond as soon as possible. Have a great day!</p>  
+                <p class="card-text">I am currently offline, please use the <a class="contact-form"
+                        href="{% url 'contact' %}">contact form</a> to email your query. I will respond as soon as
+                    possible. Have a great day!</p>
             </blockquote>
         </div>
     </div>
-  
+
     {% else %}
-        {% if chat_messages %}
-            {% for chat_message in chat_messages %}
-            {% if chat_message.user_name == 'Leticia' %}
-        <div class="card chat-card mb-3 mt-1 float-right mr-3">
-            {% else %}
+    {% if chat_messages %}
+    {% for chat_message in chat_messages %}
+    {% if chat_message.user_name == 'Leticia' %}
+    <div class="card chat-card mb-3 mt-1 float-right mr-3">
+        {% else %}
         <div class="card chat-card mb-3 mt-1 ml-3">
             {% endif %}
             <div class="card-body">
@@ -23,11 +25,11 @@
                 </blockquote>
             </div>
         </div>
-            {% endfor %}
+        {% endfor %}
         {% endif %}
 
-    {% endif%}
-    
+        {% endif%}
 
-    
-</div>
+
+
+    </div>

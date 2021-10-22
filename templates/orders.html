@@ -13,7 +13,7 @@
                 <table class="table table-sm ">
                     <thead class="text-black">
                         <tr>
-                            <th scope="col">Order Number</th> 
+                            <th scope="col">Order Number</th>
                             <th scope="col">Order Date</th>
                             <th scope="col">Total</th>
                         </tr>
@@ -21,10 +21,11 @@
                     {% for order in orders %}
                     <tr>
                         <td class="w-25">
-                        <p><a href="{% url 'checkout_success' order.order_number  %}">{{ order.order_number }}</a></p>
+                            <p><a href="{% url 'checkout_success' order.order_number  %}">{{ order.order_number }}</a>
+                            </p>
                         </td>
                         <td class="w-25">
-                            <p>{{ order.date }}</p>  
+                            <p>{{ order.date }}</p>
                         </td>
                         <td class="w-25">
                             <p>€{{ order.grand_total }}</p>
@@ -32,10 +33,10 @@
                     </tr>
                     {% endfor %}
                 </table>
-            {% else %}
+                {% else %}
                 <p class="">No previous orders</p>
                 <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
-            {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>

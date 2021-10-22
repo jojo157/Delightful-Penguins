@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block extra_css %}
-<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-{% endblock %} 
+<link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+    rel="stylesheet">
+{% endblock %}
 
 {% block content %}
 
@@ -11,9 +12,10 @@
     <h1 class="text-center mt-5">Welcome Leticia</h1>
     <h5 class="text-center mt-5">Chat Facility</h3>
         {% csrf_token %}
-    <div class="text-center">
-        <input type="checkbox" {% if artist_status.status == 'Online' %} checked {% endif %} data-toggle="toggle" data-size="lg" id="artist-status-switch" data-onstyle="outline-success" data-offstyle="outline-danger">
-    </div>
+        <div class="text-center">
+            <input type="checkbox" {% if artist_status.status == 'Online' %} checked {% endif %} data-toggle="toggle"
+                data-size="lg" id="artist-status-switch" data-onstyle="outline-success" data-offstyle="outline-danger">
+        </div>
 </div>
 
 <div class="container mt-2">
@@ -21,7 +23,7 @@
         <div class="col-sm-12">
             <h5 class="text-center mt-5 mb-2">Messages </h5>
         </div>
-        
+
         <div class="col-sm-12">
             <div class="table-responsive rounded">
                 <table class="table table-sm ">
@@ -29,7 +31,7 @@
                         <tr>
                             <th scope="col">User</th>
                             <th scope="col">Message Preview</th>
-                            <th scope="col">Action Buttons</th> 
+                            <th scope="col">Action Buttons</th>
                         </tr>
                     </thead>
                     {% for chat_message in all_messages %}
@@ -39,10 +41,12 @@
                             <p>{{ chat_message.user_name }}</p>
                         </td>
                         <td class="w-50">
-                            <p class="overflow-hidden">{{ chat_message.message_content }}</p>  
+                            <p class="overflow-hidden">{{ chat_message.message_content }}</p>
                         </td>
                         <td class="w-25">
-                            <p><a class="btn btn-primary btn-sm message-reply-button" data-chat-session="{{ chat_message.chat_session }}" data-chat-id="{{ chat_message.id }}" href="">Reply</a></p>
+                            <p><a class="btn btn-primary btn-sm message-reply-button"
+                                    data-chat-session="{{ chat_message.chat_session }}"
+                                    data-chat-id="{{ chat_message.id }}" href="">Reply</a></p>
                         </td>
                     </tr>
                     {% endif %}
@@ -56,9 +60,9 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-    <script src="{% static 'js/artist.js' %}"></script>
-    <script src="{% static 'js/artist_messages.js' %}"></script>
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script src="{% static 'js/artist.js' %}"></script>
+<script src="{% static 'js/artist_messages.js' %}"></script>
 
 {% endblock %}

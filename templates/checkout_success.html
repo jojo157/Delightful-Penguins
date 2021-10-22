@@ -4,68 +4,70 @@
 {% block content %}
 
 <div class="container">
-<h2 class="mt-5 mb-5 text-center">Thank you for supporting Leticia's Art</h2>
+    <h2 class="mt-5 mb-5 text-center">Thank you for supporting Leticia's Art</h2>
 
-<div class="">
-    <p><strong>Order Number:</strong> {{ order.order_number }}</p> 
-    <p><strong>Order Date & Time:</strong> {{ order.date}} </p>
-    <p><strong>Delivering to:</strong> {{ order.street_address1 }},
-        {% if order.street_address2 %}
-        {{ order.street_address2 }},
-        {% endif %}
-        {{ order.town_or_city }},
-        {{ order.county }},
-        {{ order.postcode }},
-        {{ order.country }}.
-    </p>
-    <p><strong>Total charged:</strong> €{{ order.grand_total }} </p>
-</div>
+    <div class="">
+        <p><strong>Order Number:</strong> {{ order.order_number }}</p>
+        <p><strong>Order Date & Time:</strong> {{ order.date}} </p>
+        <p><strong>Delivering to:</strong> {{ order.street_address1 }},
+            {% if order.street_address2 %}
+            {{ order.street_address2 }},
+            {% endif %}
+            {{ order.town_or_city }},
+            {{ order.county }},
+            {{ order.postcode }},
+            {{ order.country }}.
+        </p>
+        <p><strong>Total charged:</strong> €{{ order.grand_total }} </p>
+    </div>
 
-<div class="row mt-5">
-    <div class=" col-sm-12">
-        <h5 class="mb-3">Order Summary</h5>
-        <div class="table-responsive rounded mb-3">
-            <table class="table table-sm ">
-                <thead class="text-black">
+    <div class="row mt-5">
+        <div class=" col-sm-12">
+            <h5 class="mb-3">Order Summary</h5>
+            <div class="table-responsive rounded mb-3">
+                <table class="table table-sm ">
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Art</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    {% for item in order.lineitems.all %}
+
+
                     <tr>
-                        <th scope="col">Art</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Price</th>   
+                        <td class="w-25">
+                            {% if item.art.image %}
+                            <img class="img-fluid image-column" src="{{ item.art.image.url }}"
+                                alt="{{ item.art.name }}">
+                            {% else %}
+                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png"
+                                alt="{{ item.art.name }}">
+                            {% endif %}
+                        </td>
+                        <td class="w-25">
+                            <p>{{ item.art.name }}</p>
+                        </td>
+                        <td class="w-25">
+                            <p>€{{ item.art.price}}</p>
+                        </td>
                     </tr>
-                </thead>
-                {% for item in order.lineitems.all %}
-
-                
-                <tr>
-                    <td class="w-25">
-                        {% if item.art.image %}
-                        <img class="img-fluid image-column" src="{{ item.art.image.url }}" alt="{{ item.art.name }}">
-                        {% else %}
-                        <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png" alt="{{ item.art.name }}">
-                        {% endif %}
-                    </td>
-                    <td class="w-25">
-                        <p>{{ item.art.name }}</p>  
-                    </td>
-                    <td class="w-25">
-                        <p>€{{ item.art.price}}</p>
-                    </td>
-                </tr>
-            {% endfor %}
-                <tr class="table-info">
-                    <td>
-                        <p>Total</p>
-                    </td>
-                    <td></td>
-                    <td>€{{ order.grand_total }}</td>
-                </tr>
-            </table>
+                    {% endfor %}
+                    <tr class="table-info">
+                        <td>
+                            <p>Total</p>
+                        </td>
+                        <td></td>
+                        <td>€{{ order.grand_total }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-<div class="text-center">
-    <a class="btn btn-lg btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
-</div>
+    <div class="text-center">
+        <a class="btn btn-lg btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
+    </div>
 
 </div>
 

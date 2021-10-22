@@ -3,18 +3,18 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/error.css' %}">
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 <div class="container error-container text-center mt-5">
-        <img class="img-fluid error-image" src="{{ MEDIA_URL }}fox.JPG" alt="fox image">
-        <div class="error-text-section">
-            <h1>404</h1>
-            <h4 class="mt-2"> Page Not Found</h4>
-        </div>
-        <div class="error-action">
-            <a class="btn btn-primary mt-2" href="{% url 'art' %}">Return Home</a>
-        </div>
+    <img class="img-fluid error-image" src="{{ MEDIA_URL }}fox.JPG" alt="fox image">
+    <div class="error-text-section">
+        <h1>404</h1>
+        <h4 class="mt-2"> Page Not Found</h4>
+    </div>
+    <div class="error-action">
+        <a class="btn btn-primary mt-2" href="{% url 'art' %}">Return Home</a>
+    </div>
 
 </div>
 

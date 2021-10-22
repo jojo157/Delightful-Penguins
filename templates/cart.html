@@ -21,29 +21,32 @@
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col"></th>
-                            
+
                         </tr>
                     </thead>
                     {% for item in cart_items %}
                     <tr>
                         <td class="w-25">
                             {% if item.art_chosen.image %}
-                            <img class="img-fluid image-column" src="{{ item.art_chosen.image.url }}" alt="{{ item.art_chosen.name }}">
+                            <img class="img-fluid image-column" src="{{ item.art_chosen.image.url }}"
+                                alt="{{ item.art_chosen.name }}">
                             {% else %}
-                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png" alt="{{ item.art_chosen.name }}">
+                            <img class="img-fluid image-column" src="{{ MEDIA_URL }}noImage.png"
+                                alt="{{ item.art_chosen.name }}">
                             {% endif %}
                         </td>
                         <td class="w-25">
-                            <p>{{ item.art_chosen.name }}</p>  
+                            <p>{{ item.art_chosen.name }}</p>
                         </td>
                         <td class="w-25">
                             <p>€{{ item.art_chosen.price}}</p>
                         </td>
                         <td class="w-25">
-                            <a class="btn btn-sm btn-primary" href="{% url 'remove_cart_item' item.art_chosen.id %}">Remove</a>
+                            <a class="btn btn-sm btn-primary"
+                                href="{% url 'remove_cart_item' item.art_chosen.id %}">Remove</a>
                         </td>
                     </tr>
-                {% endfor %}
+                    {% endfor %}
                     <tr class="table-info">
                         <td>
                             <p>Total</p>
@@ -64,13 +67,13 @@
             </div>
         </div>
     </div>
-            {% else %}
-                <p>Your bag is empty</p>
-                <div class="float-left">
-                    <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
-                </div>
-            {% endif %}
-    
+    {% else %}
+    <p>Your bag is empty</p>
+    <div class="float-left">
+        <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
+    </div>
+    {% endif %}
+
 </div>
 
 {% endblock %}

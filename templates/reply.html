@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/reply.css' %}">
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 
@@ -17,12 +17,13 @@
                     <footer class="blockquote-footer">{{ new_user }}</footer>
                 </blockquote>
             </div>
-        </div>  
+        </div>
     </div>
-    <form class="start-chat-form" id="chat-form-artist" action="{% url 'artist_send_reply' %}" method="POST" >
+    <form class="start-chat-form" id="chat-form-artist" action="{% url 'artist_send_reply' %}" method="POST">
         {% csrf_token %}
         <div class="form-group chat-box row mt-1 w-100">
-            <textarea class="col-12" id="message" name="message" id="chat-message" placeholder="Your Message"></textarea>
+            <textarea class="col-12" id="message" name="message" id="chat-message"
+                placeholder="Your Message"></textarea>
             <input class="col-12" type="hidden" id="message-id" name="message-id" value="{{new_id}}">
         </div>
         <button type="submit-button" class="btn btn-primary mt-3 mb-3 ml-1 text-center"> Submit Message</button>

@@ -3,7 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/art.css' %}">
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
 <div class="container-fluid h-100">
@@ -11,27 +11,28 @@
         <div class="col-sm-10 col-sm-offset-1 mt-2 col-lg-6 ">
             <div class="text-center">
                 {% if art.image %}
-                    <img class="img-fluid art-piece-image" src="{{ art.image.url }}" alt="{{ art.name }}">
+                <img class="img-fluid art-piece-image" src="{{ art.image.url }}" alt="{{ art.name }}">
                 {% else %}
-                    <img class="img-fluid art-piece-image" src="{{ MEDIA_URL }}noImage.png" alt="{{ art.name }}">
+                <img class="img-fluid art-piece-image" src="{{ MEDIA_URL }}noImage.png" alt="{{ art.name }}">
                 {% endif %}
             </div>
         </div>
         <div class="col-sm-10 col-sm-offset-1 mt-2 col-lg-4 ">
             <div class="text-center ">
-                    <h5 class="">{{ art.name }}</h5>
-                    <p class="">€{{ art.price }}</p>
-                    <p class="">{{ art.description }}</p>
-                    <small>
-                        {% if art.available %}
-                        <p class="text-success">Available </p>
-                        {% else %}
-                        <p class="text-danger">Sold Out</p>
-                        {% endif %}
-                    </small>
-                    <div class="ml-3">
-                        <a class="btn btn-sm btn-primary {% if not art.available %}disabled {% endif %}" href="{% url 'add_to_cart' art.id %}">Add to cart</a>
-                    </div>
+                <h5 class="">{{ art.name }}</h5>
+                <p class="">€{{ art.price }}</p>
+                <p class="">{{ art.description }}</p>
+                <small>
+                    {% if art.available %}
+                    <p class="text-success">Available </p>
+                    {% else %}
+                    <p class="text-danger">Sold Out</p>
+                    {% endif %}
+                </small>
+                <div class="ml-3">
+                    <a class="btn btn-sm btn-primary {% if not art.available %}disabled {% endif %}"
+                        href="{% url 'add_to_cart' art.id %}">Add to cart</a>
+                </div>
             </div>
         </div>
     </div>
