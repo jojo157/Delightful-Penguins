@@ -22,13 +22,13 @@
                 <h5 class="">{{ art.name }}</h5>
                 <p class="">€{{ art.price }}</p>
                 <p class="">{{ art.description }}</p>
-                <small>
+                <p>
                     {% if art.available %}
-                    <p class="text-success">Available </p>
+                    <small class="text-success">Available </small>
                     {% else %}
-                    <p class="text-danger">Sold Out</p>
+                    <small class="text-danger">Sold Out</small>
                     {% endif %}
-                </small>
+                </p>
                 <div class="ml-3">
                     <a class="btn btn-sm btn-primary {% if not art.available %}disabled {% endif %}"
                         href="{% url 'add_to_cart' art.id %}">Add to cart</a>

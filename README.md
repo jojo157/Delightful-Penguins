@@ -29,9 +29,14 @@ Image created using [Am I responsive](http://ami.responsivedesign.is/)
 - [Testing](#testing)
     - [Code Validation](#code-validation)
         - [Html](#html)
-          - []()
-          - []()
-          - []()
+          - [Landing Page](#landing-page)
+          - [Cart](#cart)
+          - [Checkout](#checkout)
+          - [Orders](#orders)
+          - [Artist Meassages](#artist-messages)
+          - [Reply](#reply)
+          - [Contact](#contact)
+          - [Art Details](#art-details)
         - [CSS](#css)
         - [JavaScript](#javascript)
         - [Python](#python)
@@ -232,17 +237,17 @@ A summary of testing conducted is shown in the table below.
 
 #### Html
 
-Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/). To obtain the HTML code on live pages, the safari developer tools were used to open the page source html and this was copied and pasted into the text input field on W3C for validation. Pages Sign Up and Login had no errors.
+Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/). To obtain the HTML code on live pages, the safari developer tools were used to open the page source html and this was copied and pasted into the text input field on W3C for validation. Pages Sign Up, Login, Checkout Success, Add Art, Art Edit and 404 had no errors or warnings on validation.
 
-Landing Page
+##### Landing Page
 
 Errors 
 - Element p not allowed as child of element small in this context.
-  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by removing the child element and using just the small element as standard. 
+  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swaping the roles.
 - Unclosed element div.
   - I located the element and closed the corresponding div tag.
 
-Cart
+##### Cart
 
 The cart page was tested firstly with no items in the cart. Then by adding two items and rechecking the html on Html Checker.
 
@@ -250,14 +255,49 @@ Errors
 - Unclosed element div.
   - This error was due to placing a conditional template literal after the opening of a div, then when condition was false there was only an open div tag. I fixed this by placing the template literal before the opening of the div. 
 
-Checkout
+##### Checkout
 
 Errors
 - Duplicate ID submit-button.
   - I had not noticed I had used the same ID on the chat submit button and the checkout submit button. I updated the checkout-button ID to submit-button2 and amended any related files using this value.
 
+##### Orders
+
+Errors 
+- Unclosed element div.
+  - This error was due to a closing div been outside of a conditional block of html. It was fixed by relocating the closing div within the conditional block.
+
+##### Artist Messages
+
+Errors
+- End tag h3 seen, but there were open elements.
+  - The above error was due to changing a h3 element to a h5 element and forgetting to change the closing tag. This was updated to ensure both tags have h5.
+
+##### Reply
+
+Errors
+- Duplicate IDs
+  - Some of the ids for the chat window were also used for the artist reply chat window. I updated the IDs for the artist chat page to remove the duplication.
+
+##### Contact
+
+Errors
+- Unclosed element div.
+  - I forgot to close the container div. I fixed this an retested. 
+
+##### Art Details
+
+Errors 
+- Element p not allowed as child of element small in this context.
+  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swaping the roles.
+
+
+All pages now successfully pass through the validator as shown in the image below.
+
 ![HTML success on all pages](media/readme/htmlSuccess.png)
 
 
+#### CSS
 
+CSS page was validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 

@@ -77,7 +77,7 @@ def artist_send_reply(request):
         if request.method == "POST":
             id = request.POST["message-id"]
             old_message = Message.objects.get(pk=id)
-            message_content = request.POST["message"]
+            message_content = request.POST["message-artist"]
             chat_session = old_message.chat_session
             user_name = "Leticia"
             new_message = Message(

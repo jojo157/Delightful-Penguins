@@ -33,11 +33,12 @@
                     </tr>
                     {% endfor %}
                 </table>
-                {% else %}
-                <p class="">No previous orders</p>
-                <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
-                {% endif %}
             </div>
+            {% else %}
+            <p class="">No previous orders</p>
+            <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
+            {% endif %}
+            
         </div>
     </div>
 </div>
