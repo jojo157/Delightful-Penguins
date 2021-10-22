@@ -244,10 +244,17 @@ Errors
 
 Cart
 
+The cart page was tested firstly with no items in the cart. Then by adding two items and rechecking the html on Html Checker.
+
 Errors 
 - Unclosed element div.
   - This error was due to placing a conditional template literal after the opening of a div, then when condition was false there was only an open div tag. I fixed this by placing the template literal before the opening of the div. 
 
+Checkout
+
+Errors
+- Duplicate ID submit-button.
+  - I had not noticed I had used the same ID on the chat submit button and the checkout submit button. I updated the checkout-button ID to submit-button2 and amended any related files using this value.
 
 ![HTML success on all pages](media/readme/htmlSuccess.png)
 

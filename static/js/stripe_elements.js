@@ -61,7 +61,7 @@ form2.addEventListener('submit', function (ev) {
     var url = 'cache_checkout_data/';
 
     $.post(url, postData).done(function () {
-        $('#submit-button').attr('disabled', true);
+        $('#submit-button2').attr('disabled', true);
         stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: card,
@@ -102,7 +102,7 @@ form2.addEventListener('submit', function (ev) {
                 card.update({
                     'disabled': false
                 });
-                $('#submit-button').attr('disabled', false);
+                $('#submit-button2').attr('disabled', false);
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     form2.submit();
