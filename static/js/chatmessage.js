@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+const $ = window.$;
+
 /* 
     credit to https://docs.djangoproject.com/en/3.2/ref/csrf/
     gets csrf token
@@ -45,11 +48,11 @@ $('#chat-form').on('submit', function (event) {
             csrfmiddlewaretoken: csrftoken
         },
         success: function (response) {
-            newdata = JSON.parse(response);
+            var newdata = JSON.parse(response);
             $('#message').val('');
-            newmessage = newdata["message_content"];
-            user = newdata["user_name"];
-            insert = $(`
+            var newmessage = newdata.message_content;
+            var user = newdata.user_name;
+            var insert = $(`
             <div class="card chat-card mb-3 mt-1 ml-3">
             <div class="card-body">
             <blockquote class="blockquote mb-0">
@@ -64,14 +67,14 @@ $('#chat-form').on('submit', function (event) {
         error: (error) => {
             console.log(error);
         }
-    })
+    });
 });
 
 
 /* check if new messages and append to chat window every minute */
 
 setInterval(function () {
-    checkChatMessages()
+    checkChatMessages();
 }, 60000);
 
 function checkChatMessages() {
@@ -87,8 +90,8 @@ function checkChatMessages() {
             if (response == 'up_to_date') {
                 return;
             } else {
-                message = response;
-                insert = $(`
+                var message = response;
+                var insert = $(`
                 <div class="card chat-card mb-3 mt-1 float-right mr-3">
                 <div class="card-body">
                 <blockquote class="blockquote mb-0">
@@ -106,7 +109,7 @@ function checkChatMessages() {
                 }
             }
         },
-    })
+    });
 }
 
 /* on click removes the colour that was added for new message above 
@@ -125,4 +128,4 @@ $('.close-window').on('click', function (event) {
 /* on expand on navbar for mobile change colour of backgorund using class change */
 $(".navbar-toggler").click(function () {
     $(".navbar-collapse").toggleClass("nav-collapse-colour");
-})
+});

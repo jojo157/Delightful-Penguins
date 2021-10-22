@@ -301,3 +301,15 @@ All pages now successfully pass through the validator as shown in the image belo
 
 CSS page was validated with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
 
+No errors were present.
+
+![css pass ](media/readme/cssSuccess.png)
+
+#### JavaScript
+
+JavaScript files were validated with [JSHint](https://jshint.com/)
+
+The were several warnings as shown below for missing semi-colons, undefined variables and a warning that it is better to use dot notation instead of format ['x']. I fixed the missing semi-colons, defined the variables and updated the notation to dot notion. The code was retested and no warnings are given now.
+
+![Warnings for Chat Messages](media/readme/chatMessageJS.png)
+
