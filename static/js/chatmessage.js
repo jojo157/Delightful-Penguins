@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const $ = window.$;
+
 
 /* 
     credit to https://docs.djangoproject.com/en/3.2/ref/csrf/

@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-const $ = window.$;
+
 
 /* 
 stripe card element for checkout page
