@@ -315,7 +315,7 @@ The were several warnings as shown below for missing semi-colons, undefined vari
 
 #### Python
 
-All apps Python files were validated with [PEP8 online](http://pep8online.com)
+All Python files were validated with [PEP8 online](http://pep8online.com)
 
 The following errors were discovered and fixed to stay PEP8 compliant:
 - E302 expected 2 blank line, found 1.
