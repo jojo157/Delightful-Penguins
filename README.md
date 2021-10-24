@@ -472,9 +472,6 @@ Test scripts were created for each test case and manual testing was conducted on
 **Autheniticated users orders TC13**
 ![User Orders results](media/readme/tc13.png) 
 
-**Access to restricted views TC14**
-![Restricted views results](media/readme/tc14.png) 
-
 **Logout removes users session and access TC17**
 ![Session data results](media/readme/tc14.png) 
 
@@ -502,3 +499,10 @@ On navigation to a page that doesnt exist, my custom 404 page is displayed as sh
 All forms were manually tested and the result of the testing are shown in the below table.
 
 ![Form validation results](media/readme/tc15.png)
+
+### Access Testing
+
+**Access to restricted views TC14**
+![Restricted views results](media/readme/tc14.png) 
+
+### CRUD Testing
