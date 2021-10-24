@@ -383,7 +383,9 @@ Once submitted, the user gets a confirmation email and is shown a checkout succe
 
 > I want to be able to contact the artist with questions.
 
+Every page has a 'Chat with Leticia' on the footer with a conversation icon. On click a chat window opens. If the artist is online, a user can message the artist and the artist replies will be added to their chat window. 
 
+![Chat facility](media/readme/email.png) 
 
 > I want to be alerted when the artist has replied. 
 
