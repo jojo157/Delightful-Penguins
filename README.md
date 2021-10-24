@@ -453,7 +453,7 @@ The Artist has a navigation option of Orders. All orders are shown on this page 
 
 ![Art functionality Test results](media/readme/tc7.png) 
 
-**Chat Facility TC8**
+**Chat Facility TC8 and TC12**
 
 ![Chat functionality Test results](media/readme/tc8part1.png) 
 ![Chat functionality Test results](media/readme/tc8part2.png) 
@@ -463,3 +463,9 @@ The Artist has a navigation option of Orders. All orders are shown on this page 
 
 **Artist Slider TC10**
 ![Artist slider results](media/readme/tc10.png) 
+
+**Artist see new messages TC11**
+![Artist view messages results](media/readme/tc11.png) 
+
+**Autheniticated users orders TC13**
+![User Orders results](media/readme/tc13.png) 

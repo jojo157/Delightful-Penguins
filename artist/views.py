@@ -21,8 +21,9 @@ from chat.views import (
     addNewMessage,
 )
 
+from art.views import art
 
-@login_required
+
 def artist_home(request):
     """
     This function returns the Artist Message page
@@ -37,6 +38,8 @@ def artist_home(request):
             'all_messages': data,
         }
         return render(request, "artistMessages.html", context)
+    else:
+        return redirect("art")
 
 
 @login_required
@@ -68,6 +71,9 @@ def reply(request, id):
             "new_id": id,
         }
         return render(request, "reply.html", context)
+    else:
+        return redirect("art")
+
 
 
 @login_required
@@ -94,3 +100,5 @@ def artist_send_reply(request):
             Message.objects.filter(pk=id).update(reply_recieved=True)
             messages.success(request, "reply sent")
         return redirect("artist_home")
+    else:
+        return redirect("art")

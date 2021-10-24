@@ -62,11 +62,14 @@ def addArt(request):
             messages.success(request, "Art added")
             return redirect("art")
     else:
-        form = ArtForm()
-        context = {
-            "form": form,
-        }
-        return render(request, "artAdd.html", context)
+        if request.user.is_superuser:
+            form = ArtForm()
+            context = {
+                "form": form,
+            }
+            return render(request, "artAdd.html", context)
+        else:
+            return redirect("art")
 
 
 def editArt(request, id):
@@ -74,36 +77,41 @@ def editArt(request, id):
     This view will allow the artist to edit a current art piece
     """
     art = get_object_or_404(Art, pk=id)
+    if request.user.is_superuser:
+        if request.method == "POST":
+            form = ArtForm(request.POST, request.FILES, instance=art)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Art details updated.")
+                return redirect("art")
+            else:
+                messages.error(
+                    request, "Issue updating art piece, please try again later."
+                )
+                return redirect("art")
 
-    if request.method == "POST":
-        form = ArtForm(request.POST, request.FILES, instance=art)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Art details updated.")
-            return redirect("art")
         else:
-            messages.error(
-                request, "Issue updating art piece, please try again later."
-            )
-            return redirect("art")
-
+            form = ArtForm(instance=art)
+            context = {
+                "form": form,
+                "id": id,
+            }
+            return render(request, "artEdit.html", context)
     else:
-        form = ArtForm(instance=art)
-        context = {
-            "form": form,
-            "id": id,
-        }
-        return render(request, "artEdit.html", context)
+        return redirect("art")
 
 
 def deleteArt(request, id):
     """
     This view allows an artist to delete an art piece from the home page
     """
-    art = get_object_or_404(Art, pk=id)
-    art.delete()
-    messages.success(request, "Art piece deleted")
-    return redirect(reverse("art"))
+    if request.user.is_superuser:
+        art = get_object_or_404(Art, pk=id)
+        art.delete()
+        messages.success(request, "Art piece deleted")
+        return redirect(reverse("art"))
+    else:
+        return redirect("art")
 
 
 def artDetails(request, id):
