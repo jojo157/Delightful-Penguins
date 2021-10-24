@@ -401,20 +401,46 @@ When the artist has replied to your message, the message is added at the bottom 
 
 > I want to save my order data for easy access. 
 
-All logged in users can see the orders associated with their account. In the navigation menu their is an option called orders. 
+All logged in users can see the orders associated with their account. In the navigation menu their is an option called My Orders. 
 
+![Orders](media/readme/orders.png) 
 
+The user can click the order number and will see all the details associated with that order. Additionally on the checkout page their is text to alert a user that they can create an account to view their orders.
+
+![Text to register to view orders](media/readme/register.png) 
 
 
 #### Business Owner
 
-
 > I want to be able to advertise my current art pieces for sale.
+
+Leticias Art landing page showcasts the business owners work and is a platform to sell the pieces to the public. 
 
 > I want to be able to update my current art offering.
 
+When the artist is logged in, she can see an option to 'Edit' on each art piece. On click, this opens a page with the art form prefilled to allow the artist to edit and submit the changes. 
+
+![Artist Art options](media/readme/artoptions.png) 
+
+![Art Edit form](media/readme/artedit.png) 
+
 > I want to be able to add new art offerings.
 
+When the artist is logged in, she has a navigation option of "Add Art".
+
+![Artist Navigation option](media/readme/artistnav.png) 
+
+This page presents a form to the artist to fill in the art piece details and an image. Once the form is submitted, the new add piece is added to the landing page. 
+
+![Add Art](media/readme/addArt.png) 
+
 > I want to be able to talk in real time with any potential customers who engage with the chat facility.
+
+When the Artist logins she has a navigation option of 'Messages'. On this page, the Artist can turn on or off the chat facility using a slider as show in the below image. 
+
+Messages awaiting a reply are shown in a table with the oldest message shown first. The table updates every half minute. An action button of Reply opens a new window with the customers message shown and an input field for the artist to type her reply. The reply message is added to the customers chat window and the customers message is removed from the artists message table.
+
+![Artist chat](media/readme/artistchat.png) 
+
 
 > I want to see a list of orders in date order.
