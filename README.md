@@ -444,3 +444,22 @@ Messages awaiting a reply are shown in a table with the oldest message shown fir
 
 
 > I want to see a list of orders in date order.
+
+The Artist has a navigation option of Orders. All orders are shown on this page in date order of newest first. The layout is the same as shown previous for the customers orders. 
+
+### Functionality Testing
+
+**Art Piece TC7**
+
+![Art functionality Test results](media/readme/tc7.png) 
+
+**Chat Facility TC8**
+
+![Chat functionality Test results](media/readme/tc8part1.png) 
+![Chat functionality Test results](media/readme/tc8part2.png) 
+
+**Add Art TC9**
+![Art functionality Test results](media/readme/tc9.png) 
+
+**Artist Slider TC10**
+![Artist slider results](media/readme/tc10.png) 
