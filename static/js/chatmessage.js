@@ -77,10 +77,11 @@ setInterval(function () {
     checkChatMessages();
 }, 60000);
 
-function checkChatMessages() {
+function checkChatMessages(event) {
+    event.preventDefault();
     var numOfChats = $('.chat-card').length;
     $.ajax({
-        url: 'numberOfMessages/',
+        url: '/numberOfMessages/',
         type: 'POST',
         data: {
             numOfChats: numOfChats,

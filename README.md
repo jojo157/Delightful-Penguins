@@ -74,11 +74,12 @@ Leticias Art was created with the purpose of providing a platform for the Artist
 #### User Needs
 
 ##### As a site user
-- As a site user, I want to be able to browse the art.
+- As a site user, I want to be able to browse art.
 - As a site user, I want to be able to quickly know which art pieces are available.
 - As a site user, I want to be able to see the price of a piece of art. 
 - As a site user, I want to be able to put through an order to buy the piece of art I like.
 - As a site user, I want to be able to contact the artist with questions.
+- As a site user, I want to be alerted when the artist has replied. 
 - As a site user, I want to save my order data for easy access. 
 
 ##### As the business owner
@@ -340,3 +341,63 @@ example output from Lighthouse audit for Landing Page.
 ![Lighthouse results for Landing page](media/readme/landing.png)
 
 The final results for each page are shown in the below table.
+![Lighthouse results for all pages](media/readme/lighthouse.png)
+
+### User Stories Testing
+
+The user's needs are met as follows:
+
+#### Site user
+
+> I want to be able to browse art.
+
+Upon entering the site, A user is presented with a section entitled Art Pieces. Here the user can view all art pieces.
+![Browse Art](media/readme/userneedart.png) 
+
+Each piece has an action button "See More" that gives more details about a particular piece.
+
+![Browse Art](media/readme/userneeddetailed.png) 
+
+> I want to be able to quickly know which art pieces are available.
+
+Each art piece has an availability status of "Available" or "Sold Out". If a piece is sold out the Button "Add to cart" is disabled. Once a piece of art has been successfully purchased the status updates from available to Sold Out. 
+
+> I want to be able to see the price of a piece of art. 
+
+The price is shown on each art price below the pieces name.
+
+> I want to be able to put through an order to buy the piece of art I like.
+
+A button "Add to Cart" allows any user to add an available piece of art to their cart. This action redirects the user to the cart where they can see a summary of items added and an action button "Complete Order".
+
+![Cart](media/readme/cart.png) 
+
+If a user chooses to Complete an Order they are redirected to a checkout page with a form for their delivery details and a stripe element to complete payment.  
+
+![Checkout](media/readme/checkout.png) 
+
+Once submitted, the user gets a confirmation email and is shown a checkout success page with an overview of the order.
+
+![Checkout Success](media/readme/checkoutsuccess.png) 
+![Checkout Email](media/readme/checkoutsuccessemail.png) 
+
+
+
+> I want to be able to contact the artist with questions.
+
+> I want to be alerted when the artist has replied. 
+
+> I want to save my order data for easy access. 
+
+#### Business Owner
+
+
+> I want to be able to advertise my current art pieces for sale.
+
+> I want to be able to update my current art offering.
+
+> I want to be able to add new art offerings.
+
+> I want to be able to talk in real time with any potential customers who engage with the chat facility.
+
+> I want to see a list of orders in date order.
