@@ -383,6 +383,8 @@ Once submitted, the user gets a confirmation email and is shown a checkout succe
 
 > I want to be able to contact the artist with questions.
 
+
+
 > I want to be alerted when the artist has replied. 
 
 > I want to save my order data for easy access. 

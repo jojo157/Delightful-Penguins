@@ -73,12 +73,12 @@ $('#chat-form').on('submit', function (event) {
 
 /* check if new messages and append to chat window every minute */
 
-setInterval(function (e) {
-    checkChatMessages(e);
+setInterval(function (event) {
+    checkChatMessages(event);
 }, 60000);
 
-function checkChatMessages(e) {
-    e.preventDefault();
+function checkChatMessages(event) {
+    event.preventDefault();
     var numOfChats = $('.chat-card').length;
     $.ajax({
         url: '/numberOfMessages/',
