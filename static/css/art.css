@@ -101,6 +101,7 @@
         width: 90vw;
         overflow: hidden;
         object-fit: cover;
+        object-position: top;
     }
 
 }
@@ -124,6 +125,7 @@
         width: 90vw;
         overflow: hidden;
         object-fit: cover;
+        object-position: top;
     }
    
 
