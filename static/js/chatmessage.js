@@ -74,13 +74,19 @@ $('#chat-form').on('submit', function (event) {
 /* check if new messages and append to chat window every minute */
 
 setInterval(function () {
-    checkChatMessages();
+    if ($('#submit-button').hasClass('disabled')){
+        return;
+    }else{
+        $('.check').click();
+    }
 }, 60000);
 
-function checkChatMessages() {
+$('.check').on('click', function(event){
+    event.preventDefault(event);
+    var url = $('.check').attr('href');
     var numOfChats = $('.chat-card').length;
     $.ajax({
-        url: 'numberOfMessages/',
+        url: url,
         type: 'POST',
         data: {
             numOfChats: numOfChats,
@@ -110,7 +116,9 @@ function checkChatMessages() {
             }
         },
     });
-}
+});
+
+    
 
 /* on click removes the colour that was added for new message above 
 and scrolls to buttom to show newest message */

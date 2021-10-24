@@ -117,6 +117,7 @@
         {% endblock %}
     </div>
 
+    <a  href="{% url 'numberOfMessages' %}" class="d-none check"></a>
 
     <div class="chat-box-form collapse" id="collapseChat">
         {% include 'chatbox.html' %}
@@ -130,6 +131,7 @@
             </div>
         </form>
     </div>
+
 
     <footer class="footer fixed-bottom">
         <button type="button" id="button-chat" class="mt-1 ml1 button-chat purple" data-toggle="collapse"
