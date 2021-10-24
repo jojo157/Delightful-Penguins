@@ -379,9 +379,7 @@ If a user chooses to Complete an Order they are redirected to a checkout page wi
 Once submitted, the user gets a confirmation email and is shown a checkout success page with an overview of the order.
 
 ![Checkout Success](media/readme/checkoutsuccess.png) 
-![Checkout Email](media/readme/checkoutsuccessemail.png) 
-
-
+![Checkout Email](media/readme/email.png) 
 
 > I want to be able to contact the artist with questions.
 
