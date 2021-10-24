@@ -28,6 +28,11 @@
     width: 80%;
 }
 
+.image-container-details{
+    object-fit: cover;
+    width: auto;
+}
+
 .container {
     position: relative;
     margin: 0 auto;
@@ -49,9 +54,14 @@
     
 }
 
+.hero{
+    height: 400px;
+    overflow:hidden;
+}
+
 .hero-image {
     height: 400px;
-    width: 100vw;
+    width: auto;
     overflow: hidden;
 }
 

@@ -331,3 +331,12 @@ Errors rectified and files are PEP8 compliant now.
 ![Python validation](media/readme/python.png)
 
 ### Performance Testing
+
+Performance was tested using Lighthouse, one of Google's web developer tools. To improve the SEO of the app, I added a meta description. 
+
+For the Landing Page, the best practices score was 93% due to the hero image been displayed with the incorrect aspect ratio for larger devices. I changed the CSS to preserve the aspect ratio of the images using object-fit and object-position properities. This resulted in the best practices score increasing to 100% and improved the layout for user experience.
+
+example output from Lighthouse audit for Landing Page.
+![Lighthouse results for Landing page](media/readme/landing.png)
+
+The final results for each page are shown in the below table.
