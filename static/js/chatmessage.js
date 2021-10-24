@@ -80,7 +80,7 @@ setInterval(function () {
 function checkChatMessages() {
     var numOfChats = $('.chat-card').length;
     $.ajax({
-        url: '../numberOfMessages/',
+        url: 'numberOfMessages/',
         type: 'POST',
         data: {
             numOfChats: numOfChats,

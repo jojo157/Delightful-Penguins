@@ -166,4 +166,4 @@ def numberOfMessages(request):
             return HttpResponse(value)
         else:
             value = "up_to_date"
-        return HttpResponse(value)
+            return HttpResponse(value)
