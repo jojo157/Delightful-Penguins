@@ -8,6 +8,7 @@ from django.shortcuts import (
 )
 from checkout.models import Order, OrderLineItem
 from chat.views import chatSend
+from art.views import art
 
 from django.http import JsonResponse
 from django.core import serializers
@@ -40,3 +41,5 @@ def all_orders(request):
             "orders": orders,
         }
         return render(request, "orders.html", context)
+    else:
+        return redirect("art")

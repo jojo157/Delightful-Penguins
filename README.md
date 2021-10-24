@@ -449,6 +449,8 @@ The Artist has a navigation option of Orders. All orders are shown on this page 
 
 ### Functionality Testing
 
+Test scripts were created for each test case and manual testing was conducted on a laptop and mobile device. 
+
 **Art Piece TC7**
 
 ![Art functionality Test results](media/readme/tc7.png) 
@@ -469,3 +471,34 @@ The Artist has a navigation option of Orders. All orders are shown on this page 
 
 **Autheniticated users orders TC13**
 ![User Orders results](media/readme/tc13.png) 
+
+**Access to restricted views TC14**
+![Restricted views results](media/readme/tc14.png) 
+
+**Logout removes users session and access TC17**
+![Session data results](media/readme/tc14.png) 
+
+**404 Page TC18**
+On navigation to a page that doesnt exist, my custom 404 page is displayed as shown below. 
+![404 results](media/readme/tc18.png) 
+
+**Sign Up TC19**
+![Sign Up results](media/readme/tc19.png) 
+
+**Login TC20**
+
+![Login results](media/readme/tc20.png) 
+
+**Cart TC21**
+![Cart results](media/readme/tc21.png) 
+
+**Checkout TC22**
+![Checkout results](media/readme/tc22.png) 
+
+### Validation Testing
+
+**TC15**
+
+All forms were manually tested and the result of the testing are shown in the below table.
+
+![Form validation results](media/readme/tc15.png)

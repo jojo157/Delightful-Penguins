@@ -124,7 +124,7 @@
         <form class="start-chat-form" id="chat-form" action="{% url 'chatSend' %}">
             {% csrf_token %}
             <div class="form-group chat-box row mt-1">
-                <textarea class="col-12" id="message" name="message" placeholder="Your Message"></textarea>
+                <textarea class="col-12" id="message" name="message" placeholder="Your Message" required></textarea>
                 <button type="submit" id="submit-button"
                     class="mt-1 mb-3 btn-primary {% if artist_status.status == 'Offline' %}disabled {% endif %}"> Submit
                     Message</button>
