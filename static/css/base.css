@@ -144,6 +144,13 @@ i.fab.fa-linkedin-in {
     width: auto;
 }
 
+a.order-number{
+    text-overflow: ellipsis;
+    max-width: 25vw;
+    overflow: hidden;
+    display: inline-block;
+
+}
 
 /* Media Queries: */
 

@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def profiles(request):
     user = request.user.email
-    orders = Order.objects.filter(email=user)
+    orders = Order.objects.filter(email=user).order_by('-date')
     context = {
         "orders": orders,
     }

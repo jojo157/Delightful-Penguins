@@ -395,7 +395,16 @@ If the artist is offline, a user is given a default message with an option to us
 
 > I want to be alerted when the artist has replied. 
 
+When the artist has replied to your message, the message is added at the bottom of the chat window. If you have the chat window minimised the footer element with the text 'Chat with Leticia' turns green to show a new message. once opened it reverts back to purple. 
+
+![New reply message](media/readme/replymessage.png) 
+
 > I want to save my order data for easy access. 
+
+All logged in users can see the orders associated with their account. In the navigation menu their is an option called orders. 
+
+
+
 
 #### Business Owner
 
