@@ -151,14 +151,19 @@ def numberOfMessages(request):
     If number in database is greater than screen, it adds the new message
     """
     if request.method == "POST" and request.is_ajax:
-        numberOfChatMessagesDisplayed = request.POST["numOfChats"]
-        checkDatabase = chatMessages(request)
-        if "chat_messages" in checkDatabase.keys():
-            currentCount = len(checkDatabase["chat_messages"])
-            if currentCount > int(numberOfChatMessagesDisplayed):
-                position = -1
-                newmessage = checkDatabase["chat_messages"][position]
-                message = newmessage.message_content
-                return HttpResponse(message)
-        value = "up_to_date"
+        status = Artist.objects.get(pk=1)
+        if status == "Online":
+            numberOfChatMessagesDisplayed = request.POST["numOfChats"]
+            checkDatabase = chatMessages(request)
+            if "chat_messages" in checkDatabase.keys():
+                currentCount = len(checkDatabase["chat_messages"])
+                if currentCount > int(numberOfChatMessagesDisplayed):
+                    position = -1
+                    newmessage = checkDatabase["chat_messages"][position]
+                    message = newmessage.message_content
+                    return HttpResponse(message)
+            value = "up_to_date"
+            return HttpResponse(value)
+        else:
+            value = "up_to_date"
         return HttpResponse(value)
