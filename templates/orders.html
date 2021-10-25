@@ -21,7 +21,8 @@
                     {% for order in orders %}
                     <tr>
                         <td class="w-25">
-                            <p><a class="order-number" href="{% url 'checkout_success' order.order_number  %}">{{ order.order_number }}</a>
+                            <p><a class="order-number"
+                                    href="{% url 'checkout_success' order.order_number  %}">{{ order.order_number }}</a>
                             </p>
                         </td>
                         <td class="w-25">
@@ -38,7 +39,7 @@
             <p class="">No previous orders</p>
             <a class="btn btn-sm btn-primary" href="{% url 'art' %}">Keep Exploring Art</a>
             {% endif %}
-            
+
         </div>
     </div>
 </div>

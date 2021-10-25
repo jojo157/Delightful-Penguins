@@ -159,7 +159,9 @@ def numberOfMessages(request):
                 currentCount = len(checkDatabase["chat_messages"])
                 if currentCount > int(numberOfChatMessagesDisplayed):
                     chat_session = request.session["ip_address"]
-                    data = Message.objects.filter(chat_session=chat_session, reply_recieved=True).order_by("date_of_message")
+                    data = Message.objects.filter(
+                        chat_session=chat_session, reply_recieved=True
+                    ).order_by("date_of_message")
                     newmessage = data.last()
                     message = newmessage.message_content
                     return HttpResponse(message)

@@ -33,13 +33,13 @@ if submit button is disabled we exit submit function
 $('#chat-form').on('submit', function (event) {
     event.preventDefault();
 
-    if ($('#submit-button').hasClass('disabled')){
+    if ($('#submit-button').hasClass('disabled')) {
         return;
     }
 
     var message = $('#message').val();
     var url = $('#chat-form').attr('action');
-    
+
     $.ajax({
         url: url,
         type: 'POST',
@@ -74,14 +74,14 @@ $('#chat-form').on('submit', function (event) {
 /* check if new messages and append to chat window every minute */
 
 setInterval(function () {
-    if ($('#submit-button').hasClass('disabled')){
+    if ($('#submit-button').hasClass('disabled')) {
         return;
-    }else{
+    } else {
         $('.check').click();
     }
 }, 60000);
 
-$('.check').on('click', function(event){
+$('.check').on('click', function (event) {
     event.preventDefault(event);
     var url = $('.check').attr('href');
     var numOfChats = $('.chat-card').length;
@@ -118,7 +118,7 @@ $('.check').on('click', function(event){
     });
 });
 
-    
+
 
 /* on click removes the colour that was added for new message above 
 and scrolls to buttom to show newest message */
@@ -142,7 +142,7 @@ $(".navbar-toggler").click(function () {
 //credit to Sean in Tutoring
 const textAreas = document.getElementsByTagName('textarea');
 [...textAreas].forEach(ta => {
-ta.onchange = () => {
-ta.value = ta.value.trimStart();
-};
+    ta.onchange = () => {
+        ta.value = ta.value.trimStart();
+    };
 });

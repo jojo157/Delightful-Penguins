@@ -22,8 +22,8 @@
     <form class="start-chat-form" id="chat-form-artist" action="{% url 'artist_send_reply' %}" method="POST">
         {% csrf_token %}
         <div class="form-group chat-box row mt-1 w-100">
-            <textarea class="col-12" id="message-artist" name="message-artist"
-                placeholder="Your Message" required></textarea>
+            <textarea class="col-12" id="message-artist" name="message-artist" placeholder="Your Message"
+                required></textarea>
             <input class="col-12" type="hidden" id="message-id" name="message-id" value="{{new_id}}">
         </div>
         <button type="submit" class="btn btn-primary mt-3 mb-3 ml-1 text-center"> Submit Message</button>

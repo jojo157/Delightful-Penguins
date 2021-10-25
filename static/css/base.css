@@ -63,7 +63,7 @@ body {
 
 }
 
-.chat-window-artist{
+.chat-window-artist {
     height: 150px;
     overflow-y: auto;
 }
@@ -109,11 +109,11 @@ textarea {
     color: #F5F52F;
 }
 
-.purple{
+.purple {
     background-color: #9400D3;
 }
 
-.green{
+.green {
     background-color: #19c936;
 }
 
@@ -149,7 +149,7 @@ i.fab.fa-linkedin-in {
     width: auto;
 }
 
-a.order-number{
+a.order-number {
     text-overflow: ellipsis;
     max-width: 25vw;
     overflow: hidden;
@@ -193,6 +193,6 @@ a.order-number{
         width: 30vw;
     }
 
-    
+
 
 }

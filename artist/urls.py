@@ -8,5 +8,7 @@ urlpatterns = [
     path("chatSend/", views.chatSend, name="chatSend"),
     path("numberOfMessages/", views.numberOfMessages, name="numberOfMessages"),
     path("reply/<int:id>/", views.reply, name="reply"),
-    path("artist_send_reply/", views.artist_send_reply, name="artist_send_reply"),
+    path(
+        "artist_send_reply/", views.artist_send_reply, name="artist_send_reply"
+    ),
 ]

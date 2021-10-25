@@ -22,7 +22,7 @@ def profiles(request):
     This view returns the orders associated with the users email.
     """
     user = request.user.email
-    orders = Order.objects.filter(email=user).order_by('-date')
+    orders = Order.objects.filter(email=user).order_by("-date")
     context = {
         "orders": orders,
     }
@@ -36,7 +36,7 @@ def all_orders(request):
     Only a super user can access this page.
     """
     if request.user.is_superuser:
-        orders = Order.objects.filter().order_by('-date')
+        orders = Order.objects.filter().order_by("-date")
         context = {
             "orders": orders,
         }

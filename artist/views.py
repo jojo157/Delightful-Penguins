@@ -31,11 +31,9 @@ def artist_home(request):
     with all current messages in database
     """
     if request.user.is_superuser:
-        data = Message.objects.filter().order_by(
-            "date_of_message"
-        )
+        data = Message.objects.filter().order_by("date_of_message")
         context = {
-            'all_messages': data,
+            "all_messages": data,
         }
         return render(request, "artistMessages.html", context)
     else:
@@ -73,7 +71,6 @@ def reply(request, id):
         return render(request, "reply.html", context)
     else:
         return redirect("art")
-
 
 
 @login_required

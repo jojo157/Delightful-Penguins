@@ -28,7 +28,7 @@
     width: 80%;
 }
 
-.image-container-details{
+.image-container-details {
     object-fit: cover;
     width: auto;
 }
@@ -51,14 +51,14 @@
 .container .content {
     position: absolute;
     color: #000;
-    bottom:0;
+    bottom: 0;
     background: rgba(245, 243, 243, 0.747);
-    
+
 }
 
-.hero{
+.hero {
     height: 400px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .hero-image {
@@ -72,10 +72,11 @@
 @media only screen and (max-width: 360px) {
 
     /* For smaller mobiles: */
-    
+
 }
 
 @media only screen and (min-width: 560px) and (max-width: 759px) {
+
     /* For rotated mobiles: */
     .container .content {
         top: 50%;
@@ -85,7 +86,7 @@
         height: fit-content;
     }
 
-    .larger-screens-hero{
+    .larger-screens-hero {
         height: 400px;
         width: 90vw;
         overflow: hidden;
@@ -97,6 +98,7 @@
 }
 
 @media only screen and (min-width: 760px) and (max-width: 1026px) {
+
     /* For tablets: */
     .container .content {
         top: 50%;
@@ -105,7 +107,7 @@
         background: rgba(245, 243, 243, 0.747);
     }
 
-    .larger-screens-hero{
+    .larger-screens-hero {
         height: 400px;
         width: 90vw;
         overflow: hidden;
@@ -123,9 +125,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(245, 243, 243, 0.747);
-        
+
     }
-    .larger-screens-hero{
+
+    .larger-screens-hero {
         height: 400px;
         width: 90vw;
         overflow: hidden;
@@ -141,21 +144,22 @@
     .art-piece {
         height: 500px;
     }
+
     .container .content {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: rgba(245, 243, 243, 0.747);
-        
+
     }
 
-    .larger-screens-hero{
+    .larger-screens-hero {
         height: 400px;
         width: 90vw;
         overflow: hidden;
         object-fit: cover;
         object-position: top;
     }
-   
+
 
 }

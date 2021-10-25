@@ -608,9 +608,33 @@ There were no differences detected on those operating systems.
 
 The project files were created in Gitpod using the Code Institute Full Template. 
 
-This project requires a Stripe account and an Amazon Web Service account.
+This project requires a Stripe, Amazon Web Service and a Heroku account.
 
+Firstly for Amazon Web Service, an S3 storage bucket needs to be set up for this application. Permissions need to be amended to Public. A Bucket policy needs to be added. 
 
+To grant public read access for the website, copy the following bucket policy, and paste it in the Bucket policy editor where Bucket-Name is replaced with the name you choose for the bucket.
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::Bucket-Name/*"
+            ]
+        }
+    ]
+}
+
+Naviagate to Identity and Access Management (IAM) on AWS.
+Set up a user group and user linking your policy from above. After this step you will have a file with the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for below. 
+
+Next, Log into your Stripe account. Go to developers, API Keys option in left side menu. The Publishable key is your STRIPE_PUBLIC_KEY, reveal your secret key, this is your STRIPE_SECRET_KEY. 
 
 This project was deployed to Heroku. The steps are listed below.
 
@@ -629,8 +653,14 @@ Once the above steps are complete you now need to create a connection to the Git
 - Add repository name, click search.
 - Click connect to this app.
 
+Go back to Stripe, click on Webhooks in left side menu. Add endpoint and use the url of your Heroku site/checkout/wh/ and add all events that are needed. 
+
+Navigate back to Heroku, Click on Resources Tab and search for Add on Heroku Postgres and add. The 
+DATABASE_URL will be added to your environment variables.
+
 We now need to set our environment variables for Heroku to be able to deploy our app successfully.
 
+- On Heroku
 - Click the settings tab.
 - Click Reveal Config Vars button.
 - Enter the following environment variables.
@@ -638,9 +668,60 @@ We now need to set our environment variables for Heroku to be able to deploy our
   - AWS_SECRET_ACCESS_KEY
   - DATABASE_URL
   - EMAIL_HOST_PASS
+    - Your email provider will give this password for accessing your email account through APIs. Refer to your email providers developer settings. My application was created using gmail.
   - EMAIL_HOST_USER
+    - This is your email address. 
   - SECRET_KEY
+    - This is your Heroku secret key. 
   - STRIPE_PUBLIC_KEY
   - STRIPE_SECRET_KEY
   - STRIPE_WH_SECRET
   - USE_AWS
+    - This should have the value True
+
+Once Added we can enable automatic deployment by:
+
+Click on the deploy tab.
+Under automatic deploy, choose the branch.
+Click enable automatic deploys.
+
+### Run local
+
+To run this application locally, one requires an env.py file with the environment variables.
+
+The steps are:
+- Log into GitHub and locate the [delightful-penguins]() repository.
+- Click the "Code" button, click HTTPS and copy the link shown.
+- Open terminal and change the working directory to where you want the clone repository to be.
+- In the terminal, type git clone, and then paste the URL you copied earlier.
+- Press enter and your local clone is now created.
+
+You will then need to install the requirements.txt. This can be done using the command
+> pip install -r requirements.txt 
+
+### Fork repository
+
+To copy the repository so that you have access to available files and any new changes will not affect the original repository follow the below steps:
+
+- Log into GitHub and locate the [delightful-penguins](https://github.com/jojo157/Delightful-Penguins) repository
+- On the top far right click on the fork button.
+- This will add a copy of [delightful-penguins](https://github.com/jojo157/Delightful-Penguins) to your repository.
+
+## Credits
+
+### Code
+- [Django Context Processors](https://betterprogramming.pub/django-quick-tips-context-processors-da74f887f1fc) was used as a resource to understand django custom context processors and create one to share accross all pages. 
+- [Chat window scroll](https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery) this question was helpful to understand how to scroll to the end of the chat window only. 
+- [Boutiquo Ado Course Content](https://codeinstitute.net/) the course content of the mini project was essential for acheiving the checkout functionality.
+
+### Content
+
+- The Art piece images belong to an artist friend Allana Verçosa who is a Brazilian illustrator and credit for all images belongs here.
+
+### Acknowledgements
+
+- I would like to thank my mentor Spencer Barriball for his help, encouragement and advice.
+- I would like to thank Code Institute's Tutor support for their help throughout the course.
+- I would like to thank my fellow students for their help on slack.
+- I would like to thank my wife Leticia for her continued support.
+- I would like to thank Stack Overflow and W3Schools for their content when trouble shooting as these resources were essential to work out how to correct my code.

@@ -86,7 +86,8 @@ def editArt(request, id):
                 return redirect("art")
             else:
                 messages.error(
-                    request, "Issue updating art piece, please try again later."
+                    request,
+                    "Issue updating art piece, please try again later.",
                 )
                 return redirect("art")
 
