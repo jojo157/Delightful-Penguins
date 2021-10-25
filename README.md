@@ -603,3 +603,30 @@ There were no differences detected on those operating systems.
 - [Can I use](https://caniuse.com/) was used to check browser supports range and potential compatibility issues and known bugs. 
 - [Browser Stack](live.browserstack.com) was used to test the website on different operating systems and browsers.
 - [Favicon](http://favicon.io) was used to create a favicon to be used in the address bar.
+
+## Deployment
+
+The project files were created in Gitpod using the Code Institute Full Template. 
+
+This project was deployed to Heroku. The steps are listed below.
+
+First an application needs to be created using the following steps:
+
+- Login to Heroku.
+- Click the new button.
+- Select create new app.
+- Enter a name for your app.
+- Select the relevant region.
+
+Once the above steps are complete you now need to create a connection to the Github repository for your application.
+
+- Click the deploy tab.
+- Select profile Github.
+- Add repository name, click search.
+- Click connect to this app.
+
+We now need to set our environment variables for Heroku to be able to deploy our app successfully.
+
+- Click the settings tab.
+- Click Reveal Config Vars button.
+- Enter the environment variables.
