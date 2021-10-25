@@ -530,7 +530,7 @@ The Create, Read, Update and Delete actions on the database were tested by loggi
 
 #### Different devices
 
-Using Google Developer tools, I viewed the website on the following devices:
+Using Google Developer tools, I viewed every page of the application on the following devices:
 - Galaxy S5
 - Pixel 2
 - Pixel 2 XL
@@ -538,19 +538,14 @@ Using Google Developer tools, I viewed the website on the following devices:
 - iPhone X
 - iPad & iPad Pro
 - Surface duo
-- Galaxy fold
+- Nest Hub & Max
 
 Based on the user experience, I changed the footer to display diferrently on small and larger devices.On mobile devices the social links are displayed on the left with the copy right text condensed. On larger devices the social links are spread across the available space and the copyright text is centered and contains more words. 
 
 ![Mobile Footer](media/readme/mobilefooter.png) 
 ![Larger Device Footer](media/readme/ipadfooter.png) 
 
-I added media queries to ensure the user experience is maintained with rotated devices.
-
-
-
-
-
+I added media queries to ensure the user experience is maintained with rotated devices. Additionally, displays were altered to improve the appreance on different devices. The main changes were to resize forms on larger screens, improve spacing between elements. 
 
 
 #### Different Browsers
@@ -561,19 +556,50 @@ I tested the website on:
 - Safari
 - Firefox
 - Microsoft Edge
-- Internet Explorer
 
 Differences discovered across browsers:
-
-
-
-
+No differences were noted. All pages behave as expected and are visually identical. 
 
 #### Different Operating Systems
 
 The above testing was conducted on below operating systems:
 
 - Windows 8.1
-- MacOS Big Sur 11.2.3
-- iOS 14.4.2
+- MacOS Big Sur 11.6
+- iOS 15.0.2
 - Android
+
+There were no differences detected on those operating systems.
+
+## Technologies Used
+
+### Frameworks and Libraries
+- [jQuery](https://jquery.com/) was used as a JavaScript library.
+- [Bootstrap](https://getbootstrap.com/) was used as a framework for layout and responsiveness to create this application.
+- [Bootstrap Toogle](https://gitbrent.github.io/bootstrap4-toggle/#usage) is a jQuery plugin/widget that converts plain checkboxes into responsive toggle switch buttons.This was used for the artist status switch.
+
+### Version Control
+
+- [Git](https://git-scm.com/) was used as a version control system. This following commands were used:
+  - git add filename
+    - This command adds the file to the staging area.
+  - git commit -m "commit message"
+    - This command commits our changes to our local repository.
+  - git push
+    - This command pushes our changes to the remote repository.
+- [GitHub](https://github.com/) was used for the repository hosting.
+- [Gitpod](https://www.gitpod.io/) was used as the developer platform.
+
+### Other Programs
+- [Heroku](https://id.heroku.com/) was used to deploy this application.
+- [Amazon Web services](https://aws.amazon.com/console/) AWS S3 was used for storage of static files and media files.
+- [Stripe](https://stripe.com/ie) was used for processing online payments. 
+- [Balsamiq](https://balsamiq.com/) was used to create a mock-up of the website after exploring the strategy and scope planes of user experience for this project.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate CSS code.
+- [W3C Html Checker](https://validator.w3.org/) was used to validate HTML code.
+- [Ligthhouse](https://github.com/GoogleChrome/lighthouse) was used to audit my application. The results of the audit were considered when making improvements to the website's performance etc.
+- [Am I responsive](http://ami.responsivedesign.is/) was used to view the website across several devices at once.
+- [W3C Spell checker](https://www.w3.org/2002/01/spellchecker) was used to check the spelling of the website.
+- [Can I use](https://caniuse.com/) was used to check browser supports range and potential compatibility issues and known bugs. 
+- [Browser Stack](live.browserstack.com) was used to test the website on different operating systems and browsers.
+- [Favicon](http://favicon.io) was used to create a favicon to be used in the address bar.
