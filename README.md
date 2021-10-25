@@ -506,3 +506,24 @@ All forms were manually tested and the result of the testing are shown in the be
 ![Restricted views results](media/readme/tc14.png) 
 
 ### CRUD Testing
+
+The Create, Read, Update and Delete actions on the database were tested by logging in as an admin at url https://leticiasart.herokuapp.com/admin/ user and checking the result of each CRUD execution in the relevant collection on the database to verify the data has been modified as necessary.
+
+**Create**
+
+![Create (CRUD) results](media/readme/tc16create.png) 
+
+**Read**
+
+![Read(CRUD) results](media/readme/tc16read.png) 
+
+**Update**
+
+![Update(CRUD) results](media/readme/tc16update.png) 
+
+**Delete**
+
+![Delete(CRUD) results](media/readme/tc16delete.png) 
+
+
+### Compatibility Testing
