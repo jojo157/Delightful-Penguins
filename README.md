@@ -1,7 +1,7 @@
-# Leticias Art
+# Leticia's Art
 
 ## Introduction
-Leticias Art is an ecommerce application for a sole artist to sell her work and interact in realtime with potential customers.  
+Leticia's Art is an ecommerce application for a sole artist to sell her work and interact in real-time with potential customers.  
 
 View Live Website [here](https://leticiasart.herokuapp.com/)
 
@@ -33,7 +33,7 @@ Image created using [Am I responsive](http://ami.responsivedesign.is/)
           - [Cart](#cart)
           - [Checkout](#checkout)
           - [Orders](#orders)
-          - [Artist Meassages](#artist-messages)
+          - [Artist Messages](#artist-messages)
           - [Reply](#reply)
           - [Contact](#contact)
           - [Art Details](#art-details)
@@ -69,7 +69,7 @@ Image created using [Am I responsive](http://ami.responsivedesign.is/)
 The 5 planes of User Experience:
 
 ### Strategy
-Leticias Art was created with the purpose of providing a platform for the Artist Leticia to advertise and sell her art pieces. 
+Leticia's Art was created with the purpose of providing a platform for the Artist Leticia to advertise and sell her art pieces. 
 
 #### User Needs
 
@@ -106,8 +106,8 @@ The following features are in scope for this project.
   - Application will enable the functionality to Create, Read, Update and Delete data.
 - Database to store app data.
   - Postgres database will be used to store all application data.
-- Realtime Chat facility
-  - A contact chat facility will be on every page for realtime communication.
+- Real-time Chat facility
+  - A contact chat facility will be on every page for real-time communication.
 - Contact form
   - A Contact form will be available when the artist is offline. 
 - Artist Add Art
@@ -137,7 +137,9 @@ The following features are in scope for this project.
 
 #### Future Features
 
-I would like to include the following future features.
+I would like to include the following future features as I did not have capacity during this project.
+
+- A page that customers can upload a picture of where they have hung the art piece with a review.
 
 ### Structure
 
@@ -160,14 +162,14 @@ During the planning stage, it was decided that the following pages would be need
   - To allow the user contact the artist.
 
 - Cart Page with elements:
-  - To see whats in cart.
-  - To edit cart.
-  - To navigate away from cart.
-  - To checkout order. 
+  - To see what's in the cart.
+  - To edit the cart.
+  - To navigate away from the cart.
+  - To proceed to checkout. 
   - To allow the user contact the artist.
 
 - Checkout Page with elements:
-  - To see whats in the cart.
+  - To see what's in the cart.
   - To see the order total. 
   - To fill in personal and delivery details.
   - To complete a card payment.
@@ -207,19 +209,19 @@ This application uses Heroku Postgres to store and retrieve the user data. Postg
 
 The users collection is populated when a user successfully registers and is used to verify a user upon login. The Art collection stores the data for the art pieces that appear on the home page. Only a user with staff status can add/edit this collection.
 
-The Messages collection stores the data for any user that engages with the chat functionality present on all pages. The users IP address is added to each message and when removed from the session the assoicated messages are deleted. When the artist replies to a message the IP address of the recieved message is used and the reply recieved field is updated to true.
+The Messages collection stores the data for any user that engages with the chat functionality present on all pages. The users IP address is added to each message and when removed from the session the associated messages are deleted. When the artist replies to a message the IP address of the received message is used and the reply received field is updated to true.
 
 The Artist collection stores the artist's available status for the chat functionality. This can be updated with a switch on the Messages page by the Artist. 
 
 The Contact collection is used for when the chat facility is not active and the user completes the contact form.
 
-The Order Collection stores the order details when a customer completes checkout. For each order there may be several orderline items, this collection stores data associated with individual cart items and the associated order number. 
+The Order Collection stores the order details when a customer completes checkout. For each order there may be several order line items, this collection stores data associated with individual cart items and the associated order number. 
 
 ![Leticias Art Schema](media/readme/schema.png)
 
 ### Surface
 
-Leticias Art was designed to be a fun, colorful application to sell art. 
+Leticia's Art was designed to be a fun, colourful application to sell art. 
 
 #### Colour Scheme
 To reinforce the colourful aspect of art, multiple colours were used throughout the application. The navbar is a gradient of the rainbow colours with a bold purple on the footer. Complimentary colours are used throughout the site to prevent colours clashing. A golden yellow is used on the message alerts and on the footer for the chat functionality. 
@@ -244,7 +246,7 @@ Html pages were validated with [W3C Html Checker](https://validator.w3.org/nu/).
 
 Errors 
 - Element p not allowed as child of element small in this context.
-  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swaping the roles.
+  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swapping the roles.
 - Unclosed element div.
   - I located the element and closed the corresponding div tag.
 
@@ -290,7 +292,7 @@ Errors
 
 Errors 
 - Element p not allowed as child of element small in this context.
-  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swaping the roles.
+  - This error was present as I had a small element as a parent with a p element as a child. I fixed this error by swapping the roles.
 
 
 All pages now successfully pass through the validator as shown in the image below.
@@ -310,7 +312,7 @@ No errors were present.
 
 JavaScript files were validated with [JSHint](https://jshint.com/)
 
-The were several warnings as shown below for missing semi-colons, undefined variables and a warning that it is better to use dot notation instead of format ['x']. I fixed the missing semi-colons, defined the variables and updated the notation to dot notion. The code was retested and no warnings are given now.
+There were several warnings as shown below for missing semi-colons, undefined variables and a warning that it is better to use dot notation instead of format ['x']. I fixed the missing semi-colons, defined the variables and updated the notation to dot notion. The code was retested and no warnings are given now.
 
 ![Warnings for Chat Messages](media/readme/chatMessageJS.png)
 
@@ -323,7 +325,7 @@ The following errors were discovered and fixed to stay PEP8 compliant:
 - E713 test for membership should be 'not in'
   - I had a conditional check where the statement was "if not x in y". I fixed the syntax as advised.
 - E501 line too long 
-  - This occured where my function docstring was longer than 79 characters. I pushed the sentence to the next sentence to stay compliant. 
+  - This occurred where my function docstring was longer than 79 characters. I pushed the sentence to the next sentence to stay compliant. 
 - E225 missing whitespace around operator
   - This error was due to forgetting to put a whitespace on an assignment operator. 
 
@@ -335,7 +337,7 @@ Errors rectified and files are PEP8 compliant now.
 
 Performance was tested using Lighthouse, one of Google's web developer tools. To improve the SEO of the app, I added a meta description. 
 
-For the Landing Page, the best practices score was 93% due to the hero image been displayed with the incorrect aspect ratio for larger devices. I changed the CSS to preserve the aspect ratio of the images using object-fit and object-position properities. This resulted in the best practices score increasing to 100% and improved the layout for user experience.
+For the Landing Page, the best practices score was 93% due to the hero image been displayed with the incorrect aspect ratio for larger devices. I changed the CSS to preserve the aspect ratio of the images using object-fit and object-position properties. This resulted in the best practices score increasing to 100% and improved the layout for user experience.
 
 example output from Lighthouse audit for Landing Page.
 ![Lighthouse results for Landing page](media/readme/landing.png)
@@ -385,8 +387,6 @@ Once submitted, the user gets a confirmation email and is shown a checkout succe
 
 Every page has a 'Chat with Leticia' on the footer with a conversation icon. On click, a chat window opens. If the artist is online, a user can message the artist and the artist replies will be added to their chat window. 
 
-![Chat facility](media/readme/chat1.png) 
-
 ![Chat focused](media/readme/chat2.png) 
 
 If the artist is offline, a user is given a default message with an option to use a contact form to email the artist.
@@ -401,11 +401,11 @@ When the artist has replied to your message, the message is added at the bottom 
 
 > I want to save my order data for easy access. 
 
-All logged in users can see the orders associated with their account. In the navigation menu their is an option called My Orders. 
+All logged in users can see the orders associated with their account. In the navigation menu there is an option called My Orders. 
 
 ![Orders](media/readme/orders.png) 
 
-The user can click the order number and will see all the details associated with that order. Additionally on the checkout page their is text to alert a user that they can create an account to view their orders.
+The user can click the order number and will see all the details associated with that order. Additionally on the checkout page there is text to alert a user that they can create an account to view their orders.
 
 ![Text to register to view orders](media/readme/register.png) 
 
@@ -414,7 +414,7 @@ The user can click the order number and will see all the details associated with
 
 > I want to be able to advertise my current art pieces for sale.
 
-Leticias Art landing page showcasts the business owners work and is a platform to sell the pieces to the public. 
+Leticia's Art landing page show casts the business owners work and is a platform to sell the pieces to the public. 
 
 > I want to be able to update my current art offering.
 
@@ -445,7 +445,7 @@ Messages awaiting a reply are shown in a table with the oldest message shown fir
 
 > I want to see a list of orders in date order.
 
-The Artist has a navigation option of Orders. All orders are shown on this page in date order of newest first. The layout is the same as shown previous for the customers orders. 
+The Artist has a navigation option of Orders. All orders are shown on this page in date order of newest first. The layout is the same as shown previous for the customers' orders. 
 
 ### Functionality Testing
 
@@ -469,14 +469,14 @@ Test scripts were created for each test case and manual testing was conducted on
 **Artist see new messages TC11**
 ![Artist view messages results](media/readme/tc11.png) 
 
-**Autheniticated users orders TC13**
+**Authenticated users orders TC13**
 ![User Orders results](media/readme/tc13.png) 
 
 **Logout removes users session and access TC17**
-![Session data results](media/readme/tc14.png) 
+![Session data results](media/readme/tc17.png) 
 
 **404 Page TC18**
-On navigation to a page that doesnt exist, my custom 404 page is displayed as shown below. 
+On navigation to a page that doesn't exist, my custom 404 page is displayed as shown below. 
 ![404 results](media/readme/tc18.png) 
 
 **Sign Up TC19**
@@ -507,7 +507,7 @@ All forms were manually tested and the result of the testing are shown in the be
 
 ### CRUD Testing
 
-The Create, Read, Update and Delete actions on the database were tested by logging in as an admin at url https://leticiasart.herokuapp.com/admin/ user and checking the result of each CRUD execution in the relevant collection on the database to verify the data has been modified as necessary.
+The Create, Read, Update and Delete actions on the database were tested by logging in as an admin at URL https://leticiasart.herokuapp.com/admin/ and checking the result of each CRUD execution in the relevant collection on the database to verify the data has been modified as necessary.
 
 **Create**
 
@@ -540,12 +540,12 @@ Using Google Developer tools, I viewed every page of the application on the foll
 - Surface duo
 - Nest Hub & Max
 
-Based on the user experience, I changed the footer to display diferrently on small and larger devices.On mobile devices the social links are displayed on the left with the copy right text condensed. On larger devices the social links are spread across the available space and the copyright text is centered and contains more words. 
+Based on the user experience, I changed the footer to display differently on small and larger devices.On mobile devices the social links are displayed on the left with the copy right text condensed. On larger devices the social links are spread across the available space and the copyright text is centred and contains more words. 
 
 ![Mobile Footer](media/readme/mobilefooter.png) 
 ![Larger Device Footer](media/readme/ipadfooter.png) 
 
-I added media queries to ensure the user experience is maintained with rotated devices. Additionally, displays were altered to improve the appreance on different devices. The main changes were to resize forms on larger screens, improve spacing between elements. 
+I added media queries to ensure the user experience is maintained with rotated devices. Additionally, displays were altered to improve the appearance on different devices. The main changes were to resize forms on larger screens and improve spacing between elements. 
 
 
 #### Different Browsers
@@ -557,8 +557,7 @@ I tested the website on:
 - Firefox
 - Microsoft Edge
 
-Differences discovered across browsers:
-No differences were noted. All pages behave as expected and are visually identical. 
+No differences were discovered across different browsers. All pages behave as expected and are visually identical. 
 
 #### Different Operating Systems
 
@@ -631,7 +630,7 @@ To grant public read access for the website, copy the following bucket policy, a
     ]
 }
 
-Naviagate to Identity and Access Management (IAM) on AWS.
+Navigate to Identity and Access Management (IAM) on AWS.
 Set up a user group and user linking your policy from above. After this step you will have a file with the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for below. 
 
 Next, Log into your Stripe account. Go to developers, API Keys option in left side menu. The Publishable key is your STRIPE_PUBLIC_KEY, reveal your secret key, this is your STRIPE_SECRET_KEY. 
@@ -653,9 +652,9 @@ Once the above steps are complete you now need to create a connection to the Git
 - Add repository name, click search.
 - Click connect to this app.
 
-Go back to Stripe, click on Webhooks in left side menu. Add endpoint and use the url of your Heroku site/checkout/wh/ and add all events that are needed. 
+Go back to Stripe, click on Webhooks in left side menu. Add endpoint and use the URL of your Heroku site/checkout/wh/ and add all events that are needed. 
 
-Navigate back to Heroku, Click on Resources Tab and search for Add on Heroku Postgres and add. The 
+Navigate back to Heroku, click on Resources Tab and search for add on 'Heroku Postgres' and add. The 
 DATABASE_URL will be added to your environment variables.
 
 We now need to set our environment variables for Heroku to be able to deploy our app successfully.
@@ -710,9 +709,9 @@ To copy the repository so that you have access to available files and any new ch
 ## Credits
 
 ### Code
-- [Django Context Processors](https://betterprogramming.pub/django-quick-tips-context-processors-da74f887f1fc) was used as a resource to understand django custom context processors and create one to share accross all pages. 
+- [Django Context Processors](https://betterprogramming.pub/django-quick-tips-context-processors-da74f887f1fc) was used as a resource to understand Django custom context processors and create one to share across all pages. 
 - [Chat window scroll](https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery) this question was helpful to understand how to scroll to the end of the chat window only. 
-- [Boutiquo Ado Course Content](https://codeinstitute.net/) the course content of the mini project was essential for acheiving the checkout functionality.
+- [Boutique Ado Course Content](https://codeinstitute.net/) the course content of the mini project was essential for achieving the checkout functionality.
 
 ### Content
 
