@@ -608,6 +608,10 @@ There were no differences detected on those operating systems.
 
 The project files were created in Gitpod using the Code Institute Full Template. 
 
+This project requires a Stripe account and an Amazon Web Service account.
+
+
+
 This project was deployed to Heroku. The steps are listed below.
 
 First an application needs to be created using the following steps:
@@ -629,4 +633,14 @@ We now need to set our environment variables for Heroku to be able to deploy our
 
 - Click the settings tab.
 - Click Reveal Config Vars button.
-- Enter the environment variables.
+- Enter the following environment variables.
+  - AWS_ACCESS_KEY_ID
+  - AWS_SECRET_ACCESS_KEY
+  - DATABASE_URL
+  - EMAIL_HOST_PASS
+  - EMAIL_HOST_USER
+  - SECRET_KEY
+  - STRIPE_PUBLIC_KEY
+  - STRIPE_SECRET_KEY
+  - STRIPE_WH_SECRET
+  - USE_AWS
