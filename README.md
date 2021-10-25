@@ -201,7 +201,7 @@ During the planning stage, it was decided that the following pages would be need
 
 Wireframes for this project were created using Balsamiq and can be viewed at below link.
 
-Link to [Wireframe]()
+Link to [Wireframe](static/wireframes/wireframes.pdf)
 
 #### Database Design
 
