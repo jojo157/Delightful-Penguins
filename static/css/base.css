@@ -63,6 +63,11 @@ body {
 
 }
 
+.chat-window-artist{
+    height: 150px;
+    overflow-y: auto;
+}
+
 .card {
     width: 70%;
     max-height: fit-content;
@@ -188,5 +193,6 @@ a.order-number{
         width: 30vw;
     }
 
+    
 
 }
