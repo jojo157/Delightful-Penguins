@@ -527,3 +527,44 @@ The Create, Read, Update and Delete actions on the database were tested by loggi
 
 
 ### Compatibility Testing
+
+#### Different devices
+
+Using Google Developer tools, I viewed the website on the following devices:
+- Galaxy S5
+- Pixel 2
+- Pixel 2 XL
+- iPhone 5/6/7/8 & Plus
+- iPhone X
+- iPad & iPad Pro
+- Surface duo
+- Galaxy fold
+
+
+
+
+
+#### Different Browsers
+
+I tested the website on:
+
+- Google Chrome
+- Safari
+- Firefox
+- Microsoft Edge
+- Internet Explorer
+
+Differences discovered across browsers:
+
+
+
+
+
+#### Different Operating Systems
+
+The above testing was conducted on below operating systems:
+
+- Windows 8.1
+- MacOS Big Sur 11.2.3
+- iOS 14.4.2
+- Android

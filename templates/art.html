@@ -8,7 +8,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="container hero mt-2">
+    <div class="container hero mt-5">
         <div class="hero-image text-center">
             <img class="img-fluid hero larger-screens-hero" src="{{ MEDIA_URL }}hero.JPG" alt="hero image">
         </div>
@@ -25,7 +25,7 @@
     <h2 class="text-center mt-5 mb-4">Art Pieces</h2>
         <div class="row">
             {% for art in artCollection %}
-            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-2 ">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-2 mb-2 ">
                 <div class="art-piece card">
                     {% if art.image %}
                     <img class="card-img-top img-fluid" src="{{ art.image.url }}" alt="{{ art.name }}">
