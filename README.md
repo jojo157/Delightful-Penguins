@@ -540,7 +540,10 @@ Using Google Developer tools, I viewed the website on the following devices:
 - Surface duo
 - Galaxy fold
 
+Based on the user experience, I changed the footer to display diferrently on small and larger devices.On mobile devices the social links are displayed on the left with the copy right text condensed. On larger devices the social links are spread across the avaialble space and the copyright text is centered and contains more words. 
 
+![Mobile Footer](media/readme/mobilefooter.png) 
+![Larger Device Footer](media/readme/ipadfooter.png) 
 
 
 

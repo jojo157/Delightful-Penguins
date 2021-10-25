@@ -72,16 +72,26 @@
 @media only screen and (max-width: 360px) {
 
     /* For smaller mobiles: */
-    .art-piece {
-        height: 400px;
-    }
-
-
+    
 }
 
-@media only screen and (min-width: 560px) and (max-width: 700px) {
+@media only screen and (min-width: 560px) and (max-width: 759px) {
     /* For rotated mobiles: */
+    .container .content {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(245, 243, 243, 0.747);
+        height: fit-content;
+    }
 
+    .larger-screens-hero{
+        height: 400px;
+        width: 90vw;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center;
+    }
 
 
 }
