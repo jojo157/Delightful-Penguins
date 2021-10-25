@@ -5,7 +5,7 @@ Leticias Art is an ecommerce application for a sole artist to sell her work and 
 
 View Live Website [here](https://leticiasart.herokuapp.com/)
 
-![Leticias Art on different devices](media/readme/differentDevices.png)
+![Leticias Art on different devices](media/readme/differentdevices.png)
 
 Image created using [Am I responsive](http://ami.responsivedesign.is/)
 
