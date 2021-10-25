@@ -1,5 +1,6 @@
 from django.test import TestCase
 from art.models import Art
+from django.contrib.auth.models import User
 
 
 class AllCartViewTest(TestCase):
