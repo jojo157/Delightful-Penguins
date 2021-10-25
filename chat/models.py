@@ -1,10 +1,11 @@
 from django.db import models
 from datetime import datetime
+from django.utils import timezone
 
 
 class Message(models.Model):
     message_content = models.CharField(max_length=1000000)
-    date_of_message = models.DateTimeField(default=datetime.now, blank=True)
+    date_of_message = models.DateTimeField(default=timezone.now, blank=True)
     user_name = models.CharField(max_length=100)
     chat_session = models.GenericIPAddressField()
     reply_recieved = models.BooleanField(default=False)
