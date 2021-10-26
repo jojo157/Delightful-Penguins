@@ -113,6 +113,10 @@ def contact(request):
             "contact_message": request.POST["contact_message"],
         }
 
+        contact_form = ContactForm(form_data)
+        if contact_form.is_valid():
+            contact_form.save()
+
         subject = form_data["title"]
         body = render_to_string(
             "contact.txt",
