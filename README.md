@@ -719,6 +719,18 @@ Clicking on the deploy tab.
 Under automatic deploy, choose the branch.
 Click enable automatic deploys.
 
+Lastly we need to run migrations as we have updated our database. Migrations are Djangos's way to propagate changes you make to your models into your database schema.
+
+In the Gitpod terminal, run the following commands:
+> python3 manage.py makemigrations --dry-run
+- This will output the expected action to be take. Once happy with output.
+> python3 manage.py makemigrations
+- This will make all migrations for our models and allauth for user authentication. 
+> python3 manage.py migrate --plan
+- This will out put the expected action to be taken. Once happy apply migration.
+> python3 manage.py migrate
+- Now all models are migrated. 
+
 ### Run local
 
 To run this application locally, one requires an env.py file with the environment variables.
