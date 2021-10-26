@@ -70,7 +70,7 @@ Image created using [Am I responsive](http://ami.responsivedesign.is/)
 The 5 planes of User Experience:
 
 ### Strategy
-Leticia's Art was created with the purpose of providing a platform for the Artist Leticia to advertise and sell her art pieces. 
+Leticia's Art was created with the purpose of providing a platform for the Artist to advertise and sell her art pieces. 
 
 #### User Needs
 
@@ -96,13 +96,13 @@ Leticia's Art was created with the purpose of providing a platform for the Artis
 
 The following features are in scope for this project.
 - Register Functionality.
-  - Validated form to allow user create a profile for accessing the application. 
+  - Validated form to allow a user create a profile for accessing the application. 
 - Login Functionality.
-  - Validated form that checks the users stored details and logs user in only if a successful match. 
+  - Validated form that checks the user's stored details and logs user in only if a successful match. 
 - Navigation Menu.
-  - A navigation menu will be presented on all pages on application. 
+  - A navigation menu will be presented on all pages of application. 
 - Responsive Design.
-  - Application will be responsive on all device size and browsers.
+  - Application will be responsive on all device sizes and browsers.
 - CRUD Functionality.
   - Application will enable the functionality to Create, Read, Update and Delete data.
 - Database to store app data.
@@ -120,9 +120,9 @@ The following features are in scope for this project.
 - My Orders
   - A page where logged in users will see their previous orders.
 - Orders
-  - A page for artist that will show all orders. 
+  - A page for the artist containing all orders. 
 - Detailed Art Page
-  - A page that will show more details about an art piece.
+  - A page that will show more details about one specific art piece.
 - Cart
   - A user will be able to add an art piece to their cart.
   - A user will be able to remove an item from their cart.
@@ -131,7 +131,7 @@ The following features are in scope for this project.
 - Stripe payments
   - A user will be able to complete checkout with a card payment for their order total using a stripe element.
 - Email order confirmation
-  - An email will be sent to a user after completing an order with a summary of the order details. 
+  - An email will be sent to a user after completing an order with a summary of their order. 
 - 404 Error Page
   - A custom 404 error page if the user navigates to a resource that doesn't exist with a button to return home. 
 
@@ -151,38 +151,38 @@ During the planning stage, it was decided that the following pages would be need
   - To allow user to register.
   - To allow user to login.
   - To allow the user contact the artist.
-  - To browse the art pieces.
-  - To get more information on art piece.
+  - To browse for art.
+  - To get more information on an art piece.
   - To add art piece to cart.
   - To edit art piece. (artist only)
   - To delete art piece. (artist only)
 
 - An individual page for each art piece with elements:
-  - Showing more details for art piece.
+  - Showing more details of art piece.
   - To add art piece to cart.
-  - To allow the user contact the artist.
+  - To allow the user to contact the artist.
 
 - Cart Page with elements:
-  - To see what's in the cart.
+  - To see what is in the cart.
   - To edit the cart.
   - To navigate away from the cart.
   - To proceed to checkout. 
   - To allow the user contact the artist.
 
 - Checkout Page with elements:
-  - To see what's in the cart.
+  - To see what is in the cart.
   - To see the order total. 
   - To fill in personal and delivery details.
   - To complete a card payment.
-  - To tell user to create account to see order details. 
+  - To tell the user to create an account to see their order details. 
 
 - My Order Page with elements (only for logged in users):
   - To see overview of all orders.
   - To see more details on a specific order
-  - To navigate back to art.
+  - To navigate back to the art page.
 
 - Add Art Page with elements (only for artist):
-  - To add details for art piece.
+  - To add details for an art piece.
   - To submit the art piece to the database.
   - To cancel the request of adding art piece.
   - To add a photo of art piece. 
@@ -200,7 +200,7 @@ During the planning stage, it was decided that the following pages would be need
 
 #### Wireframes
 
-Wireframes for this project were created using Balsamiq and can be viewed at below link.
+The wireframes for this project were created using Balsamiq and can be viewed at below link.
 
 Link to [Wireframe](static/wireframes/wireframes.pdf)
 
@@ -208,9 +208,9 @@ Link to [Wireframe](static/wireframes/wireframes.pdf)
 
 This application uses Heroku Postgres to store and retrieve the user data. Postgres is an object-relational database system. This application consists of 7 collections as shown in the schema below.
 
-The users collection is populated when a user successfully registers and is used to verify a user upon login. The Art collection stores the data for the art pieces that appear on the home page. Only a user with staff status can add/edit this collection.
+The users collection is populated when a user successfully registers with the purpose of verifying a user upon login. The Art collection stores the data for the art pieces that appear on the home page. Only a user with staff status can add/edit this collection.
 
-The Messages collection stores the data for any user that engages with the chat functionality present on all pages. The users IP address is added to each message and when removed from the session the associated messages are deleted. When the artist replies to a message the IP address of the received message is used and the reply received field is updated to true.
+The Messages collection stores the data for any user that engages with the chat functionality present on all pages. The users IP address is added to each message and when removed from the session, the associated messages are deleted. When the artist replies to a message the IP address of the received message is used and the reply received field is updated to true.
 
 The Artist collection stores the artist's available status for the chat functionality. This can be updated with a switch on the Messages page by the Artist. 
 
@@ -313,7 +313,7 @@ No errors were present.
 
 JavaScript files were validated with [JSHint](https://jshint.com/)
 
-There were several warnings as shown below for missing semi-colons, undefined variables and a warning that it is better to use dot notation instead of format ['x']. I fixed the missing semi-colons, defined the variables and updated the notation to dot notion. The code was retested and no warnings are given now.
+There were several warnings as shown below for missing semi-colons, undefined variables and a warning that it is better to use dot notation instead of format ['x']. I fixed the missing semi-colons, defined the variables and updated the notation to dot notion. The code was re-tested and no warnings are given now.
 
 ![Warnings for Chat Messages](media/readme/chatMessageJS.png)
 
@@ -322,11 +322,11 @@ There were several warnings as shown below for missing semi-colons, undefined va
 All Python files were validated with [PEP8 online](http://pep8online.com)
 
 The following errors were discovered and fixed to stay PEP8 compliant:
-- E302 expected 2 blank line, found 1.
+- E302 expected 2 blank lines, found 1.
 - E713 test for membership should be 'not in'
   - I had a conditional check where the statement was "if not x in y". I fixed the syntax as advised.
 - E501 line too long 
-  - This occurred where my function docstring was longer than 79 characters. I pushed the sentence to the next sentence to stay compliant. 
+  - This occurred where my function docstring was longer than 79 characters. I pushed the sentence to the next line to stay compliant. 
 - E225 missing whitespace around operator
   - This error was due to forgetting to put a whitespace on an assignment operator. 
 
@@ -367,7 +367,7 @@ Each art piece has an availability status of "Available" or "Sold Out". If a pie
 
 > I want to be able to see the price of a piece of art. 
 
-The price is shown on each art price below the pieces name.
+The price is shown below each of the art pieces name.
 
 > I want to be able to put through an order to buy the piece of art I like.
 
@@ -379,14 +379,14 @@ If a user chooses to Complete an Order they are redirected to a checkout page wi
 
 ![Checkout](media/readme/checkout.png) 
 
-Once submitted, the user gets a confirmation email and is shown a checkout success page with an overview of the order.
+Once submitted, the user gets a confirmation email and is directed to a checkout success page with an overview of the order.
 
 ![Checkout Success](media/readme/checkoutsuccess.png) 
 ![Checkout Email](media/readme/email.png) 
 
 > I want to be able to contact the artist with questions.
 
-Every page has a 'Chat with Leticia' on the footer with a conversation icon. On click, a chat window opens. If the artist is online, a user can message the artist and the artist replies will be added to their chat window. 
+Every page has a 'Chat with Leticia' facility on the footer with a conversation icon. On click, a chat window opens. If the artist is online, a user can message the artist, and the artist's replies will be added to their chat window. 
 
 ![Chat focused](media/readme/chat2.png) 
 
@@ -406,7 +406,7 @@ All logged in users can see the orders associated with their account. In the nav
 
 ![Orders](media/readme/orders.png) 
 
-The user can click the order number and will see all the details associated with that order. Additionally on the checkout page there is text to alert a user that they can create an account to view their orders.
+The user can click on the order number to see all the details associated with that order. Additionally, on the checkout page there is a text to alert a users that they can create an account to view their orders.
 
 ![Text to register to view orders](media/readme/register.png) 
 
@@ -419,7 +419,7 @@ Leticia's Art landing page show casts the business owners work and is a platform
 
 > I want to be able to update my current art offering.
 
-When the artist is logged in, she can see an option to 'Edit' on each art piece. On click, this opens a page with the art form prefilled to allow the artist to edit and submit the changes. 
+When the artist is logged in, she can see an option to 'Edit' each art piece. On click, this opens a page with the art form prefilled to allow the artist to edit and submit the changes. 
 
 ![Artist Art options](media/readme/artoptions.png) 
 
@@ -427,19 +427,19 @@ When the artist is logged in, she can see an option to 'Edit' on each art piece.
 
 > I want to be able to add new art offerings.
 
-When the artist is logged in, she has a navigation option of "Add Art".
+When the artist is logged in, she has a navigation option to "Add Art".
 
 ![Artist Navigation option](media/readme/artistnav.png) 
 
-This page presents a form to the artist to fill in the art piece details and an image. Once the form is submitted, the new add piece is added to the landing page. 
+This page presents a form to the artist to fill in the art piece details and uploading an image. Once the form is submitted, the new art piece is added to the landing page. 
 
 ![Add Art](media/readme/addArt.png) 
 
 > I want to be able to talk in real time with any potential customers who engage with the chat facility.
 
-When the Artist logins she has a navigation option of 'Messages'. On this page, the Artist can turn on or off the chat facility using a slider as show in the below image. 
+When the Artist logins, she has a navigation option of 'Messages'. On this page, the Artist can turn on or off the chat facility using a slider as shown in the below image. 
 
-Messages awaiting a reply are shown in a table with the oldest message shown first. The table updates every half minute. An action button of Reply opens a new window with the customers message shown and an input field for the artist to type her reply. The reply message is added to the customers chat window and the customers message is removed from the artists message table.
+Messages awaiting a reply are shown in a table ordered by oldest message. The table updates every half minute. An action button of Reply opens a new window with the customers message shown and an input field for the artist to type her reply. The reply message is added to the customers chat window and the customers message is removed from the artists message table.
 
 ![Artist chat](media/readme/artistchat.png) 
 
@@ -614,7 +614,7 @@ The results are shown below:
 
 ### Version Control
 
-- [Git](https://git-scm.com/) was used as a version control system. This following commands were used:
+- [Git](https://git-scm.com/) was used as a version control system. The following commands were used:
   - git add filename
     - This command adds the file to the staging area.
   - git commit -m "commit message"
@@ -715,7 +715,7 @@ We now need to set our environment variables for Heroku to be able to deploy our
 
 Once Added we can enable automatic deployment by:
 
-Click on the deploy tab.
+Clicking on the deploy tab.
 Under automatic deploy, choose the branch.
 Click enable automatic deploys.
 
@@ -750,7 +750,7 @@ To copy the repository so that you have access to available files and any new ch
 
 ### Content
 
-- The Art piece images belong to an artist friend Allana Verçosa who is a Brazilian illustrator and credit for all images belongs here.
+- The Art piece images belong to an artist friend called Allana Verçosa who is a Brazilian illustrator and credit for all images belongs here.
 
 ### Acknowledgements
 
