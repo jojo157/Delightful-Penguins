@@ -52,6 +52,7 @@ Image created using [Am I responsive](http://ami.responsivedesign.is/)
         - [Different devices](#different-devices)
         - [Different Browsers](#different-browsers)
         - [Different Operating Systems](#different-operating-systems)
+    - [Unit Testing](#unit-testing)  
 - [Technologies Used](#technologies-used)
     - [Frameworks and Libraries](#frameworks-and-libraries)
     - [Version Control](#version-control)
@@ -569,6 +570,40 @@ The above testing was conducted on below operating systems:
 - Android
 
 There were no differences detected on those operating systems.
+
+### Unit Testing
+
+Unit testing was carried out using Djangos inbuilt Test Case class to check assertions. A test file was created for each App where possible. Due to time restraints the testing is not as in depth as I would like for submitting the project. 
+
+The steps to run the tests are:
+- Install coverage
+> pip3 install coverage
+- Run the tests, by replacing AppName with the app being tested.
+> coverage run --source=AppName manage.py test
+- View the report
+> coverage report
+
+The results are shown below:
+
+**Art App**
+
+![Art Unit Test results](media/readme/unitart.png) 
+
+**Artist App**
+
+![Artist Unit Test results](media/readme/unitartist.png) 
+
+**Cart App**
+
+![Cart Unit Test results](media/readme/unitcart.png) 
+
+**Chat App**
+
+![Chat Unit Test results](media/readme/unitchat.png) 
+
+**Profiles App**
+
+![Profiles Unit Test results](media/readme/unitprofiles.png) 
 
 ## Technologies Used
 
